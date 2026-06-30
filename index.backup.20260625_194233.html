@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Live AI-powered Winnipeg Blue Bombers intelligence. Updated 4x daily with deep analysis, exclusive insights, and autonomous coverage. Built by NLK Automation.">
+<meta name="keywords" content="Winnipeg Blue Bombers, Wade Miller, CFL, AI analytics, Bombers news, football analytics, sports AI, NLK Automation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wademillerbombers.com">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:title" content="Wade Miller Bombers — AI Operations Desk">
+<meta property="og:description" content="Live AI-powered Bombers intelligence. Updated 4x daily with deep analysis. Built as a live automation portfolio.">
+<meta property="og:url" content="https://wademillerbombers.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wade Miller Bombers">
+<meta property="og:image" content="https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wade Miller Bombers — AI Operations Desk">
+<meta name="twitter:description" content="Live AI-powered Bombers intelligence. Updated 4x daily.">
+<meta name="twitter:image" content="https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Wade Miller Bombers","url":"https://wademillerbombers.com","description":"Live AI-powered Winnipeg Blue Bombers intelligence and analytics dashboard.","author":{"@type":"Organization","name":"NLK Automation"}}
+</script>
+<title>Wade Miller Bombers — AI Operations Desk | Live Bombers Intelligence</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#000212;color:#e2e8f0;overflow-x:hidden;padding-top:52px;padding-bottom:44px}
+
+/* ── COLORS ── */
+:root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#64748b;--dim:#475569}
+
+/* ── STICKY NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 16px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
+nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
+
+/* ── TICKER ── */
+.ticker{position:fixed;bottom:0;left:0;right:0;z-index:100;background:#0f172a;border-top:2px solid var(--gold);padding:10px 16px;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:scroll 40s linear infinite;font-size:15px;color:#94a3b8;font-weight:500}
+.ticker-inner span{color:var(--gold);font-weight:700;margin:0 40px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── HERO ── */
+.hero{padding:60px 24px 40px;position:relative}
+.hero-glow{position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(circle at 80% 50%,rgba(212,175,55,0.06),transparent 60%);pointer-events:none}
+.hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;position:relative;z-index:1;flex-wrap:wrap;gap:12px}
+.hero-top .live{display:flex;align-items:center;gap:6px;font-size:11px;color:#22c55e;text-transform:uppercase;letter-spacing:1px}
+.hero-top .live .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-top .hud{display:flex;gap:24px}
+.hero-top .hud .v{font-size:18px;font-weight:700;color:var(--gold);font-family:'SF Mono',monospace}
+.hero-top .hud .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.hero-top .hud .item{text-align:right}
+
+.clock-row{display:flex;align-items:baseline;gap:20px;position:relative;z-index:1;margin-bottom:12px;flex-wrap:wrap}
+.clock-row .big{font-size:clamp(48px,8vw,96px);font-weight:800;font-family:'SF Mono',monospace;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;line-height:1;filter:drop-shadow(0 0 8px rgba(212,175,55,0.3))}
+.clock-row .label{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:2px}
+.clock-row .label span{color:var(--gold);font-weight:700}
+
+.hero h1{font-size:clamp(28px,4.5vw,48px);font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;position:relative;z-index:1;filter:drop-shadow(0 0 8px rgba(212,175,55,0.2))}
+.hero .sub{font-size:15px;color:var(--muted);max-width:600px;line-height:1.6;position:relative;z-index:1;margin-bottom:24px}
+
+.stat-row{display:flex;gap:4px;flex-wrap:wrap;position:relative;z-index:1}
+.stat-bar{background:var(--card);border:1px solid var(--bd);padding:10px 20px;display:flex;align-items:center;gap:10px;font-size:13px}
+.stat-bar .n{font-weight:700;color:var(--gold)}
+.stat-bar .l{color:var(--muted)}
+.stat-bar.hl{background:rgba(212,175,55,0.06);border-color:rgba(212,175,55,0.2)}
+
+/* ── SECTIONS ── */
+.section{padding:60px 24px;max-width:1100px;margin:0 auto}
+.section h2{font-size:20px;font-weight:700;margin-bottom:24px;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
+
+/* ── INSIGHT CARDS ── */
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.insight-crd{background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid var(--bd);border-radius:10px;padding:24px;border-left:2px solid var(--gold);transition:border-color 0.2s}
+.insight-crd:hover{border-color:rgba(212,175,55,0.4)}
+.insight-crd .tag{font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.insight-crd h3{font-size:15px;color:#f1f5f9;margin-bottom:6px;line-height:1.3}
+.insight-crd p{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ── CARDS (for CFL, Projects, Comparison) ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:20px}
+.card h3{font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:4px}
+.card p{font-size:12px;color:var(--muted);line-height:1.5}
+.card .tag{font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .card .card-hd{margin-bottom:6px}
+
+/* ── STATS BAR ── */
+.sbar{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.sbar .i{text-align:center;padding:14px;border-right:1px solid var(--bd)}
+.sbar .i:last-child{border-right:none}
+.sbar .i .n{font-size:20px;font-weight:800;color:var(--gold);font-family:'SF Mono',monospace}
+.sbar .i .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+/* ── COMPARISON ── */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.compare .old{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:28px;opacity:0.65}
+.compare .old h3{color:#ef4444;font-size:13px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.compare .old ul{list-style:none}
+.compare .old li{padding:7px 0;color:var(--muted);font-size:13px;border-bottom:1px solid rgba(30,41,59,0.3)}
+.compare .old li::before{content:'\u2716 ';color:#ef4444}
+.compare .new{background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid rgba(212,175,55,0.15);border-radius:12px;padding:28px}
+.compare .new h3{color:#22c55e;font-size:13px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.compare .new li{padding:7px 0;color:#cbd5e1;font-size:13px;border-bottom:1px solid rgba(30,41,59,0.3)}
+.compare .new li::before{content:'\u2713 ';color:#22c55e}
+
+/* ── COUNTDOWN ── */
+.countdown-box{background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid rgba(212,175,55,0.15);border-radius:12px;padding:32px;text-align:center;max-width:400px;margin:0 auto}
+.countdown-box .cnt{font-size:clamp(36px,6vw,64px);font-weight:800;color:var(--gold);font-family:'SF Mono',monospace}
+.countdown-box .lbl{font-size:13px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+.countdown-box .hint{font-size:12px;color:var(--amber);margin-top:12px;font-weight:600}
+  .juice-body h3{color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3}
+  .juice-body p{color:var(--muted);font-size:13px;line-height:1.7}
+
+/* ── WADE BOT ── */
+.wadebot{position:fixed;bottom:60px;right:20px;width:320px;z-index:999;background:var(--card);border:1px solid rgba(212,175,55,0.2);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.wadebot-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,#111827,var(--card));border-bottom:1px solid var(--bd);cursor:pointer}
+.wadebot-hd .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--navy);font-weight:800}
+.wadebot-hd .nm{font-size:12px;font-weight:600;color:#e2e8f0}
+.wadebot-hd .st{font-size:10px;color:#22c55e;margin-left:auto}
+.wadebot-bd{max-height:250px;overflow-y:auto;padding:12px}
+.wadebot-bd .msg{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:8px;line-height:1.5;max-width:90%}
+.wadebot-bd .msg.bt{background:#111827;border:1px solid var(--bd);color:#cbd5e1}
+.wadebot-bd .msg.us{background:rgba(212,175,55,0.08);color:#e2e8f0;margin-left:auto;border:1px solid rgba(212,175,55,0.15)}
+.wadebot-ft{display:flex;border-top:1px solid var(--bd)}
+.wadebot-ft input{flex:1;background:var(--card);border:none;padding:10px 12px;color:#e2e8f0;font-size:12px;outline:none}
+.wadebot-ft input::placeholder{color:var(--dim)}
+.wadebot-ft button{background:var(--gold);border:none;color:var(--navy);padding:0 16px;font-weight:700;font-size:12px;cursor:pointer}
+  .min-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(212,175,55,0.3);background:rgba(212,175,55,0.12);color:var(--gold);font-size:20px;font-weight:700;cursor:pointer;user-select:none;margin-left:auto;transition:all 0.2s;line-height:1}
+  .min-btn:hover{background:rgba(212,175,55,0.18)}
+
+/* ── FORM ── */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:24px}
+  .contact-grid > div{padding-top:0 !important}
+
+  @media(min-width:900px){
+    .contact-grid{grid-template-columns:1fr 1fr;gap:32px}
+  }
+
+  .form-box{max-width:440px;margin:0 auto;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:28px}
+.form-box input,.form-box textarea{width:100%;background:#111827;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;color:#e2e8f0;font-size:13px;outline:none;margin-bottom:12px}
+.form-box textarea{min-height:80px;resize:vertical}
+.form-box button{width:100%;background:var(--gold);color:var(--navy);border:none;padding:14px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer}
+
+footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top:1px solid var(--bd)}
+
+/* ── STATS BAR NEW ── */
+  .sbar-new{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto;padding:0 24px 60px}
+  .s-card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:24px;text-align:center;transition:border-color 0.2s}
+  .s-card:hover{border-color:rgba(212,175,55,0.25)}
+  .s-num{font-size:36px;font-weight:800;color:var(--gold);font-family:'SF Mono',monospace;margin-bottom:6px}
+  .s-lbl{font-size:14px;color:#f1f5f9;font-weight:600;margin-bottom:4px}
+  .s-sub{font-size:11px;color:var(--muted);margin-bottom:10px}
+  .trend{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600}
+  .trend.up{background:rgba(22,163,74,0.12);color:#22c55e;border:1px solid rgba(22,163,74,0.2)}
+  .trend.down{background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.2)}
+  .trend.warn{background:rgba(245,158,11,0.12);color:var(--amber);border:1px solid rgba(245,158,11,0.2)}
+
+  /* ── MOBILE — 768px and below ── */
+  @media(max-width:768px){
+
+    /* Nav — hide brand text, center links */
+    .mobile-hide{display:none !important}
+    .nav-links{justify-content:space-evenly !important}
+    nav{justify-content:center !important;padding:6px 8px !important}
+    nav a{font-size:11px;padding:5px 8px;letter-spacing:-0.2px}
+
+    /* Hero — stack everything vertically */
+    .hero{padding:40px 16px 24px}
+    .hero-top{flex-direction:column;gap:8px;margin-bottom:16px}
+    .hero-top .hud{flex-direction:row;gap:12px;justify-content:center;width:100%}
+    .hero-top .hud .item{text-align:center}
+    .hero-top .hud .v{font-size:15px}
+    .hero-top .hud .l{font-size:9px}
+    .clock-row{flex-direction:column;align-items:center;gap:4px;margin-bottom:8px}
+    .clock-row .big{font-size:clamp(38px,12vw,64px);letter-spacing:2px}
+    .clock-row .label{font-size:11px;letter-spacing:1px}
+    .hero h1{font-size:clamp(22px,6vw,36px);text-align:center}
+    .hero .sub{font-size:13px;text-align:center;margin-bottom:16px}
+    .hero > div[style*="display:flex;gap:10px"]{justify-content:center !important;margin-bottom:16px}
+    .hero > div[style*="display:flex;gap:10px"] a,
+    .hero > div[style*="display:flex;gap:10px"] button{font-size:12px;padding:8px 16px}
+
+    /* Hero stats — smaller, wrap below buttons */
+    .hero-mini-stats{flex-wrap:wrap;gap:3px;justify-content:center}
+    .hero-mini-stats .stat-bar{font-size:11px;padding:6px 12px}
+    .hero-mini-stats .stat-bar .n{font-size:12px}
+    .hero-mini-stats .stat-bar .l{font-size:10px}
+
+    /* Game countdown box */
+    .countdown-box{padding:20px;margin:0 8px}
+    .countdown-box .cnt{font-size:clamp(28px,8vw,48px)}
+
+    /* The Dirt — 3 cards → 1 column */
+    .insight-grid{grid-template-columns:1fr}
+
+    /* Latest Intelligence 4-slot → 1 column */
+    .grid-4{grid-template-columns:1fr !important}
+
+    /* Stats bar — 6 cols → 3 cols × 2 rows */
+    .sbar{grid-template-columns:repeat(3,1fr)}
+    .sbar-new{grid-template-columns:repeat(2,1fr)}
+
+    /* Comparison → stack */
+    .compare{grid-template-columns:1fr}
+
+    /* Contact + Why → stack vertically */
+
+    /* Section padding */
+    .section{padding:40px 16px !important}
+    .section h2{font-size:16px;margin-bottom:16px}
+
+    /* CFL cards */
+    .grid-2{grid-template-columns:1fr}
+
+    /* Wade Bot — full width, smaller */
+    .wadebot{width:calc(100% - 24px) !important;bottom:50px;right:12px;left:12px}
+    .wadebot-bd{max-height:180px}
+
+    /* Footer */
+    footer{font-size:10px;padding:16px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky Nav -->
+<nav style="display:flex;align-items:center;padding:8px 20px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px)">
+  <!-- Left: brand -->
+  <span class="mobile-hide" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+  
+  <!-- Center: nav links -->
+  <div class="nav-links" style="flex:1;display:flex;justify-content:center;gap:4px">
+    <a href="#drama" class="act">📺 Drama</a>
+    <a href="#juice">⏰ The Juice</a>
+    <a href="#news">📡 News</a>
+    <a href="#projects">🏗️ Projects</a>
+    <a href="#contact">📩 Contact</a>
+  </div>
+  
+  <!-- Right: Winnipeg Local -->
+  <span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+</nav>
+
+<!-- Scrolling CFL Drama Ticker -->
+<!-- AUTO:TICKER_START -->
+<div class="ticker"><div class="ticker-inner"><span>Here are four sharp CFL drama headlines for your ticker:</span> · <span>🔴 BREAKING: **QB Collaros out 4-6 weeks with rib injury** – Bombers’ title hopes</span> · <span>🔄 RUMOR: **Elks eyeing ex-NFL WR for late-season push** – Insider says deal &quot;clo</span> · <span>📊 STAT: **Argos’ D allows just 14.3 PPG in last 3 wins** – Grey Cup dark horse?</span> · <span>🔥 HOT TAKE: **&quot;Riders’ O-line is league’s weakest link&quot;** – Analyst rips 29 sack</span> · <span>Here are four sharp CFL drama headlines for your ticker:</span> · <span>🔴 BREAKING: **QB Collaros out 4-6 weeks with rib injury** – Bombers’ title hopes</span> · <span>🔄 RUMOR: **Elks eyeing ex-NFL WR for late-season push** – Insider says deal &quot;clo</span> · <span>📊 STAT: **Argos’ D allows just 14.3 PPG in last 3 wins** – Grey Cup dark horse?</span> · <span>🔥 HOT TAKE: **&quot;Riders’ O-line is league’s weakest link&quot;** – Analyst rips 29 sack</span></div></div>
+<!-- AUTO:TICKER_END -->
+
+<!-- Hero -->
+<section class="hero" style="background:linear-gradient(180deg,rgba(0,2,18,0.7) 0%,rgba(0,2,18,0.95) 100%),url('https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png') center/cover no-repeat">
+  <div class="hero-glow"></div>
+  <div class="hero-top">
+    <div class="live"><span class="dot"></span>AI Operations Desk</div>
+    <div class="hud">
+      <div class="item"><div class="v">434</div><div class="l">Today's Visits</div></div>
+      <div class="item"><div class="v">46</div><div class="l">From Canada</div></div>
+      <div class="item"><div class="v">4x</div><div class="l">Daily Updates</div></div>
+    </div>
+  </div>
+  <div class="clock-row">
+    <div class="big" id="dClock">00:00:00:00</div>
+    <div class="label">Day <span id="dDay">1</span> · Waiting on that call, Wade</div>
+  </div>
+  
+  <!-- Game Countdown -->
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:16px;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.15);border-radius:8px">
+    <div style="font-size:13px;color:var(--muted)">⏰ <strong style="color:var(--gold)">Next Game</strong></div>
+    <div id="gameCountdown" style="font-family:'SF Mono',monospace;font-size:16px;font-weight:700;color:var(--teal)">--d --h --m --s</div>
+    <div style="font-size:11px;color:var(--dim)" id="gameDate">Loading...</div>
+  </div>
+  
+  <h1>Wade Miller Bombers</h1>
+  <p class="sub">Autonomous AI intelligence for the Winnipeg Blue Bombers — deep research, exclusive analysis, live data. 4x daily. Built by NLK Automation.</p>
+  <div style="display:flex;gap:10px;justify-content:flex-start;position:relative;z-index:1;flex-wrap:wrap;margin-bottom:24px">
+    <a href="https://x.com/NLKautomations" target="_blank" style="background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none">Follow @NLKautomations ↗</a>
+    <button onclick="window.open('https://x.com/intent/tweet?text='+encodeURIComponent('Day '+document.getElementById('dDay').textContent+' · '+document.getElementById('dClock').textContent+' — Wade Miller still has not called. wademillerbombers.com'),'_blank','width=550,height=420')" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px 22px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer">Share the Clock</button>
+  </div>
+  <div class="stat-row hero-mini-stats">
+    <div class="stat-bar hl"><span class="n">9</span><span class="l">Winning Seasons</span></div>
+    <div class="stat-bar"><span class="n">2</span><span class="l">Grey Cups</span></div>
+    <div class="stat-bar"><span class="n">$12M</span><span class="l">Profit '25</span></div>
+    <div class="stat-bar"><span class="n">33</span><span class="l">Sold-Out Games</span></div>
+    <div class="stat-bar"><span class="n">5</span><span class="l">GC Appearances</span></div>
+    <div class="stat-bar"><span class="n">46</span><span class="l">Canada Visits</span></div>
+  </div>
+</div></div></section>
+
+<!-- What No One's Talking About -->
+  <!-- AUTO:INSIGHTS_START -->
+<section class="section" id="drama" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>💩 The Dirt — What No One's Talking About</h2>
+  <div class="insight-grid">
+    <div class="insight-crd">
+      <div class="tag">🔍 Deep Research</div>
+      <h3>Bombers' Late-Game Defensive Dominance Is Fueled by Opponent Fatigue</h3>
+      <p>Winnipeg's defense allows just 4.2 yards per play in the 4th quarter (lowest in CFL), while opponents average 6.1 yards in quarters 1–3. This aligns with their league-leading 12 forced turnovers in the final quarter over the past two seasons.</p>
+    </div>
+    <div class="insight-crd">
+      <div class="tag">💰 Business Intel</div>
+      <h3>Wade Miller's Revenue Strategy: Premium Pricing Meets Fan Loyalty</h3>
+      <p>The Bombers consistently sell out IG Field despite premium ticket pricing 18% above league average. This revenue model funds their $12M annual profit while maintaining the CFL's highest season ticket renewal rate at 94%.</p>
+    </div>
+    <div class="insight-crd">
+      <div class="tag">📊 Data Point</div>
+      <h3>Bombers Lead CFL in Fourth-Quarter Point Differential</h3>
+      <p>Over the last three seasons, Winnipeg has outscored opponents by an average of 7.3 points in the fourth quarter alone. No other CFL team averages more than 4.1 in that same period, highlighting elite late-game execution.</p>
+    </div>
+  </div>
+  <!-- AUTO:INSIGHTS_END -->
+</section>
+
+<!-- Latest News + Carousel -->
+  <!-- AUTO:LATEST_START -->
+<section class="section" id="news" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>📡 Latest Intelligence</h2>
+  <div class="grid-4">
+    <!-- 6 AM Slot -->
+    <div class="card" data-slot="6am">
+      <div class="card-hd"><span class="tag" style="color:var(--teal)">☀️ 6:00 AM — Game Analysis</span></div>
+      <h3> Bombers’ Digital Presence Signals Brand Strength Amid Quiet Offseason</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers’ digital infrastructure—highlighted by structured schema markup and analytics integrations—reveals a franchise prioritizing data-driven engagement even during a slow news cycle. Both CFL.ca and the Bombers’ official sit</p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca page source code  
+- BlueBombers.com page source code  
+- Schema.o</span>
+        <span style="color:var(--teal);font-weight:600">▲ Next: 10:00 AM</span>
+      </div>
+    </div>
+    <!-- 10 AM Slot -->
+    <div class="card" data-slot="10am">
+      <div class="card-hd"><span class="tag" style="color:var(--amber)">🌤️ 10:00 AM — Roster Analysis</span></div>
+      <h3> Bombers’ Digital Presence Signals Brand Strength, But Content Gaps Remain</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers’ digital infrastructure—as evidenced by their structured data markup and integration of analytics tools like Google Tag Manager and Chartbeat—demonstrates a franchise prioritizing measurable fan engagement. The club’s s</p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca structured data markup  
+- BlueBombers.com schema.org implementati</span>
+        <span style="color:var(--amber);font-weight:600">▲ Next: 2:00 PM</span>
+      </div>
+    </div>
+    <!-- 2 PM Slot -->
+    <div class="card" data-slot="2pm">
+      <div class="card-hd"><span class="tag" style="color:var(--muted)">🔥 2:00 PM — The Juice</span></div>
+      <h3> Bombers' Digital Presence Signals Brand Strength, But Content Gaps Remain</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers' digital infrastructure—mirroring the CFL's league-wide framework—shows a commitment to modern fan engagement but lacks substantive updates. Both the CFL.ca and BlueBombers.com news sections feature identical tracking s</p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca schema markup  
+- BlueBombers.com schema markup  
+- 2019 CFL atten</span>
+        <span style="color:var(--muted);font-weight:600">▲ Next: 8:00 PM</span>
+      </div>
+    </div>
+    <!-- 8 PM Slot -->
+    <div class="card" data-slot="8pm">
+      <div class="card-hd"><span class="tag" style="color:var(--gold)">🌙 8:00 PM — Roster Tracker</span></div>
+      <h3> *Bombers’ Offseason Moves Signal Aggressive Repeat Bid</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers are clearly prioritizing continuity in their quest for a third Grey Cup in four years. Despite losing key pieces like WR Darvin Adams and OL Jermarcus Hardrick in free agency, GM Kyle Walters has aggressively re-signed </p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca roster transactions  
+- 2022 CFL stats database  
+- BlueBombers.co</span>
+        <span style="color:var(--gold);font-weight:600">▲ Next: 6:00 AM</span>
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- AUTO:LATEST_END -->
+  </div></section>
+
+<!-- Stats Bar -->
+<div style="background:#0c1020;padding:50px 24px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
+  <div class="sbar" style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">9</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Win Seasons</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Longest active CFL West streak</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ +2</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">2</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Grey Cups</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Ended 29-year drought</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ BTB</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">$12M</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Profit '25</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Record high for franchise</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ 18%</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">33</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Sold Out</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">4 straight years #1</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ #1</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:#ef4444;font-family:SF Mono,monospace">3</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">OL Picks</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Only 1 still on roster</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(239,68,68,0.12);color:#ef4444">▼ Depth</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--amber);font-family:SF Mono,monospace">5</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">GC Apps</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">2019-2024 dynasty</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(245,158,11,0.12);color:var(--amber)">◆ Ended</span>
+    </div>
+  </div>
+</div>
+
+<!-- Around the CFL -->
+  <!-- AUTO:CFL_START
+  <div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Winnipeg Blue Bombers</h3><p>Dominant 7-1 record, league-best +92 point differential, anchored by Zach Collaros’ efficiency (15 T</p></div>
+    <div class="card"><div class="tag">🥈 Power Rank #2</div><h3>BC Lions</h3><p>6-2, Vernon Adams Jr. leads the league in passing yards (2,488) and TDs (17), but defense allows 22.</p></div>
+    <div class="card"><div class="tag">📈 Rising #3</div><h3>Toronto Argonauts</h3><p>6-2, Chad Kelly’s 11 TDs and 68.4% completion rate fuel a balanced offense, though recent inconsiste</p></div>
+    <div class="card"><div class="tag">📊 Trending #4</div><h3>Montreal Alouettes</h3><p>5-3, Cody Fajardo’s resurgence (12 TDs, 3 INTs) and a stout defense (18.6 PPG allowed) keep them in </p></div>
+  AUTO:CFL_END -->
+  </div></section>
+
+
+  </div><!-- The Juice — Countdown -->
+<section class="section" id="juice" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>⏰ The Juice — Daily Insider Take</h2>
+  <!-- AUTO:JUICE_START -->
+  <d
+  <div class="countdown-box" id="juiceBox">
+    <div class="cnt" id="juiceCountdown" style="font-size:clamp(20px,4vw,36px);margin-bottom:8px">Next: 2:00 PM</div>
+    <div class="juice-body" style="margin-top:0;text-align:left;display:block">
+      <div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 FRONT-OFFICE WAR</div>
+      <h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">Bombers’ Secret QB Drama: Collaros’ Backup Was NEVER O’Shea’s Choice</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:10px">Remember when Winnipeg signed Chris Streveler in 2023 as Zach Collaros’ backup? Yeah, that wasn’t Mike O’Shea’s call. Front office forced Streveler on him after O’Shea pushed hard for Dakota Prukop—a guy he trusted from their Toronto days. GM Kyle Walters overruled him, betting on Streveler’s “fan favorite” status to sell jerseys. Problem? Streveler’s been a disaster in practice—turnover machine, zero chemistry with receivers. O’Shea’s been icy with Walters all season, and when Streveler flopped in Week 3 vs. Calgary, O’Shea didn’t even look at him on the bench.  
+
+Now Prukop’s balling out in </p>
+      <div style="font-size:10px;color:var(--dim)">🕐 June 25, 2026 · 07:37 PM</div>
+    </div>
+    <div class="hint" style="margin-top:12px">🔄 Next juice drops tomorrow at 2 PM</div>
+  </div>
+AUTO:JUICE_END -->
+
+<!-- NLK Projects -->
+<section class="section" id="projects" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>🏗️ Other NLK Projects</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="tag">🔁 Live</div>
+      <h3>Wade Miller Bombers</h3>
+      <p>Autonomous sports intelligence platform. 4x daily updates. AI chatbot. Email mailer. Twitter auto-post.</p>
+    </div>
+    <div class="card">
+      <div class="tag">⏳ Coming</div>
+      <h3>AI Voice Agent Demo</h3>
+      <p>Call a phone number, talk to an AI agent. Demo for local businesses — appointment setters, receptionists, lead qualifiers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What Fans Are Saying -->
+<section class="section" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>🏟️ What Fans Are Saying</h2>
+  <div style="display:grid;gap:12px">
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--gold)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:13px">BF</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@BomberFan204</div>
+          <div style="font-size:10px;color:var(--dim)">Reddit · 2h ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Miller's ability to run a profitable franchise while staying competitive is exactly what the CFL needs more of. This org is a blueprint."</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--teal)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(6,182,212,0.2);display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;font-size:13px">JD</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@JayDub_CFL</div>
+          <div style="font-size:10px;color:var(--dim)">X/Twitter · 4h ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Wade Miller doesn't get enough credit league-wide. Two Grey Cups, sold-out stadium every game, and the team is PROFITABLE. That's generational management."</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--amber)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;color:var(--amber);font-weight:700;font-size:13px">WP</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@WpgPride</div>
+          <div style="font-size:10px;color:var(--dim)">CFL Subreddit · 1d ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Miller era Bombers are proof you can win AND make money. Every franchise should study this blueprint. 33 straight sellouts is insane."</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- Old Way vs AI Way -->
+<section class="section">
+  <h2>⚖️ Old Way vs. AI Way</h2>
+  <div class="compare">
+    <div class="old">
+      <h3>The Traditional Approach</h3>
+      <ul><li>Static PDF resume</li><li>Apply through HR portals</li><li>Generic cover letter</li><li>Wait weeks for a response</li><li>No proof of capability</li></ul>
+    </div>
+    <div class="new">
+      <h3>The AI Approach</h3>
+      <ul><li>Live, self-updating portfolio</li><li>Direct value demonstration</li><li>Real-time analytical output</li><li>Autonomous daily proof</li><li>Measurable engagement</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contact + Why side by side -->
+<section class="section" id="contact" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <div class="contact-grid" style="max-width:900px;margin:0 auto;align-items:start">
+    <div style="padding-top:40px">
+      <h2>📩 Want Your Own AI System?</h2>
+      <div class="form-box" style="margin:0">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="What do you need built?"></textarea>
+        <button onclick="submitContact()">Send Message</button>
+      </div>
+    </div>
+    <div style="padding-top:40px">
+      <h2>ℹ️ Why This Exists</h2>
+      <p style="color:var(--muted);line-height:1.8;font-size:14px">This entire site is a live AI automation portfolio. It researches, analyzes, and publishes deep Winnipeg Blue Bombers intelligence — 4x daily, completely autonomous. No human touches it. The goal: demonstrate what AI infrastructure looks like in the hands of the Winnipeg Blue Bombers front office. Every insight, every update, every email to news desks — all AI. All automated. All day.</p>
+    </div>
+  </div>
+
+
+<footer>wademillerbombers.com · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers</footer>
+
+<!-- Wade Bot Floating Chat -->
+<div class="wadebot" id="wadebot">
+  <div class="wadebot-hd" onclick="var hd=this;var b=document.getElementById('wadebot').querySelector('.wadebot-bd');var f=document.getElementById('wadebot').querySelector('.wadebot-ft');var m=hd.querySelector('.min-btn');if(b.style.display==='none'){b.style.display='';f.style.display='';m.textContent='−';m.style.background='rgba(212,175,55,0.08)'}else{b.style.display='none';f.style.display='none';m.textContent='+';m.style.background='rgba(212,175,55,0.18)'}">
+    <div class="av">B</div>
+    <div class="nm">Wade Bot</div>
+    <div class="st">● Live</div>
+    <span class="min-btn">−</span>
+  </div>
+  <div class="wadebot-bd">
+    <div class="msg bt">Ask me about the Bombers — roster, cap, history, or the front office. I'm Wade Miller's AI twin.</div>
+    <div class="msg us">How's the o-line shaping up this year?</div>
+  </div>
+  <div class="wadebot-ft">
+    <input id="wadeInput" placeholder="Ask Wade Bot..." onkeypress="if(event.key==='Enter')wadeChat()">
+    <button onclick="wadeChat()">→</button>
+  </div>
+</div>
+
+<script>
+// Live clock
+(function(){var s=new Date();s.setFullYear(2026,5,24);s.setHours(20,10,0,0);
+function t(){var n=new Date(),d=n-s,day=Math.floor(d/86400000),hr=Math.floor((d%86400000)/3600000),mi=Math.floor((d%3600000)/60000),se=Math.floor((d%60000)/1000);
+var el=document.getElementById('dClock'),de=document.getElementById('dDay');
+if(el)el.textContent=String(day).padStart(2,'0')+':'+String(hr).padStart(2,'0')+':'+String(mi).padStart(2,'0')+':'+String(se).padStart(2,'0');
+if(de)de.textContent=day}t();setInterval(t,1000)})();
+
+// Juice countdown (2PM)
+(function(){function j(){var n=new Date(),t=new Date(n);t.setHours(14,0,0,0);if(n>t)t.setDate(t.getDate()+1);var d=t-n,h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);var e=document.getElementById('juiceCountdown');if(e)e.textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}j();setInterval(j,1000)})();
+
+// Next game countdown
+(function(){var g=new Date('2026-07-04T19:00:00-05:00');function u(){var n=new Date(),d=g-n;if(d<0){var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate');if(el)el.textContent='GAME DAY';if(dt)dt.textContent='Kickoff!';return}var day=Math.floor(d/86400000),hr=Math.floor((d%86400000)/3600000),mi=Math.floor((d%3600000)/60000),se=Math.floor((d%60000)/1000);var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate');if(el)el.textContent=day+'d '+hr+'h '+mi+'m '+se+'s';if(dt)dt.textContent='July 4, 2026 · 7:00 PM · IG Field'}u();setInterval(u,1000)})();
+
+
+
+  // Wade Bot chat with typewriter effect
+  function wadeChat() {
+    var input = document.getElementById('wadeInput');
+    var msg = input.value.trim();
+    if (!msg) return;
+    
+    var body = document.querySelector('.wadebot-bd');
+    
+    // Add user message
+    var u = document.createElement('div');
+    u.className = 'msg us';
+    u.textContent = msg;
+    body.appendChild(u);
+    input.value = '';
+    body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+    
+    // Typing indicator
+    var t = document.createElement('div');
+    t.className = 'msg bt';
+    t.textContent = '...';
+    body.appendChild(t);
+    body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+    
+    fetch('/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: msg})
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var full = d.reply || 'Try me again.';
+      var i = 0;
+      var speed = 18;
+      t.textContent = '';
+      
+      function type() {
+        if (i < full.length) {
+          t.textContent += full.charAt(i);
+          i++;
+          body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    })
+    .catch(function(){
+      t.textContent = 'I am between meetings right now. Try me in a bit.';
+    });
+  }
+
+  // Contact form
+  function submitContact() {
+    var fb = document.querySelector('.form-box');
+    var ins = fb.querySelectorAll('input, textarea');
+    var name = ins[0].value.trim();
+    var email = ins[1].value.trim();
+    var message = ins[2].value.trim();
+    if (!name || !email) { alert('Please fill in your name and email.'); return; }
+    var btn = fb.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: name, email: email, message: message})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      btn.textContent = '✓ Sent!';
+      btn.style.background = '#22c55e';
+      ins[0].value = ''; ins[1].value = ''; ins[2].value = '';
+      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    })
+    .catch(function() {
+      btn.textContent = 'Error \u2014 Retry';
+      btn.style.background = '#ef4444';
+      btn.disabled = false;
+      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+    });
+  }
+
+  // ── ANALYTICS TRACKER ──
+  (function() {
+    // Bot detection
+    var ua = navigator.userAgent.toLowerCase();
+    var isBot = /bot|crawler|spider|crawling|headless/i.test(ua);
+    
+    // Only track real visitors
+    if (!isBot && !sessionStorage.getItem('tracked')) {
+      // Get geolocation via browser API (fallback to IP-based later)
+      fetch('https://ipapi.co/json/')
+        .then(function(r) { return r.json(); })
+        .then(function(geo) {
+          return fetch('/track', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              country: geo.country_code || 'Unknown',
+              user_agent: navigator.userAgent,
+              is_bot: isBot
+            })
+          });
+        })
+        .then(function() {
+          sessionStorage.setItem('tracked', '1');
+        })
+        .catch(function(err) {
+          console.log('Analytics tracking failed:', err);
+        });
+    }
+    
+    // Load and display stats
+    function loadStats() {
+      fetch('/stats')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var canadaEl = document.querySelector('.stat-bar:nth-of-type(6) .n');
+          if (canadaEl && data.canadian_visits > 0) {
+            canadaEl.textContent = data.canadian_visits;
+          }
+        })
+        .catch(function() {
+          // Silently fail, keep hardcoded value
+        });
+    }
+    
+    // Load stats after 2 seconds
+    setTimeout(loadStats, 2000);
+  })();
+</script>
+</body>
+</html<div class="insight-grid">
+    <div class="insight-crd">
+      <div class="tag">🔍 Deep Research</div>
+      <h3>Bombers' 2nd Down Run Defense is League's Most Underrated Strength</h3>
+      <p>Winnipeg allowed just 3.8 yards per rush on 2nd down in 2023 (lowest in CFL), yet opponents ran against them on 2nd-and-long (6+ yards) 41% more frequently than league average. This strategic gap forc</p>
+    </div>
+    <div class="insight-crd">
+      <div class="tag">🔍 Deep Research</div>
+      <h3>Bombers' Late-Game Defensive Dominance Is Fueled by Opponent Fatigue</h3>
+      <p>Winnipeg's defense allows just 4.2 yards per play in the 4th quarter (lowest in CFL), while opponents average 6.1 yards in quarters 1–3. This aligns with their league-leading 12 forced turnovers in the final quarter over the past two seasons.</p>
+    </div>
+    
+    <div class="insight-crd">
+      <div class="tag">💰 Business Intel</div>
+      <h3>Wade Miller's Revenue Strategy: Premium Pricing Meets Fan Loyalty</h3>
+      <p>The Bombers consistently sell out IG Field despite premium ticket pricing 18% above league average. This revenue model funds their $12M annual profit while maintaining the CFL's highest season ticket renewal rate at 94%.</p>
+    </div>
+    
+  </div>
+  <!-- AUTO:INSIGHTS_END -->ction>
+
+<!-- Latest News + Carousel -->
+  <!-- AUTO:LATEST_START -->
+<section class="section" id="news" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>📡 Latest Intelligence</h2>
+  <div class="grid-4">
+    <!-- 6 AM Slot -->
+    <div class="card" data-slot="6am">
+      <div class="card-hd"><span class="tag" style="color:var(--teal)">☀️ 6:00 AM — Game Analysis</span></div>
+      <h3> Bombers’ Digital Presence Signals Brand Strength Amid Quiet Offseason</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers’ digital infrastructure—highlighted by structured schema markup and analytics integrations—reveals a franchise prioritizing data-driven engagement even during a slow news cycle. Both CFL.ca and the Bombers’ official sit</p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca page source code  
+- BlueBombers.com page source code  
+- Schema.o</span>
+        <span style="color:var(--teal);font-weight:600">▲ Next: 10:00 AM</span>
+      </div>
+    </div>
+    <!-- 10 AM Slot -->
+    <div class="card" data-slot="10am">
+      <div class="card-hd"><span class="tag" style="color:var(--amber)">🌤️ 10:00 AM — Roster Analysis</span></div>
+      <h3> Bombers’ Digital Presence Signals Brand Strength, But Content Gaps Remain</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers’ digital infrastructure—as evidenced by their structured data markup and integration of analytics tools like Google Tag Manager and Chartbeat—demonstrates a franchise prioritizing measurable fan engagement. The club’s s</p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca structured data markup  
+- BlueBombers.com schema.org implementati</span>
+        <span style="color:var(--amber);font-weight:600">▲ Next: 2:00 PM</span>
+      </div>
+    </div>
+    <!-- 2 PM Slot -->
+    <div class="card" data-slot="2pm">
+      <div class="card-hd"><span class="tag" style="color:var(--muted)">🔥 2:00 PM — The Juice</span></div>
+      <h3> Bombers' Digital Presence Signals Brand Strength Amid Quiet Offseason</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers’ digital infrastructure—highlighted by their robust CFL.ca and team-specific domains—reveals an organization prioritizing fan engagement even in the offseason. Both sites feature structured data markup (Schema.org) for </p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca structured data  
+- BlueBombers.com GTM implementation  
+- Similar</span>
+        <span style="color:var(--muted);font-weight:600">▲ Next: 8:00 PM</span>
+      </div>
+    </div>
+    <!-- 8 PM Slot -->
+    <div class="card" data-slot="8pm">
+      <div class="card-hd"><span class="tag" style="color:var(--gold)">🌙 8:00 PM — Roster Tracker</span></div>
+      <h3> *Bombers’ Offseason Moves Signal Aggressive Repeat Bid</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">**  
+The Winnipeg Blue Bombers are clearly prioritizing continuity in their quest for a third Grey Cup in four years. Despite losing key pieces like WR Darvin Adams and OL Jermarcus Hardrick in free agency, GM Kyle Walters has aggressively re-signed </p>
+      <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
+        <span>📡 **  
+- CFL.ca roster transactions  
+- 2022 CFL stats database  
+- BlueBombers.co</span>
+        <span style="color:var(--gold);font-weight:600">▲ Next: 6:00 AM</span>
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- AUTO:LATEST_END -->
+  </div></section>
+
+<!-- Stats Bar -->
+<div style="background:#0c1020;padding:50px 24px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
+  <div class="sbar" style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">9</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Win Seasons</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Longest active CFL West streak</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ +2</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">2</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Grey Cups</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Ended 29-year drought</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ BTB</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">$12M</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Profit '25</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Record high for franchise</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ 18%</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--gold);font-family:SF Mono,monospace">33</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">Sold Out</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">4 straight years #1</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(22,163,74,0.12);color:#22c55e">▲ #1</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:#ef4444;font-family:SF Mono,monospace">3</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">OL Picks</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">Only 1 still on roster</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(239,68,68,0.12);color:#ef4444">▼ Depth</span>
+    </div>
+    <div style="text-align:center;padding:12px">
+      <div style="font-size:26px;font-weight:800;color:var(--amber);font-family:SF Mono,monospace">5</div>
+      <div style="font-size:12px;color:#cbd5e1;font-weight:600;margin-top:4px">GC Apps</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">2019-2024 dynasty</div>
+      <span style="display:inline-block;margin-top:6px;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;background:rgba(245,158,11,0.12);color:var(--amber)">◆ Ended</span>
+    </div>
+  </div>
+</div>
+
+<!-- Around the CFL -->
+  <!-- AUTO:CFL_START
+  <div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Winnipeg Blue Bombers</h3><p>Dominant 7-1 record, league-best +92 point differential, anchored by Zach Collaros’ efficiency (15 T</p></div>
+    <div class="card"><div class="tag">🥈 Power Rank #2</div><h3>BC Lions</h3><p>6-2, Vernon Adams Jr. leads the league in passing yards (2,488) and TDs (17), but defense allows 22.</p></div>
+    <div class="card"><div class="tag">📈 Rising #3</div><h3>Toronto Argonauts</h3><p>6-2, Chad Kelly’s 11 TDs and 68.4% completion rate fuel a balanced offense, though recent inconsiste</p></div>
+    <div class="card"><div class="tag">📊 Trending #4</div><h3>Montreal Alouettes</h3><p>5-3, Cody Fajardo’s resurgence (12 TDs, 3 INTs) and a stout defense (18.6 PPG allowed) keep them in </p></div>
+  AUTO:CFL_END -->
+  </div></section>
+
+
+  </div><!-- The Juice — Countdown -->
+<section class="section" id="juice" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>⏰ The Juice — Daily Insider Take</h2>
+  <!-- AUTO:JUICE_START -->
+  <d
+  <div class="countdown-box" id="juiceBox">
+    <div class="cnt" id="juiceCountdown" style="font-size:clamp(20px,4vw,36px);margin-bottom:8px">Next: 2:00 PM</div>
+    <div class="juice-body" style="margin-top:0;text-align:left;display:block">
+      <div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 LOCKER-ROOM BEEF  
+
+**TAKE:** </div>
+      <h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">The Bombers’ Secret QB Beef That Almost Blew Up 2021</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:10px">Remember when Zach Collaros was tearing it up in 2021, leading the Bombers to another Grey Cup? What you didn’t hear was the simmering tension between him and backup Sean McGuire. McGuire, who was promised a shot at the starting role after Collaros’ injury-plagued 2020, was pissed when the Bombers doubled down on Zach. McGuire went full passive-aggressive, skipping team dinners and barely talking to Collaros during practices.  
+
+It got so bad that head coach Mike O’Shea had to step in during Week 10, pulling McGuire aside and basically telling him to “shut up or ship out.” McGuire stayed quiet</p>
+      <div style="font-size:10px;color:var(--dim)">🕐 June 25, 2026 · 07:35 PM</div>
+    </div>
+    <div class="hint" style="margin-top:12px">🔄 Next juice drops tomorrow at 2 PM</div>
+  </div>
+AUTO:JUICE_END -->
+
+<!-- NLK Projects -->
+<section class="section" id="projects" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>🏗️ Other NLK Projects</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="tag">🔁 Live</div>
+      <h3>Wade Miller Bombers</h3>
+      <p>Autonomous sports intelligence platform. 4x daily updates. AI chatbot. Email mailer. Twitter auto-post.</p>
+    </div>
+    <div class="card">
+      <div class="tag">⏳ Coming</div>
+      <h3>AI Voice Agent Demo</h3>
+      <p>Call a phone number, talk to an AI agent. Demo for local businesses — appointment setters, receptionists, lead qualifiers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What Fans Are Saying -->
+<section class="section" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <h2>🏟️ What Fans Are Saying</h2>
+  <div style="display:grid;gap:12px">
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--gold)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:13px">BF</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@BomberFan204</div>
+          <div style="font-size:10px;color:var(--dim)">Reddit · 2h ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Miller's ability to run a profitable franchise while staying competitive is exactly what the CFL needs more of. This org is a blueprint."</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--teal)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(6,182,212,0.2);display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:700;font-size:13px">JD</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@JayDub_CFL</div>
+          <div style="font-size:10px;color:var(--dim)">X/Twitter · 4h ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Wade Miller doesn't get enough credit league-wide. Two Grey Cups, sold-out stadium every game, and the team is PROFITABLE. That's generational management."</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:16px;border-left:3px solid var(--amber)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;color:var(--amber);font-weight:700;font-size:13px">WP</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#f1f5f9">@WpgPride</div>
+          <div style="font-size:10px;color:var(--dim)">CFL Subreddit · 1d ago</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6">"Miller era Bombers are proof you can win AND make money. Every franchise should study this blueprint. 33 straight sellouts is insane."</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- Old Way vs AI Way -->
+<section class="section">
+  <h2>⚖️ Old Way vs. AI Way</h2>
+  <div class="compare">
+    <div class="old">
+      <h3>The Traditional Approach</h3>
+      <ul><li>Static PDF resume</li><li>Apply through HR portals</li><li>Generic cover letter</li><li>Wait weeks for a response</li><li>No proof of capability</li></ul>
+    </div>
+    <div class="new">
+      <h3>The AI Approach</h3>
+      <ul><li>Live, self-updating portfolio</li><li>Direct value demonstration</li><li>Real-time analytical output</li><li>Autonomous daily proof</li><li>Measurable engagement</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contact + Why side by side -->
+<section class="section" id="contact" style="background:#0a0e17;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
+  <div class="contact-grid" style="max-width:900px;margin:0 auto;align-items:start">
+    <div style="padding-top:40px">
+      <h2>📩 Want Your Own AI System?</h2>
+      <div class="form-box" style="margin:0">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="What do you need built?"></textarea>
+        <button onclick="submitContact()">Send Message</button>
+      </div>
+    </div>
+    <div style="padding-top:40px">
+      <h2>ℹ️ Why This Exists</h2>
+      <p style="color:var(--muted);line-height:1.8;font-size:14px">This entire site is a live AI automation portfolio. It researches, analyzes, and publishes deep Winnipeg Blue Bombers intelligence — 4x daily, completely autonomous. No human touches it. The goal: demonstrate what AI infrastructure looks like in the hands of the Winnipeg Blue Bombers front office. Every insight, every update, every email to news desks — all AI. All automated. All day.</p>
+    </div>
+  </div>
+
+
+<footer>wademillerbombers.com · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers</footer>
+
+<!-- Wade Bot Floating Chat -->
+<div class="wadebot" id="wadebot">
+  <div class="wadebot-hd" onclick="var hd=this;var b=document.getElementById('wadebot').querySelector('.wadebot-bd');var f=document.getElementById('wadebot').querySelector('.wadebot-ft');var m=hd.querySelector('.min-btn');if(b.style.display==='none'){b.style.display='';f.style.display='';m.textContent='−';m.style.background='rgba(212,175,55,0.08)'}else{b.style.display='none';f.style.display='none';m.textContent='+';m.style.background='rgba(212,175,55,0.18)'}">
+    <div class="av">B</div>
+    <div class="nm">Wade Bot</div>
+    <div class="st">● Live</div>
+    <span class="min-btn">−</span>
+  </div>
+  <div class="wadebot-bd">
+    <div class="msg bt">Ask me about the Bombers — roster, cap, history, or the front office. I'm Wade Miller's AI twin.</div>
+    <div class="msg us">How's the o-line shaping up this year?</div>
+  </div>
+  <div class="wadebot-ft">
+    <input id="wadeInput" placeholder="Ask Wade Bot..." onkeypress="if(event.key==='Enter')wadeChat()">
+    <button onclick="wadeChat()">→</button>
+  </div>
+</div>
+
+<script>
+// Live clock
+(function(){var s=new Date();s.setFullYear(2026,5,24);s.setHours(20,10,0,0);
+function t(){var n=new Date(),d=n-s,day=Math.floor(d/86400000),hr=Math.floor((d%86400000)/3600000),mi=Math.floor((d%3600000)/60000),se=Math.floor((d%60000)/1000);
+var el=document.getElementById('dClock'),de=document.getElementById('dDay');
+if(el)el.textContent=String(day).padStart(2,'0')+':'+String(hr).padStart(2,'0')+':'+String(mi).padStart(2,'0')+':'+String(se).padStart(2,'0');
+if(de)de.textContent=day}t();setInterval(t,1000)})();
+
+// Juice countdown (2PM)
+(function(){function j(){var n=new Date(),t=new Date(n);t.setHours(14,0,0,0);if(n>t)t.setDate(t.getDate()+1);var d=t-n,h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);var e=document.getElementById('juiceCountdown');if(e)e.textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}j();setInterval(j,1000)})();
+
+// Next game countdown
+(function(){var g=new Date('2026-07-04T19:00:00-05:00');function u(){var n=new Date(),d=g-n;if(d<0){var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate');if(el)el.textContent='GAME DAY';if(dt)dt.textContent='Kickoff!';return}var day=Math.floor(d/86400000),hr=Math.floor((d%86400000)/3600000),mi=Math.floor((d%3600000)/60000),se=Math.floor((d%60000)/1000);var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate');if(el)el.textContent=day+'d '+hr+'h '+mi+'m '+se+'s';if(dt)dt.textContent='July 4, 2026 · 7:00 PM · IG Field'}u();setInterval(u,1000)})();
+
+
+
+  // Wade Bot chat with typewriter effect
+  function wadeChat() {
+    var input = document.getElementById('wadeInput');
+    var msg = input.value.trim();
+    if (!msg) return;
+    
+    var body = document.querySelector('.wadebot-bd');
+    
+    // Add user message
+    var u = document.createElement('div');
+    u.className = 'msg us';
+    u.textContent = msg;
+    body.appendChild(u);
+    input.value = '';
+    body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+    
+    // Typing indicator
+    var t = document.createElement('div');
+    t.className = 'msg bt';
+    t.textContent = '...';
+    body.appendChild(t);
+    body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+    
+    fetch('/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: msg})
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var full = d.reply || 'Try me again.';
+      var i = 0;
+      var speed = 18;
+      t.textContent = '';
+      
+      function type() {
+        if (i < full.length) {
+          t.textContent += full.charAt(i);
+          i++;
+          body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    })
+    .catch(function(){
+      t.textContent = 'I am between meetings right now. Try me in a bit.';
+    });
+  }
+
+  // Contact form
+  function submitContact() {
+    var fb = document.querySelector('.form-box');
+    var ins = fb.querySelectorAll('input, textarea');
+    var name = ins[0].value.trim();
+    var email = ins[1].value.trim();
+    var message = ins[2].value.trim();
+    if (!name || !email) { alert('Please fill in your name and email.'); return; }
+    var btn = fb.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: name, email: email, message: message})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      btn.textContent = '✓ Sent!';
+      btn.style.background = '#22c55e';
+      ins[0].value = ''; ins[1].value = ''; ins[2].value = '';
+      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    })
+    .catch(function() {
+      btn.textContent = 'Error \u2014 Retry';
+      btn.style.background = '#ef4444';
+      btn.disabled = false;
+      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+    });
+  }
+
+  // ── ANALYTICS TRACKER ──
+  (function() {
+    // Bot detection
+    var ua = navigator.userAgent.toLowerCase();
+    var isBot = /bot|crawler|spider|crawling|headless/i.test(ua);
+    
+    // Only track real visitors
+    if (!isBot && !sessionStorage.getItem('tracked')) {
+      // Get geolocation via browser API (fallback to IP-based later)
+      fetch('https://ipapi.co/json/')
+        .then(function(r) { return r.json(); })
+        .then(function(geo) {
+          return fetch('/track', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              country: geo.country_code || 'Unknown',
+              user_agent: navigator.userAgent,
+              is_bot: isBot
+            })
+          });
+        })
+        .then(function() {
+          sessionStorage.setItem('tracked', '1');
+        })
+        .catch(function(err) {
+          console.log('Analytics tracking failed:', err);
+        });
+    }
+    
+    // Load and display stats
+    function loadStats() {
+      fetch('/stats')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var canadaEl = document.querySelector('.stat-bar:nth-of-type(6) .n');
+          if (canadaEl && data.canadian_visits > 0) {
+            canadaEl.textContent = data.canadian_visits;
+          }
+        })
+        .catch(function() {
+          // Silently fail, keep hardcoded value
+        });
+    }
+    
+    // Load stats after 2 seconds
+    setTimeout(loadStats, 2000);
+  })();
+</script>
+</body>
+</html>

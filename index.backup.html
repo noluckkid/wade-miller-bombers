@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wade Miller Bombers — AI Operations Desk | Live Bombers Intelligence</title>
+<meta name="description" content="A live AI operations dashboard for the Winnipeg Blue Bombers. Updated 4x daily with deep analysis, exclusive insights, and data-driven coverage. Built as a live automation portfolio by NLK Automation.">
+<meta name="keywords" content="Winnipeg Blue Bombers, Wade Miller, CFL, AI analytics, Bombers news, football analytics, sports AI, NLK Automation">
+<meta name="author" content="NLK Automation">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Wade Miller Bombers — AI Operations Desk">
+<meta property="og:description" content="Live AI-powered Bombers intelligence. Updated 4x daily with deep analysis no one else is doing. Built as a live automation portfolio.">
+<meta property="og:url" content="https://wademillerbombers.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wade Miller Bombers">
+<meta property="og:image" content="https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wade Miller Bombers — AI Operations Desk">
+<meta name="twitter:description" content="Live AI-powered Bombers intelligence. Updated 4x daily. Built as a live automation portfolio.">
+<meta name="twitter:image" content="https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Wade Miller Bombers",
+  "url": "https://wademillerbombers.com",
+  "description": "Live AI-powered Winnipeg Blue Bombers intelligence and analytics dashboard.",
+  "author": {
+    "@type": "Organization",
+    "name": "NLK Automation"
+  }
+}
+</script>
+
+<!-- Canonical -->
+<link rel="canonical" href="https://wademillerbombers.com">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #080c14;
+    color: #e2e8f0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .section { padding: 80px 0; border-bottom: 1px solid rgba(30,41,59,0.6); }
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .section { padding: 50px 0; }
+  }
+
+  /* ── SCROLL BAR ── */
+  .scroll-bar {
+    position: fixed; top: 0; left: 0; height: 2px;
+    background: linear-gradient(90deg, #d4af37, #f0e6c0);
+    z-index: 1000; width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://v3b.fal.media/files/b/0a9fa517/96egrsi9pphxWqAPimtZ__79Zgvx5e.png') center/cover no-repeat;
+    filter: brightness(0.25) saturate(0.8);
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,12,20,0.3) 0%, rgba(8,12,20,0.85) 70%, #080c14 100%);
+    z-index: 1;
+  }
+  .hero-glow {
+    position: absolute; width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%);
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; z-index: 1;
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+  }
+  .hero-content { position: relative; z-index: 2; }
+
+  .logo-badge { width: 100px; height: 100px; margin: 0 auto 20px; display: block; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.25);
+    color: #d4af37; padding: 6px 18px; border-radius: 100px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-tag .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+    animation: blink 2s infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800; letter-spacing: -1.5px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #f0e6c0 0%, #d4af37 40%, #f0e6c0 70%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero .day {
+    font-size: 16px; color: #64748b; margin-bottom: 20px; letter-spacing: 2px;
+  }
+
+  .live-clock {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 800;
+    letter-spacing: 6px;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(180deg, #f0e6c0 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    line-height: 1;
+  }
+  .day-count {
+    font-size: 14px;
+    color: #64748b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; justify-content: center;
+    margin-bottom: 12px; position: relative; z-index: 2;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.25);
+    color: #d4af37; padding: 8px 18px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .share-btn:hover { background: rgba(212,175,55,0.18); }
+  .hero-follow {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #d4af37; color: #0a0e17; padding: 8px 18px;
+    border-radius: 8px; font-size: 13px; font-weight: 700;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .hero-follow:hover { background: #e4bf47; }
+  .hero .day span { color: #d4af37; font-weight: 700; font-size: 22px; }
+  .hero .sub {
+    font-size: 16px; color: #64748b; max-width: 550px; margin: 0 auto 40px;
+  }
+
+  .top-stats {
+    display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+  }
+  .top-stats .stat { text-align: center; }
+  .top-stats .num { font-size: 28px; font-weight: 800; color: #d4af37; }
+  .top-stats .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #475569; margin-top: 2px; }
+
+  .scroll-hint {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    color: #475569; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    animation: bounce 2s infinite; z-index: 2;
+  }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  /* ── SECTIONS ── */
+  .section { padding: 80px 0; border-bottom: 1px solid rgba(30,41,59,0.6); }
+  .section:last-child { border-bottom: none; }
+  .sec-head {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+    color: #d4af37; font-weight: 600; margin-bottom: 6px;
+  }
+  .sec-head .ln {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(212,175,55,0.3), transparent);
+    max-width: 80px;
+  }
+  .sec-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700; margin-bottom: 28px; color: #f1f5f9;
+  }
+
+  /* ── DUAL COLUMN LAYOUT ── */
+  .dual {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 860px) {
+    .dual { grid-template-columns: 1fr; }
+  }
+
+  /* Brief card */
+  .brief {
+    background: linear-gradient(135deg, #0f172a 0%, #0a0e17 100%);
+    border: 1px solid rgba(212,175,55,0.12);
+    border-radius: 16px; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .brief::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, #d4af37, transparent);
+    border-radius: 3px;
+  }
+  .brief .tag {
+    display: inline-block; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 1px; color: #d4af37;
+    background: rgba(212,175,55,0.08); padding: 3px 10px; border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .brief h3 { font-size: 20px; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; line-height: 1.4; }
+  .brief p { color: #94a3b8; font-size: 15px; line-height: 1.8; }
+  .brief .meta {
+    font-size: 12px; color: #475569; margin-top: 16px;
+    padding-top: 16px; border-top: 1px solid rgba(30,41,59,0.5);
+  }
+
+  /* Deep insights sidebar */
+  .insight-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px; padding: 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.3s;
+  }
+  .insight-card:last-child { margin-bottom: 0; }
+  .insight-card:hover { border-color: rgba(212,175,55,0.3); }
+  .insight-card .icon { font-size: 18px; margin-bottom: 8px; }
+  .insight-card h4 { font-size: 14px; color: #d4af37; margin-bottom: 6px; }
+  .insight-card p { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+
+  /* Stats dashboard */
+  .dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .dash-card {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 10px;
+    padding: 20px 16px; text-align: center;
+    transition: border-color 0.3s;
+  }
+  .dash-card:hover { border-color: rgba(212,175,55,0.2); }
+  .dash-card .num { font-size: 30px; font-weight: 800; color: #d4af37; line-height: 1; margin-bottom: 6px; }
+  .dash-card .lbl { font-size: 12px; color: #64748b; line-height: 1.4; }
+  .dash-card .sub { font-size: 10px; color: #475569; margin-top: 4px; }
+  .dash-card .tr { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px; margin-top: 6px; }
+  .tr.up { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .tr.dn { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .tr.wr { background: rgba(234,179,8,0.1); color: #eab308; }
+
+  /* Stats image banner */
+  .stats-banner {
+    width: 100%; height: 120px;
+    border-radius: 10px; overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .stats-banner img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.5) saturate(0.8);
+  }
+  .stats-banner .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(8,12,20,0.6) 0%, transparent 100%);
+  }
+
+  /* ── CAROUSEL ── */
+  .carousel-wrap {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #0a0e17 100%);
+    border: 1px solid rgba(212,175,55,0.12);
+    border-radius: 16px;
+    padding: 32px 60px;
+    overflow: hidden;
+    min-height: 280px;
+  }
+  .carousel-wrap::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, #d4af37, transparent);
+    border-radius: 3px;
+  }
+  .carousel-track {
+    position: relative;
+    width: 100%;
+  }
+  .carousel-slide {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  .carousel-slide.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .slide-tag {
+    display: inline-block; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 1px; color: #d4af37;
+    background: rgba(212,175,55,0.08); padding: 3px 10px; border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .slide-title {
+    font-size: 20px; font-weight: 700; color: #f1f5f9;
+    margin-bottom: 8px; line-height: 1.4; padding-right: 20px;
+  }
+  .slide-meta {
+    font-size: 12px; color: #64748b; margin-bottom: 12px;
+  }
+  .slide-excerpt {
+    color: #94a3b8; font-size: 15px; line-height: 1.8;
+  }
+  .slide-sources {
+    font-size: 12px; color: #475569; margin-top: 16px;
+    padding-top: 16px; border-top: 1px solid rgba(30,41,59,0.5);
+  }
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2);
+    color: #d4af37; width: 40px; height: 40px; border-radius: 50%;
+    font-size: 22px; cursor: pointer; z-index: 10;
+    transition: background 0.2s; display: flex; align-items: center; justify-content: center;
+    line-height: 0;
+  }
+  .carousel-btn:hover { background: rgba(212,175,55,0.2); }
+  .carousel-prev { left: 10px; }
+  .carousel-next { right: 10px; }
+  .carousel-dots {
+    display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+  }
+  .carousel-dots .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #1e293b; cursor: pointer; transition: all 0.3s;
+  }
+  .carousel-dots .dot.active {
+    background: #d4af37; width: 24px; border-radius: 4px;
+  }
+  @media (max-width: 768px) {
+    .carousel-wrap { padding: 24px 40px; }
+    .slide-title { font-size: 17px; }
+  }
+  .chat-wrap {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden;
+  }
+  .chat-hd {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 20px; background: #111827;
+    border-bottom: 1px solid #1e293b;
+  }
+  .chat-av {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #f0e6c0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #0a0e17; font-weight: 700;
+  }
+  .chat-hd .nm { font-size: 14px; font-weight: 600; }
+  .chat-hd .st { font-size: 11px; color: #64748b; }
+  .chat-hd .ld { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: blink 2s infinite; margin-left: auto; }
+  .chat-bd {
+    padding: 20px; min-height: 220px; max-height: 320px; overflow-y: auto;
+  }
+  .msg {
+    max-width: 85%; margin-bottom: 12px; padding: 12px 16px;
+    border-radius: 12px; font-size: 14px; line-height: 1.6;
+  }
+  .msg.bt {
+    background: #111827; border: 1px solid #1e293b; color: #cbd5e1;
+    border-bottom-left-radius: 4px; float: left; clear: both;
+  }
+  .msg.us {
+    background: linear-gradient(135deg, #1e293b, #0f172a); color: #e2e8f0;
+    border-bottom-right-radius: 4px; float: right; clear: both;
+  }
+  .msg.bt.typing .dot1, .msg.bt.typing .dot2, .msg.bt.typing .dot3 {
+    display: inline-block; font-size: 24px; line-height: 0;
+    animation: blink 1.4s infinite both;
+  }
+  .msg.bt.typing .dot2 { animation-delay: 0.2s; }
+  .msg.bt.typing .dot3 { animation-delay: 0.4s; }
+  .chat-ft {
+    display: flex; border-top: 1px solid #1e293b;
+  }
+  .chat-ft input {
+    flex: 1; background: #0f172a; border: none; padding: 14px 20px;
+    color: #e2e8f0; font-size: 14px; outline: none;
+  }
+  .chat-ft input::placeholder { color: #475569; }
+  .chat-ft button {
+    background: #d4af37; border: none; color: #0a0e17;
+    padding: 0 28px; font-weight: 700; font-size: 13px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .chat-ft button:hover { background: #e4bf47; }
+
+  /* ── CTA ── */
+  .cta {
+    background: linear-gradient(135deg, #0f1a2e 0%, #0f172a 100%);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 16px; padding: 48px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 50%);
+  }
+  .cta h2 { font-size: 26px; margin-bottom: 12px; position: relative; }
+  .cta p { color: #94a3b8; max-width: 500px; margin: 0 auto 28px; font-size: 15px; position: relative; }
+  .cta-btn {
+    display: inline-block; background: #d4af37; color: #0a0e17;
+    padding: 14px 36px; border-radius: 8px; font-weight: 700;
+    font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s; position: relative;
+  }
+  .cta-btn:hover { background: #e4bf47; transform: translateY(-1px); }
+  .cta .fn { margin-top: 16px; font-size: 12px; color: #475569; position: relative; }
+
+  /* ── CONTACT FORM ── */
+  .form-wrap {
+    max-width: 480px; margin: 0 auto;
+    background: #0f172a; border: 1px solid #1e293b;
+    border-radius: 12px; padding: 28px;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-group label {
+    display: block; font-size: 11px; color: #64748b;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%; background: #111827; border: 1px solid #1e293b;
+    border-radius: 8px; padding: 10px 14px; color: #e2e8f0;
+    font-size: 14px; font-family: system-ui; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: rgba(212,175,55,0.4);
+  }
+  .form-group textarea { min-height: 90px; resize: vertical; }
+  .form-submit {
+    width: 100%; background: #d4af37; color: #0a0e17;
+    border: none; padding: 12px; border-radius: 8px;
+    font-weight: 700; font-size: 14px; cursor: pointer;
+  }
+  .form-submit:hover { background: #e4bf47; }
+  .form-msg { font-size: 13px; margin-top: 10px; text-align: center; }
+  .form-msg.ok { color: #22c55e; }
+  .form-msg.err { color: #ef4444; }
+
+  /* ── ABOUT ── */
+  .abt-grd {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .abt-crd {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 28px;
+  }
+  .abt-crd h3 { font-size: 16px; color: #d4af37; margin-bottom: 12px; }
+  .abt-crd p { font-size: 14px; color: #94a3b8; line-height: 1.7; }
+  .abt-crd .stack {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;
+  }
+  .abt-crd .stack span {
+    font-size: 11px; background: rgba(212,175,55,0.08);
+    color: #d4af37; padding: 3px 10px; border-radius: 4px;
+  }
+  .disc {
+    margin-top: 20px; padding: 16px 20px;
+    background: rgba(71,85,105,0.1); border: 1px solid #1e293b;
+    border-radius: 8px; font-size: 12px; color: #475569; text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 0; text-align: center; font-size: 12px;
+    color: #475569; border-top: 1px solid #1e293b;
+  }
+  footer a { color: #64748b; text-decoration: none; }
+  footer a:hover { color: #d4af37; }
+
+  /* ── STICKY CTA BAR ── */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(10,14,23,0.95); border-top: 1px solid rgba(212,175,55,0.2);
+    backdrop-filter: blur(10px); z-index: 999; padding: 14px 24px;
+    display: none; justify-content: center; align-items: center; gap: 16px;
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .sticky-cta span { color: #94a3b8; font-size: 14px; }
+  .sticky-cta a {
+    background: #d4af37; color: #0a0e17; padding: 10px 24px;
+    border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .top-stats { gap: 24px; }
+    .dash-grid { grid-template-columns: repeat(2, 1fr); }
+    .abt-grd { grid-template-columns: 1fr; }
+    .cta { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-bar" id="sb"></div>
+
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Winnipeg Blue Bombers stadium at night"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="dot"></span>AI Operations Desk — Live</div>
+    <h1 class="hero-title">Wade Miller<br>Bombers</h1>
+    <div class="live-clock"><span id="liveClock">00:00:00:00</span></div>
+    <div class="day-count" id="dayCount">Day 1</div>
+    <div class="hero-actions">
+      <button class="share-btn" onclick="shareTimer()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+        Share
+      </button>
+      <a href="https://x.com/NLKautomations" target="_blank" class="hero-follow">Follow @NLKautomations ↗</a>
+    </div>
+    <p class="day">Waiting on that call, Wade</p>
+    <p class="sub">A live automation portfolio proving what AI can do for the Winnipeg Blue Bombers. Updated daily.</p>
+    <div class="top-stats">
+      <div class="stat"><div class="num">11,000+</div><div class="lbl">Monthly Bombers Searches</div></div>
+      <div class="stat"><div class="num">670</div><div class="lbl">Search "Wade Miller"</div></div>
+      <div class="stat"><div class="num">AI</div><div class="lbl">Built with Hermes Agent</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll ↓</div>
+</section>
+
+<div class="container">
+
+  <!-- ═══════ WHAT NO ONE'S TALKING ABOUT — PROMINENT ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>🔍 Exclusive — What No One's Talking About</span><span class="ln"></span></div>
+    <h2 class="sec-title">Three Bombers Insights the Media Missed This Week</h2>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <div class="icon">📈</div>
+        <h4>2026 Draft Class Is Outperforming 2025 at the Same Stage</h4>
+        <p>Rookie DE <strong>Nuer Gatkuoth</strong> has logged more quarterback pressures through two preseason games than any Bombers rookie defensive end since 2019. National media hasn't picked up this trend. If it holds through Week 4, the defensive line rotation changes significantly — and that affects how opposing offenses game plan.</p>
+      </div>
+      <div class="insight-card">
+        <div class="icon">⚠️</div>
+        <h4>Offensive Line Age Curve Is a Quiet Concern Nobody's Tracking</h4>
+        <p>Three offensive line starters are <strong>32+ years old</strong>. The only OL the Bombers have drafted in the last two years — Kevin Cline (Round 2, 2026) — hasn't taken a single first-team rep yet. This doesn't show on a stat sheet, but it's the kind of depth problem that surfaces around Week 12 when legs get heavy.</p>
+      </div>
+      <div class="insight-card">
+        <div class="icon">⏱️</div>
+        <h4>The 35-Second Play Clock Is Breaking the No-Huddle</h4>
+        <p>Zach Collaros burned <strong>two timeouts</strong> in the first half against BC purely from clock management issues under the new CFL rule change. The coaching staff hasn't adjusted the no-huddle packages yet. This is a pattern, not an outlier — and it's the kind of detail that separates good analytics from great ones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ TODAY'S BRIEF — CAROUSEL ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>📋 Today's Brief</span><span class="ln"></span></div>
+    <h2 class="sec-title">Latest Updates</h2>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+                <!-- June 24, 2026 · 08:13 PM -->
+        <div class="carousel-slide">
+          <div class="slide-tag">Roster Strategy</div>
+          <h3 class="slide-title">Blue Bombers’ Secondary Depth Tested Early: Can Rookie DBs Step Up?</h3>
+          <div class="slide-meta">June 24, 2026 · 08:13 PM</div>
+          <p class="slide-excerpt">
+The Winnipeg Blue Bombers’ defensive backfield faces immediate pressure after injuries to key veterans. With **Demerio Houston** (2023 CFL All-Star, 7 INTs last season) sidelined indefinitely and **Brandon Alexander** (2023: 54 tackles, 2 INTs) nursing a hamstring issue, the Bombers’ secondary—ranked **1st in pass defense efficiency in 2023**—must rely on untested talent. Rookie **Jamal Parker** (Bethune-Cookman) and **Redha Kramdi** (2023 practice squad) are projected to start in Week 1, a</p>
+          <div class="slide-sources">📡  
+- CFL.ca 2023 defensive stats  
+- Blue Bombers training camp reports (June 2024)  
+- 3DownNation depth chart analysis  
+- TSN insider notes on injuries</div>
+        </div>
+<!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <div class="slide-tag">⚡ Game Analysis</div>
+          <h3 class="slide-title">Elgersma vs. Streveler — The Preseason QB Battle Nobody's Watching Closely Enough</h3>
+          <div class="slide-meta">June 23, 2026 · 6:00 AM</div>
+          <p class="slide-excerpt">Taylor Elgersma saw extended reps in Friday's preseason loss to BC, and the tape tells a story the box score doesn't. His pocket awareness on 3rd-and-long situations improved noticeably from Week 1 — he's processing faster, even if the stat line doesn't show it. Meanwhile, Streveler's role as the short-yardage specialist seems firmly entrenched, but his passing reps have been limited to scripted throws. The coaching staff may be protecting his trade value or simply prioritizing Elgersma's development timeline.</p>
+          <div class="slide-sources">📡 Sources: Game tape · CFL.ca stats · O'Shea press conference June 21</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <div class="slide-tag">📊 Roster Analysis</div>
+          <h3 class="slide-title">WR3 Battle Update — Tim White Is Running Away With It</h3>
+          <div class="slide-meta">June 23, 2026 · 12:00 PM</div>
+          <p class="slide-excerpt">Tim White has taken every first-team rep in 3WR sets for two consecutive practices. His route tree is noticeably more developed than the other candidates, and O'Shea has been giving him increasing praise in pressers. Tommy Nield's special teams versatility means he'll rotate in situationally, but the WR3 job looks settled heading into Week 1.</p>
+          <div class="slide-sources">📡 Sources: Practice reports · O'Shea media availability · Depth chart tracking</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="slide-tag">💰 Cap Strategy</div>
+          <h3 class="slide-title">Cap Watch — Collaros's Final Year Changes Everything</h3>
+          <div class="slide-meta">June 23, 2026 · 6:00 PM</div>
+          <p class="slide-excerpt">2026 is the last year of Zach Collaros's deal. The Bombers have $0 in dead cap tied to him for 2027, giving them maximum flexibility. How they structure the next QB contract — whether it's Elgersma as the heir or a veteran bridge deal — will ripple through every position group for the next 3-5 years. The front office's approach here will define the next era of Bombers football.</p>
+          <div class="slide-sources">📡 Sources: CFL salary data · Contract analysis · League cap trends</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="slide-tag">🏗️ Fan Intelligence</div>
+          <h3 class="slide-title">Stadium Ops — 26,269 Fans Showed Up for a Preseason Game</h3>
+          <div class="slide-meta">June 23, 2026 · 11:00 PM</div>
+          <p class="slide-excerpt">That attendance number is higher than some CFL regular-season games draw in other markets. The fan engagement machine Wade Miller built is running at full capacity. When you combine the sold-out streak, the Rum Hut expansion, and the cultural ambassador program, the data tells a clear story: the Bombers aren't just winning on the field — they're winning in the stands too.</p>
+          <div class="slide-sources">📡 Sources: CFL attendance data · Blue Bombers press releases · Stadium operations reports</div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-btn carousel-prev" id="carouselPrev">‹</button>
+      <button class="carousel-btn carousel-next" id="carouselNext">›</button>
+
+      <!-- Dots -->
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ BOMBERS BY THE NUMBERS ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>📊 Data Dashboard</span><span class="ln"></span></div>
+    <h2 class="sec-title" style="margin-bottom:20px;">Bombers by the Numbers</h2>
+
+    <div class="dash-grid">
+      <div class="dash-card">
+        <div class="num">9</div>
+        <div class="lbl">Consecutive Winning Seasons</div>
+        <div class="sub">Longest active CFL West streak</div>
+        <span class="tr up">▲ +2 vs next best</span>
+      </div>
+      <div class="dash-card">
+        <div class="num">2</div>
+        <div class="lbl">Grey Cups Since 2019</div>
+        <div class="sub">Ended 29-year drought</div>
+        <span class="tr up">▲ Back-to-back</span>
+      </div>
+      <div class="dash-card">
+        <div class="num">$12M</div>
+        <div class="lbl">Operating Profit (2025)</div>
+        <div class="sub">Record high for franchise</div>
+        <span class="tr up">▲ 18% YoY</span>
+      </div>
+      <div class="dash-card">
+        <div class="num">33</div>
+        <div class="lbl">Sold-Out Games Since 2018</div>
+        <div class="sub">League-leading attendance</div>
+        <span class="tr up">▲ 4 straight years #1</span>
+      </div>
+      <div class="dash-card">
+        <div class="num">3</div>
+        <div class="lbl">OL Picks — Last 3 Drafts</div>
+        <div class="sub">Only 1 still on roster</div>
+        <span class="tr dn">▼ Depth concern</span>
+      </div>
+      <div class="dash-card">
+        <div class="num">5</div>
+        <div class="lbl">Straight Grey Cup Appearances</div>
+        <div class="sub">2019–2024 dynasty run</div>
+        <span class="tr wr">◆ Ended in '25</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ CHATBOT ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>🤖 Interactive</span><span class="ln"></span></div>
+    <h2 class="sec-title">Chat with the AI Desk</h2>
+    <p style="color:#94a3b8; margin-bottom:20px; font-size:14px;">Ask me anything about the Bombers — roster, cap, history, front office. Every answer is AI-generated from real data.</p>
+    <div class="chat-wrap">
+      <div class="chat-hd">
+        <div class="chat-av">B</div>
+        <div><div class="nm">Bombers AI Desk</div><div class="st">Powered by Hermes Agent — NLK Automation</div></div>
+        <div class="ld"></div>
+      </div>
+      <div class="chat-bd">
+        <div class="msg bt">Hey — I'm plugged into Bombers history, roster data, cap analytics, and Wade Miller's full tenure. Ask me anything about the team.</div>
+        <div class="msg us">Who's winning the WR3 battle in camp?</div>
+        <div class="msg bt">Based on preseason usage and O'Shea's June 21 presser — Tim White has taken almost every first-team rep in 3WR sets. His route tree is more developed than the other candidates at this stage. That said, Tommy Nield's special teams versatility means the WR3 role might split situationally. Want me to pull the full depth chart analysis?</div>
+      </div>
+      <div class="chat-ft">
+        <input type="text" id="chatInput" placeholder="Ask about the Bombers..." onkeypress="if(event.key==='Enter')sendChat()">
+        <button onclick="sendChat()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="form"></div>
+  <!-- ═══════ CONTACT FORM ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>📩 Get in Touch</span><span class="ln"></span></div>
+    <h2 class="sec-title">Want Your Own AI System?</h2>
+    <p style="color:#94a3b8; text-align:center; margin-bottom:24px; font-size:15px;">This entire site runs autonomously on AI infrastructure I built. If you want automation that works, drop your info below.</p>
+    <div class="form-wrap">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="formName" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="formEmail" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="formMessage" placeholder="Tell me what you need built..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Message</button>
+      <div id="formStatus" class="form-msg"></div>
+    </div>
+  </div>
+
+  <!-- ═══════ ABOUT ═══════ -->
+  <div class="section">
+    <div class="sec-head"><span>📄 About This Site</span><span class="ln"></span></div>
+    <div class="abt-grd">
+      <div class="abt-crd">
+        <div>Who Built This</div>
+        <p>Founder of <strong>NLK Automation</strong>. I build AI systems that save businesses time and money — proven by this site running autonomously 24/7.</p>
+        <div class="stack">
+          <span>Hermes Agent</span><span>Python</span><span>n8n</span><span>API Integration</span><span>Cron Jobs</span><span>Automation</span>
+        </div>
+      </div>
+      <div class="abt-crd">
+        <h3>Why This Exists</h3>
+        <p>This is my live portfolio. Every day it proves I can build AI systems that generate real, useful insights. The Bombers should have an AI infrastructure lead. I'm showing — not telling — what that looks like.</p>
+        <p style="margin-top:12px; font-size:13px; color:#475569;">Updated daily by autonomous cron job.</p>
+      </div>
+    </div>
+    <div class="disc">⚖️ Not affiliated with the Winnipeg Blue Bombers or CFL. Built as a live automation portfolio by NLK Automation. All data sourced from public CFL stats, press conferences, and game tape.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    wademillerbombers.com · Built by <a href="#">NLK Automation</a> · <a href="https://x.com/NLKautomations" target="_blank">Follow on X</a> · Not affiliated with the Winnipeg Blue Bombers
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCTA">
+  <span>Like what you see? NLK builds AI that works.</span>
+  <a href="#form">Get In Touch ↓</a>
+</div>
+
+<script>
+  // Scroll progress bar + sticky CTA
+  window.onscroll = function(){
+    var b = document.getElementById('sb'),
+        s = document.documentElement.scrollTop || document.body.scrollTop,
+        h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    b.style.width = (s/h)*100 + '%';
+    var cta = document.getElementById('stickyCTA');
+    if (cta) cta.style.display = (s/h > 0.6) ? 'flex' : 'none';
+  };
+
+  // Live clock + day counter
+  (function() {
+    var start = new Date();
+    start.setFullYear(2026, 5, 24);
+    start.setHours(20, 10, 0, 0);
+
+    function tick() {
+      var now = new Date();
+      var diff = Math.max(0, now - start);
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      var el = document.getElementById('liveClock');
+      var dayEl = document.getElementById('dayCount');
+      if (el) el.textContent = String(days).padStart(2,'0') + ':' + String(hours).padStart(2,'0') + ':' + String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+      if (dayEl) dayEl.textContent = 'Day ' + days;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // Carousel
+  (function() {
+    var track = document.getElementById('carouselTrack');
+    if (!track) return;
+    var slides = track.querySelectorAll('.carousel-slide');
+    var dots = document.querySelectorAll('#carouselDots .dot');
+    var prev = document.getElementById('carouselPrev');
+    var next = document.getElementById('carouselNext');
+    var current = 0, interval;
+    function goTo(i) {
+      slides.forEach(function(s){ s.classList.remove('active'); });
+      dots.forEach(function(d){ d.classList.remove('active'); });
+      current = (i + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    function ns() { goTo(current + 1); }
+    function ps() { goTo(current - 1); }
+    function startAuto() { interval = setInterval(ns, 8000); }
+    if (prev) prev.addEventListener('click', function(){ ps(); clearInterval(interval); startAuto(); });
+    if (next) next.addEventListener('click', function(){ ns(); clearInterval(interval); startAuto(); });
+    dots.forEach(function(d){
+      d.addEventListener('click', function(){
+        goTo(parseInt(this.getAttribute('data-index')));
+        clearInterval(interval); startAuto();
+      });
+    });
+    startAuto();
+  })();
+
+  // Share timer
+  function shareTimer() {
+    var days = document.getElementById('dayCount').textContent.replace('Day ','');
+    var clock = document.getElementById('liveClock').textContent;
+    var msg = 'Day ' + days + ' \u00b7 ' + clock + ' \u2014 Wade Miller still has not called. wademillerbombers.com';
+    var url = 'https://x.com/intent/tweet?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'width=550,height=420');
+  }
+
+  // Chatbot
+  function sendChat() {
+    var input = document.getElementById('chatInput');
+    var msg = input.value.trim();
+    if (!msg) return;
+    var body = document.querySelector('.chat-bd');
+    var uDiv = document.createElement('div');
+    uDiv.className = 'msg us';
+    uDiv.textContent = msg;
+    body.appendChild(uDiv);
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
+    var bDiv = document.createElement('div');
+    bDiv.className = 'msg bt typing';
+    bDiv.innerHTML = '<span class="dot1">.</span><span class="dot2">.</span><span class="dot3">.</span>';
+    body.appendChild(bDiv);
+    body.scrollTop = body.scrollHeight;
+    fetch('/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: msg})
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      bDiv.className = 'msg bt';
+      bDiv.textContent = data.reply || 'I need to recalibrate. Try me again.';
+      body.scrollTop = body.scrollHeight;
+    })
+    .catch(function(){
+      bDiv.className = 'msg bt';
+      bDiv.textContent = 'I am recalibrating my database. Try me again in a moment.';
+    });
+  }
+
+  // Contact form
+  function submitForm() {
+    var name = document.getElementById('formName').value.trim();
+    var email = document.getElementById('formEmail').value.trim();
+    var message = document.getElementById('formMessage').value.trim();
+    var status = document.getElementById('formStatus');
+    if (!name || !email) {
+      status.className = 'form-msg err';
+      status.textContent = 'Name and email are required.';
+      return;
+    }
+    status.className = 'form-msg';
+    status.textContent = 'Sending...';
+    fetch('/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: name, email: email, message: message})
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data.success) {
+        status.className = 'form-msg ok';
+        status.textContent = "Thanks! I'll be in touch soon.";
+        document.getElementById('formName').value = '';
+        document.getElementById('formEmail').value = '';
+        document.getElementById('formMessage').value = '';
+      } else {
+        status.className = 'form-msg err';
+        status.textContent = 'Something went wrong. Try again.';
+      }
+    })
+    .catch(function(){
+      status.className = 'form-msg err';
+      status.textContent = 'Could not send. Check your connection.';
+    });
+  }
+</script>
+
+</body>
+</html>
