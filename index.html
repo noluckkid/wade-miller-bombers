@@ -301,13 +301,7 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
   }
 
 /* ── EXPANDABLE CARDS ── */
-.card-expandable{cursor:pointer;transition:all 0.25s ease;position:relative}
-.card-expandable:hover{border-color:rgba(212,175,55,0.3)}
-.card-expandable.expanded{background:linear-gradient(135deg,#0f172a,#1a1025);border-color:rgba(212,175,55,0.25)}
-.card-expandable .card-expand-hint{display:block;font-size:10px;color:var(--gold);text-align:center;margin-top:4px}
-.card-expandable.expanded .card-preview{display:none !important}
-.card-expandable.expanded .card-full{display:block !important}
-.card-expandable:not(.expanded) .card-full{display:none !important}
+
 </style>
 </head>
 <body>
@@ -334,7 +328,7 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 
 <!-- Scrolling CFL Drama Ticker -->
 <!-- AUTO:TICKER_START -->
-<div class="ticker"><div class="ticker-inner"><span>🔴 BREAKING: Blue Bombers fall to 1-2 after 23-18 loss to Edmonton, blown 4th-quarter lead.</span> · <span>🔄 RUMOR: Winnipeg exploring trade for defensive help after secondary collapses in final mi</span> · <span>📊 STAT: Bombers allowed 17 unanswered points in 1st quarter, then rallied but lost on fina</span> · <span>🔥 HOT TAKE: West Division race too tight for 1-2 Bombers to survive slow starts much longe</span> · <span>🔴 BREAKING: Blue Bombers fall to 1-2 after 23-18 loss to Edmonton, blown 4th-quarter lead.</span> · <span>🔄 RUMOR: Winnipeg exploring trade for defensive help after secondary collapses in final mi</span> · <span>📊 STAT: Bombers allowed 17 unanswered points in 1st quarter, then rallied but lost on fina</span> · <span>🔥 HOT TAKE: West Division race too tight for 1-2 Bombers to survive slow starts much longe</span></div></div>
+<div class="ticker"><div class="ticker-inner"><span>🔴 BREAKING: Dru Brown returns to Winnipeg via trade; QB set to practice Tuesday after 3-ye</span> · <span>🔄 RUMOR: Sources hint Brown may push for starting role; Collaros’ grip on QB1 under scruti</span> · <span>📊 STAT: Brown holds CFL record: 9 TD passes, 0 INTs in 2023 season with Blue Bombers.</span> · <span>🔥 HOT TAKE: Brown’s return signals Winnipeg’s QB depth is elite; O’Shea must find ways to</span> · <span>🔴 BREAKING: Dru Brown returns to Winnipeg via trade; QB set to practice Tuesday after 3-ye</span> · <span>🔄 RUMOR: Sources hint Brown may push for starting role; Collaros’ grip on QB1 under scruti</span> · <span>📊 STAT: Brown holds CFL record: 9 TD passes, 0 INTs in 2023 season with Blue Bombers.</span> · <span>🔥 HOT TAKE: Brown’s return signals Winnipeg’s QB depth is elite; O’Shea must find ways to</span></div></div>
 <!-- AUTO:TICKER_END -->
 
 <!-- Hero -->
@@ -381,26 +375,20 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <!-- What No One's Talking About -->
   <!-- AUTO:INSIGHTS_START -->
   <div class="insight-grid">
-    <div class="insight-crd card-expandable" onclick="toggleCard(this)">
+    <div class="insight-crd">
+      <div class="tag">🔍 Deep Research</div>
+      <h3>Dru Brown’s return exposes a critical gap in Winnipeg’s quarterback depth—not just as a backup, but as a proven efficiency asset.</h3>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">In 2023, Brown set a CFL record with nine touchdown passes and zero interceptions in a single season, a 158.3 passer rating. Meanwhile, the Bombers’ current backup, Chris Streveler, has completed just</p>
+    </div>
+    <div class="insight-crd">
       <div class="tag">🔍 Deep Research</div>
       <h3>Collaros’s trust in Oliveira is fracturing the locker room.</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6">Brady Oliveira has 11 fumbles since 2022, the most among CFL running backs. In Thursday’s loss, he lost one...</p>
-      <p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6;display:none">Brady Oliveira has 11 fumbles since 2022, the most among CFL running backs. In Thursday’s loss, he lost one fumble and had another dropped snap — both inside Edmonton’s 30-yard line. Zach Collaros pub</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:8px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Brady Oliveira has 11 fumbles since 2022, the most among CFL running backs. In Thursday’s loss, he lost one fumble and had another dropped snap — both inside Edmonton’s 30-yard line. Zach Collaros pub</p>
     </div>
-    <div class="insight-crd card-expandable" onclick="toggleCard(this)">
+    <div class="insight-crd">
       <div class="tag">🔍 Deep Research</div>
       <h3>Bombers’ roster churn at receiver is masking a deeper protection issue.</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6">Winnipeg has signed or elevated four different American receivers — including Kenny Walker, Josh Johnson, and...</p>
-      <p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6;display:none">Winnipeg has signed or elevated four different American receivers — including Kenny Walker, Josh Johnson, and most recently T.J. Luther (who scored the game-winning TD for Edmonton) — since training c</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:8px">Read more ▾</div>
-    </div>
-    <div class="insight-crd card-expandable" onclick="toggleCard(this)">
-      <div class="tag">🔍 Deep Research</div>
-      <h3>Bombers’ roster churn at receiver is masking a deeper run-game imbalance.</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6">Through three games, Winnipeg has used four different starting combinations at wide receiver, cycling through...</p>
-      <p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.6;display:none">Through three games, Winnipeg has used four different starting combinations at wide receiver, cycling through Ontaria Wilson, Keric Wheatfall, and Kenny Lawler due to minor injuries and practice-squad</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:8px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Winnipeg has signed or elevated four different American receivers — including Kenny Walker, Josh Johnson, and most recently T.J. Luther (who scored the game-winning TD for Edmonton) — since training c</p>
     </div>
   </div>
   <!-- AUTO:INSIGHTS_END -->
@@ -412,60 +400,52 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
   <h2>📡 Latest Intelligence</h2>
   <div class="grid-4">
     <!-- 6 AM Slot -->
-    <div class="card card-expandable" onclick="toggleCard(this)" data-slot="6am">
+    <div class="card" data-slot="6am">
       <div class="card-hd" style="display:flex;align-items:center;gap:10px">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/120px-Zach_Collaros_2019.jpg" alt="Collaros" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,175,55,0.4);flex-shrink:0" onerror="this.style.display='none'">
         <span class="tag" style="color:var(--teal)">☀️ 6:00 AM — Game Analysis</span>
       </div>
       <h3>Bombers' Offensive Line Depth a Quiet Concern Heading Into 2026</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Winnipeg's front five returns three starters but lost key depth in the off-season. With Stanley Bryant aging out...</p>
-<p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5;display:none">Winnipeg's front five returns three starters but lost key depth in the off-season. With Stanley Bryant aging out and two NI linemen yet to prove CFL readiness, the Bombers' run game efficiency may dip early in the campaign.</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:4px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Winnipeg's front five returns three starters but lost key depth in the off-season. With Stanley Bryant aging out and two NI linemen yet to prove CFL readiness, the Bombers' run game efficiency may dip early in the campaign.</p>
       <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
         <span>📡 CFL.ca, BlueBombers.com</span>
         <span style="color:var(--teal);font-weight:600">▲ Next: 10:00 AM</span>
       </div>
     </div>
     <!-- 10 AM Slot -->
-    <div class="card card-expandable" onclick="toggleCard(this)" data-slot="10am">
+    <div class="card" data-slot="10am">
       <div class="card-hd" style="display:flex;align-items:center;gap:10px">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/120px-Zach_Collaros_2019.jpg" alt="Collaros" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,0.4);flex-shrink:0" onerror="this.style.display='none'">
         <span class="tag" style="color:var(--amber)">🌤️ 10:00 AM — Roster Analysis</span>
       </div>
       <h3>Zach Collaros Contract Year: What It Means for the Bombers' Cap Strategy</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Collaros enters 2026 on the final year of his deal. Winnipeg faces a decision: lock up the 2x Grey Cup MVP...</p>
-<p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5;display:none">Collaros enters 2026 on the final year of his deal. Winnipeg faces a decision: lock up the 2x Grey Cup MVP or pivot to Brady Oliveira-era football. Cap space is tighter than it looks with three pending free agents at receiver.</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:4px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Collaros enters 2026 on the final year of his deal. Winnipeg faces a decision: lock up the 2x Grey Cup MVP or pivot to Brady Oliveira-era football. Cap space is tighter than it looks with three pending free agents at receiver.</p>
       <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
         <span>📡 3DownNation, CFL.ca</span>
         <span style="color:var(--amber);font-weight:600">▲ Next: 2:00 PM</span>
       </div>
     </div>
     <!-- 2 PM Slot -->
-    <div class="card card-expandable" onclick="toggleCard(this)" data-slot="2pm">
+    <div class="card" data-slot="2pm">
       <div class="card-hd" style="display:flex;align-items:center;gap:10px">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Brady_Oliveira_2022.jpg/120px-Brady_Oliveira_2022.jpg" alt="Oliveira" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(148,163,184,0.4);flex-shrink:0" onerror="this.style.display='none'">
         <span class="tag" style="color:var(--muted)">🔥 2:00 PM — The Juice</span>
       </div>
       <h3>Inside the Locker Room: Who's the Real Leader When Collaros Isn't Talking?</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Sources close to the team say two players have emerged as vocal locker-room voices this camp...</p>
-<p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5;display:none">Sources close to the team say two players have emerged as vocal locker-room voices this camp — and neither wears a quarterback jersey. The dynamic is shifting. More at 2 PM.</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:4px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">Sources close to the team say two players have emerged as vocal locker-room voices this camp — and neither wears a quarterback jersey. The dynamic is shifting. More at 2 PM.</p>
       <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
         <span>📡 Inside sources, camp reports</span>
         <span style="color:var(--muted);font-weight:600">▲ Next: 8:00 PM</span>
       </div>
     </div>
     <!-- 8 PM Slot -->
-    <div class="card card-expandable" onclick="toggleCard(this)" data-slot="8pm">
+    <div class="card" data-slot="8pm">
       <div class="card-hd" style="display:flex;align-items:center;gap:10px">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Zach_Collaros_%282021%29.jpg/120px-Zach_Collaros_%282021%29.jpg" alt="Bombers" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,175,55,0.4);flex-shrink:0" onerror="this.style.display='none'">
         <span class="tag" style="color:var(--gold)">🌙 8:00 PM — Roster Tracker</span>
       </div>
       <h3>Bombers vs. Elks: Early-Season Showdown Tests Winnipeg’s Bounce-Back Potential</h3>
-      <p class="card-preview" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">The Winnipeg Blue Bombers (1-1) face a critical early test Thursday against the undefeated Edmonton Elks (2-0)...</p>
-<p class="card-full" style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5;display:none">The Winnipeg Blue Bombers (1-1) face a critical early test Thursday against the undefeated Edmonton Elks (2-0), a matchup that could reveal whether Winnipeg's Week 2 loss to Hamilton was a blip or a sign of deeper issues. The Bombers' defense will be tested early — Edmonton's ground game has been relentless to start the season.</p>
-      <div class="card-expand-hint" style="font-size:10px;color:var(--gold);text-align:center;margin-top:4px">Read more ▾</div>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0;line-height:1.5">The Winnipeg Blue Bombers (1-1) face a critical early test Thursday against the undefeated Edmonton Elks (2-0), a matchup that could reveal whether Winnipeg's Week 2 loss to Hamilton was a blip or a sign of deeper issues. The Bombers' defense will be tested early — Edmonton's ground game has been relentless to start the season.</p>
       <div class="card-ft" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:10px;color:var(--dim);padding-top:8px;border-top:1px solid var(--bd)">
         <span>📡 BlueBombers.com, 3DownNation</span>
         <span style="color:var(--gold);font-weight:600">▲ Next: 6:00 AM</span>
@@ -523,13 +503,12 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <section class="section" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
   <h2>🏟️ Around the CFL</h2>
   <!-- AUTO:CFL_START -->
-  <div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Toronto Argonauts</h3><p>Undefeated at 3-0 with a league-best +37 point differential, they are the class of the East and the </p></div>
-    <div class="card"><div class="tag">🥈 Power Rank #2</div><h3>Montreal Alouettes</h3><p>3-1 record, top-ranked defense allowing just 17.3 points per game, and a decisive win over Ottawa so</p></div>
-    <div class="card"><div class="tag">📈 Rising #3</div><h3>BC Lions</h3><p>3-1 with a potent offense averaging 31.5 points, but a loss to Toronto exposes a gap against elite c</p></div>
-    <div class="card"><div class="tag">📊 Trending #4</div><h3>Saskatchewan Roughriders</h3><p>3-0 start built on a +8 turnover ratio and league-best run defense (63.7 yards allowed per game), bu</p></div>
+  <div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Toronto Argonauts</h3><p>Undefeated at 5-0, leading the league in point differential (+62) with the most balanced attack.</p></div>
+    <div class="card"><div class="tag">🥈 Power Rank #2</div><h3>Winnipeg Blue Bombers</h3><p>4-2, top-ranked defense allowing just 19.5 PPG, but offense still finding rhythm without a consisten</p></div>
+    <div class="card"><div class="tag">📈 Rising #3</div><h3>Montreal Alouettes</h3><p>4-1, reigning Grey Cup champs with the league's best turnover margin (+8), though schedule has been </p></div>
+    <div class="card"><div class="tag">📊 Trending #4</div><h3>BC Lions</h3><p>4-2, Vernon Adams Jr. leads CFL in passing yards (2,081), but defense ranks 7th in points allowed (2</p></div>
   <!-- AUTO:CFL_END -->
 </div></section>
-
 
 <!-- The Juice — Countdown -->
 <section class="section" id="juice" style="background:#0a0e17;padding:60px 24px;max-width:none;position:relative;overflow:hidden"><div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
@@ -537,21 +516,22 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
   <div style="position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/800px-Zach_Collaros_2019.jpg') center/cover no-repeat;opacity:0.06;filter:blur(4px);z-index:0;pointer-events:none"></div>
   <h2 style="position:relative;z-index:1">⏰ The Juice — Daily Insider Take</h2>
   <!-- AUTO:JUICE_START -->
-  <d
   <div class="countdown-box" id="juiceBox" style="position:relative;z-index:1">
     <div class="cnt" id="juiceCountdown" style="font-size:clamp(20px,4vw,36px);margin-bottom:8px">Next: 2:00 PM</div>
     <div class="juice-body" style="margin-top:0;text-align:left;display:block">
-      <div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 COACH-PLAYER TENSION</div>
-      <h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">The Bombers' Locker Room Is About to Boil Over — and Buck Pierce Is in the Crosshairs</h3>
-      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:10px">You want the real story behind Winnipeg’s 1-2 start? It’s not Zach Collaros’s fumbles or the defence blowing that late drive to Edmonton. The real tension is between offensive coordinator Buck Pierce and the veteran offensive line. I’ve had three separate sources tell me that after Thursday’s loss, guards Pat Neufeld and Liam Dobson were visibly frustrated in the huddle, questioning play-calling on short-yardage situations. Specifically, on that failed third-and-one in the fourth quarter where Brady Oliveira got stuffed — Pierce called an inside zone run that the Elks had telegraphed all night</p>
-      <div style="font-size:10px;color:var(--dim)">🕐 June 29, 2026 · 02:00 PM</div>
+      <div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 QB ROOM BEEF</div>
+      <h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">Dru Brown’s “Happy Family” Return Is a QB Room Time Bomb Waiting to Explode</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:10px">Let me tell you what nobody in Winnipeg wants to say out loud: Dru Brown coming back to the Blue Bombers is not a heartwarming reunion. It’s a ticking clock on a quarterback controversy that could tear that locker room apart by Labour Day.
+
+I’ve been in that building. I’ve seen how Zach Collaros runs that room. He’s the alpha, the guy who got the ring, the man who O’Shea trusts with his job. But here’s the dirty secret from 2023: when Brown went 2-1 with nine TDs and zero picks, there were offensive linemen and receivers who started whispering, “Maybe the future is now.” That’s not a rumour—I </p>
+      <div style="font-size:10px;color:var(--dim)">🕐 June 29, 2026 · 08:00 PM</div>
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;flex-wrap:wrap;gap:10px">
       <div class="hint">🔄 Next juice drops at 2 PM</div>
       <button onclick="window.open('https://x.com/intent/tweet?text='+encodeURIComponent('🍿 The Juice: '+document.querySelector('#juiceBox h3').textContent+' — wademillerbombers.com'),'_blank','width=550,height=420')" style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:var(--gold);padding:8px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px">𝕏 Share The Juice</button>
     </div>
   </div>
-AUTO:JUICE_END -->
+<!-- AUTO:JUICE_END -->
 </div></section>
 <section class="section" id="projects" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
   <h2>🏗️ Other NLK Projects</h2>
@@ -765,8 +745,6 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
 // Next game countdown (seconds on desktop only)
 (function(){var g=new Date('2026-07-04T19:00:00-05:00');function u(){var n=new Date(),d=g-n;if(d<0){var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate');if(el)el.textContent='GAME DAY';if(dt)dt.textContent='Kickoff!';return}var day=Math.floor(d/86400000),hr=Math.floor((d%86400000)/3600000),mi=Math.floor((d%3600000)/60000),se=Math.floor((d%60000)/1000);var el=document.getElementById('gameCountdown'),dt=document.getElementById('gameDate'),mob=window.innerWidth<768;if(el)el.textContent=mob?day+'d '+hr+'h '+mi+'m':day+'d '+hr+'h '+mi+'m '+se+'s';if(dt)dt.textContent='July 4, 2026 · 7:00 PM · IG Field'}u();setInterval(u,1000)})();
 
-
-
   // Wade Bot chat with typewriter effect
   function wadeChat() {
     var input = document.getElementById('wadeInput');
@@ -902,47 +880,6 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
     // Load stats after 1 second
     setTimeout(loadStats, 1000);
   })();
-
-  // ── EXPANDABLE CARDS ──
-  // Hide "Read more" hint on cards where preview == full (nothing extra to show)
-  document.querySelectorAll('.card-expandable').forEach(function(card) {
-    var preview = card.querySelector('.card-preview');
-    var full = card.querySelector('.card-full');
-    var hint = card.querySelector('.card-expand-hint');
-    if (preview && full && hint) {
-      if (preview.textContent.replace(/\.{3}$/, '').trim() === full.textContent.trim() ||
-          full.textContent.trim().length <= preview.textContent.trim().length) {
-        hint.style.display = 'none';
-        card.style.cursor = 'default';
-        card.onclick = null;
-      }
-    }
-  });
-
-  function toggleCard(card) {
-    var wasExpanded = card.classList.contains('expanded');
-    // Close all other expanded cards first (accordion)
-    var all = document.querySelectorAll('.card-expandable.expanded');
-    for (var i = 0; i < all.length; i++) {
-      all[i].classList.remove('expanded');
-      var hint = all[i].querySelector('.card-expand-hint');
-      if (hint) hint.textContent = 'Read more ▾';
-      var prev = all[i].querySelector('.card-preview');
-      var full = all[i].querySelector('.card-full');
-      if (prev) prev.style.display = '';
-      if (full) full.style.display = 'none';
-    }
-    // Toggle this one
-    if (!wasExpanded) {
-      card.classList.add('expanded');
-      var hint = card.querySelector('.card-expand-hint');
-      if (hint) hint.textContent = 'Show less ▴';
-      var prev = card.querySelector('.card-preview');
-      var full = card.querySelector('.card-full');
-      if (prev) prev.style.display = 'none';
-      if (full) full.style.display = 'block';
-    }
-  }
 </script>
 </body>
 </html>
