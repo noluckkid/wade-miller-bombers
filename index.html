@@ -677,12 +677,13 @@ The real juice? Brown knew he was better than Maier. So did the locker room. Whe
       <h2>📩 Want Your Own AI System?</h2>
       <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:20px">I built this entire site with AI — autonomous research, content generation, live updates, email campaigns, chatbot, and analytics. <strong style="color:#e2e8f0">Let me build yours.</strong></p>
       <div class="form-box" style="margin:0">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
+        <input type="text" placeholder="Your Name" class="fc-name">
+        <input type="email" placeholder="Your Email" class="fc-email">
         <textarea placeholder="What do you need built? (e.g. lead gen site, AI chatbot, automation pipeline)"></textarea>
         <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAADvAzbxahit47NjU" data-callback="onTurnstileSuccess" style="margin-bottom:12px"></div>
         <button onclick="submitContact()" style="font-size:15px;font-weight:700;letter-spacing:0.5px">🚀 Start the Conversation</button>
+        <div id="form-status" style="display:none;margin-top:12px;padding:10px 12px;border-radius:6px;font-size:12px;line-height:1.4"></div>
       </div>
       <div style="margin-top:14px;padding:10px 14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:6px;display:flex;align-items:center;gap:10px">
         <span style="color:var(--gold);font-size:18px">🏢</span>
@@ -804,16 +805,61 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
     var fb = document.querySelector('.form-box');
     var ins = fb.querySelectorAll('input:not(.hp-field), textarea');
     var hp = fb.querySelector('.hp-field');
+    var status = fb.querySelector('#form-status');
+    var nameEl = fb.querySelector('.fc-name');
+    var emailEl = fb.querySelector('.fc-email');
     var name = ins[0].value.trim();
     var email = ins[1].value.trim();
     var message = ins[2].value.trim();
     var honeypot = hp ? hp.value : '';
-    if (!name || !email) { alert('Please fill in your name and email.'); return; }
-    if (honeypot) { /* bot: silently act like it worked */ return; }
-    if (!turnstileToken) { alert('Please complete the verification (it usually runs automatically).'); return; }
+
+    function showStatus(kind, msg) {
+      status.style.display = 'block';
+      if (kind === 'ok') {
+        status.style.background = 'rgba(34,197,94,0.12)';
+        status.style.border = '1px solid rgba(34,197,94,0.3)';
+        status.style.color = '#22c55e';
+      } else if (kind === 'err') {
+        status.style.background = 'rgba(239,68,68,0.12)';
+        status.style.border = '1px solid rgba(239,68,68,0.3)';
+        status.style.color = '#fca5a5';
+      } else {
+        status.style.background = 'rgba(212,175,55,0.06)';
+        status.style.border = '1px solid rgba(212,175,55,0.15)';
+        status.style.color = 'var(--gold)';
+      }
+      status.textContent = msg;
+    }
+    function clearFieldErrors() {
+      nameEl.style.borderColor = '';
+      emailEl.style.borderColor = '';
+    }
+    function highlightField(which) {
+      if (which === 'name') nameEl.style.borderColor = '#ef4444';
+      if (which === 'email') emailEl.style.borderColor = '#ef4444';
+    }
+    function resetBtn(btn) {
+      btn.textContent = '🚀 Start the Conversation';
+      btn.style.background = '';
+      btn.disabled = false;
+    }
+
+    clearFieldErrors();
+
+    if (!name || !email) {
+      showStatus('err', 'Please fill in your name and email.');
+      highlightField(!name ? 'name' : 'email');
+      return;
+    }
+    if (honeypot) { showStatus('ok', '✓ Sent!'); return; }
+    if (!turnstileToken) {
+      showStatus('err', 'Hold on — the verification is still loading. Try again in a second.');
+      return;
+    }
     var btn = fb.querySelector('button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
+    showStatus('info', 'Sending...');
     fetch('/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -821,16 +867,27 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
     })
     .then(function(r) { return r.json(); })
     .then(function(d) {
+      if (d && d.success === false) {
+        // Real validation error — show it, keep the form filled
+        showStatus('err', d.error || 'Something looked off. Please check the form.');
+        if (d.field) highlightField(d.field);
+        resetBtn(btn);
+        return;
+      }
+      // Success (real or bot-decoy)
+      showStatus('ok', '✓ Sent! I\'ll be in touch within 24 hours.');
       btn.textContent = '✓ Sent!';
       btn.style.background = '#22c55e';
       ins[0].value = ''; ins[1].value = ''; ins[2].value = '';
-      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 3000);
+      clearFieldErrors();
+      setTimeout(function() {
+        resetBtn(btn);
+        status.style.display = 'none';
+      }, 5000);
     })
     .catch(function() {
-      btn.textContent = 'Error \u2014 Retry';
-      btn.style.background = '#ef4444';
-      btn.disabled = false;
-      setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+      showStatus('err', 'Network error — please try again.');
+      resetBtn(btn);
     });
   }
 
@@ -859,9 +916,7 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
         .then(function() {
           sessionStorage.setItem('tracked', '1');
         })
-        .catch(function(err) {
-          console.log('Analytics tracking failed:', err);
-        });
+        .catch(function() { /* analytics tracking failed — silently ignore */ });
     }
     
     // Load and display real stats from analytics server
