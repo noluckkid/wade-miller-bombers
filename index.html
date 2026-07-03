@@ -303,6 +303,7 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 /* ── EXPANDABLE CARDS ── */
 
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -679,6 +680,8 @@ The real juice? Brown knew he was better than Maier. So did the locker room. Whe
         <input type="text" placeholder="Your Name">
         <input type="email" placeholder="Your Email">
         <textarea placeholder="What do you need built? (e.g. lead gen site, AI chatbot, automation pipeline)"></textarea>
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADvAzbxahit47NjU" data-callback="onTurnstileSuccess" style="margin-bottom:12px"></div>
         <button onclick="submitContact()" style="font-size:15px;font-weight:700;letter-spacing:0.5px">🚀 Start the Conversation</button>
       </div>
       <div style="margin-top:14px;padding:10px 14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:6px;display:flex;align-items:center;gap:10px">
@@ -787,20 +790,34 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
   }
 
   // Contact form
+  var formToken = '';
+  var turnstileToken = '';
+  // Turnstile callback — fired when the widget validates the visitor
+  window.onTurnstileSuccess = function(token) { turnstileToken = token; };
+  // Mint a server-side token on page load (proves a real browser session, not a bot)
+  fetch('/token', {method: 'GET', credentials: 'same-origin'})
+    .then(function(r){ return r.json(); })
+    .then(function(d){ formToken = d && d.t ? d.t : ''; })
+    .catch(function(){ formToken = ''; });
+
   function submitContact() {
     var fb = document.querySelector('.form-box');
-    var ins = fb.querySelectorAll('input, textarea');
+    var ins = fb.querySelectorAll('input:not(.hp-field), textarea');
+    var hp = fb.querySelector('.hp-field');
     var name = ins[0].value.trim();
     var email = ins[1].value.trim();
     var message = ins[2].value.trim();
+    var honeypot = hp ? hp.value : '';
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
+    if (honeypot) { /* bot: silently act like it worked */ return; }
+    if (!turnstileToken) { alert('Please complete the verification (it usually runs automatically).'); return; }
     var btn = fb.querySelector('button');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     fetch('/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name: name, email: email, message: message})
+      body: JSON.stringify({name: name, email: email, message: message, website: honeypot, t: formToken, "cf-turnstile-response": turnstileToken})
     })
     .then(function(r) { return r.json(); })
     .then(function(d) {
