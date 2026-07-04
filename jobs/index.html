@@ -155,17 +155,46 @@
   th:hover { color: var(--gold); }
   th .sort-arrow { color: var(--gold); margin-left: 4px; font-size: 10px; }
   td { padding: 12px 14px; border-top: 1px solid var(--border); vertical-align: top; }
-  tbody tr { transition: background 0.1s; }
+  tbody tr { transition: background 0.1s; cursor: pointer; }
   tbody tr:hover { background: var(--bg-row-hover); }
   tbody tr.is-new { background: rgba(212, 175, 55, 0.04); }
   tbody tr.is-new:hover { background: rgba(212, 175, 55, 0.08); }
+  /* Make the row clickable via JS — covers whole row, not just title */
+  .row-link-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+  }
+  .role-cell, .company-cell, .loc-cell, .salary-cell, .date-cell, .match-cell {
+    position: relative;
+  }
+  .role-cell a {
+    position: relative;
+    z-index: 2;
+  }
   .role-cell a {
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px dotted var(--border);
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
   }
-  .role-cell a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .role-cell a::after {
+    content: " ↗";
+    color: var(--text-faint);
+    font-size: 11px;
+    margin-left: 2px;
+    transition: color 0.15s;
+  }
+  .role-cell a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .role-cell a:hover::after {
+    color: var(--gold);
+  }
+  tbody tr.is-new .role-cell a::after { color: var(--gold); opacity: 0.6; }
   .new-badge {
     display: inline-block;
     background: var(--gold);
@@ -177,6 +206,31 @@
     margin-left: 6px;
     letter-spacing: 0.5px;
     vertical-align: middle;
+  }
+  .source-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .source-linkedin {
+    background: rgba(10, 102, 194, 0.15);
+    color: #6ba3e0;
+    border: 1px solid rgba(10, 102, 194, 0.3);
+  }
+  .source-jobs {  /* falls through from "job bank" -> "jobbank" */
+    background: rgba(6, 182, 212, 0.15);
+    color: #5dd5e8;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+  .source-eluta {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
   }
   .salary-cell { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .salary-cell .badge { font-weight: 600; }
@@ -249,10 +303,16 @@
 
   <div class="controls">
     <input type="search" id="search" placeholder="Search title or company…" autocomplete="off">
-    <div class="filter-group">
+    <div class="filter-group" data-filter="status">
       <button data-status="all" class="active">All</button>
       <button data-status="new">New</button>
       <button data-status="ongoing">Ongoing</button>
+    </div>
+    <div class="filter-group" data-filter="source">
+      <button data-source="all" class="active">Any Source</button>
+      <button data-source="LinkedIn">LinkedIn</button>
+      <button data-source="Job Bank">Job Bank</button>
+      <button data-source="Eluta">Eluta</button>
     </div>
     <select id="salary-filter">
       <option value="0">All salaries</option>
@@ -273,6 +333,7 @@
         <tr>
           <th data-sort="status" style="width: 50px;"></th>
           <th data-sort="title">Role</th>
+          <th data-sort="source" class="hide-mobile" style="width: 90px;">Source</th>
           <th data-sort="company" class="hide-mobile">Company</th>
           <th data-sort="location" class="hide-mobile">Location</th>
           <th data-sort="salary_max" style="width: 130px;">Salary</th>
@@ -281,7 +342,7 @@
         </tr>
       </thead>
       <tbody id="jobs-tbody">
-        <tr><td colspan="7" class="empty">Loading jobs…</td></tr>
+        <tr><td colspan="8" class="empty">Loading jobs…</td></tr>
       </tbody>
     </table>
   </div>
@@ -293,7 +354,7 @@
 
 <script>
 let ALL_JOBS = [];
-let FILTER = { status: 'all', search: '', salary: 0, sort: 'score' };
+let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score' };
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -308,6 +369,7 @@ function salaryBadge(max) {
 function render() {
   let jobs = ALL_JOBS.slice();
   if (FILTER.status !== 'all') jobs = jobs.filter(j => j.status === FILTER.status);
+  if (FILTER.source !== 'all') jobs = jobs.filter(j => (j.source || 'LinkedIn') === FILTER.source);
   if (FILTER.search) {
     const q = FILTER.search.toLowerCase();
     jobs = jobs.filter(j =>
@@ -339,7 +401,7 @@ function render() {
 
   const tbody = $('#jobs-tbody');
   if (jobs.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="7" class="empty">No jobs match your filters.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" class="empty">No jobs match your filters.</td></tr>';
     return;
   }
   tbody.innerHTML = jobs.map((j, idx) => {
@@ -348,11 +410,12 @@ function render() {
     const matchPct = Math.min(100, j.score);
     const matchFill = `width: ${matchPct}%`;
     return `
-      <tr class="${j.status === 'new' ? 'is-new' : ''}">
+      <tr class="${j.status === 'new' ? 'is-new' : ''}" data-url="${j.url}">
         <td>${newBadge}</td>
         <td class="role-cell">
-          <a href="${j.url}" target="_blank" rel="noopener">${escape(j.title)}</a>
+          <a href="${j.url}" target="_blank" rel="noopener" data-row-link>${escape(j.title)}</a>
         </td>
+        <td class="source-cell hide-mobile"><span class="source-badge source-${(j.source || 'linkedin').toLowerCase().replace(/[^a-z]/g, '')}">${escape(j.source || 'LinkedIn')}</span></td>
         <td class="company-cell hide-mobile">${escape(j.company || '—')}</td>
         <td class="loc-cell hide-mobile">${escape(j.location || '—')}</td>
         <td class="salary-cell"><span class="badge ${sb.class}">${sb.text}</span></td>
@@ -364,6 +427,15 @@ function render() {
       </tr>
     `;
   }).join('');
+
+  // Make every row clickable — but only when not clicking the title link itself
+  // (avoids double-open race). The link's z-index:2 puts it above the row's click handler.
+  tbody.querySelectorAll('tr[data-url]').forEach(tr => {
+    tr.addEventListener('click', (e) => {
+      if (e.target.closest('a[data-row-link]')) return; // let the link handle it
+      window.open(tr.dataset.url, '_blank', 'noopener');
+    });
+  });
 }
 
 function escape(s) {
@@ -415,12 +487,16 @@ async function load() {
 
 // Wire up controls
 $('#search').addEventListener('input', e => { FILTER.search = e.target.value; render(); });
-$$('.filter-group button').forEach(b => {
-  b.addEventListener('click', () => {
-    $$('.filter-group button').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    FILTER.status = b.dataset.status;
-    render();
+$$('.filter-group').forEach(group => {
+  const filterType = group.dataset.filter; // 'status' or 'source'
+  group.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      group.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      if (filterType === 'status') FILTER.status = b.dataset.status;
+      else if (filterType === 'source') FILTER.source = b.dataset.source;
+      render();
+    });
   });
 });
 $('#salary-filter').addEventListener('change', e => { FILTER.salary = parseInt(e.target.value); render(); });
