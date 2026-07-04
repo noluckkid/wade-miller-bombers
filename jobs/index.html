@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Watch — Rodrigo · NLK</title>
+<style>
+  :root {
+    --bg: #050810;
+    --bg-card: #0a0e17;
+    --bg-row: #0c1020;
+    --bg-row-hover: #14182a;
+    --border: #1f2540;
+    --text: #e6e6f0;
+    --text-dim: #8a8fa3;
+    --text-faint: #5a5f73;
+    --gold: #d4af37;
+    --gold-light: #f0e6c0;
+    --gold-dark: #b8960f;
+    --teal: #06b6d4;
+    --green: #10b981;
+    --red: #ef4444;
+    --amber: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand h1 {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(212,175,55,0.3));
+  }
+  .brand .tag {
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .meta { text-align: right; font-size: 12px; color: var(--text-dim); }
+  .meta .updated { color: var(--gold); }
+
+  /* Stats bar */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat .num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat .label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .controls input[type="search"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 14px;
+  }
+  .controls input[type="search"]:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .controls select, .controls button {
+    padding: 10px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .controls button.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    font-weight: 600;
+  }
+  .controls button:hover { border-color: var(--gold); }
+  .filter-group { display: flex; gap: 6px; }
+
+  /* Table */
+  .table-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: var(--bg-row); }
+  th {
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  th:hover { color: var(--gold); }
+  th .sort-arrow { color: var(--gold); margin-left: 4px; font-size: 10px; }
+  td { padding: 12px 14px; border-top: 1px solid var(--border); vertical-align: top; }
+  tbody tr { transition: background 0.1s; }
+  tbody tr:hover { background: var(--bg-row-hover); }
+  tbody tr.is-new { background: rgba(212, 175, 55, 0.04); }
+  tbody tr.is-new:hover { background: rgba(212, 175, 55, 0.08); }
+  .role-cell a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px dotted var(--border);
+  }
+  .role-cell a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .new-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 6px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  .salary-cell { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .salary-cell .badge { font-weight: 600; }
+  .salary-cell .badge-100k { color: var(--gold); }
+  .salary-cell .badge-75k { color: var(--teal); }
+  .salary-cell .badge-under { color: var(--red); }
+  .salary-cell .badge-na { color: var(--text-faint); }
+  .match-cell { text-align: center; }
+  .match-bar {
+    display: inline-block;
+    width: 60px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  .match-bar-fill { height: 100%; background: var(--gold); }
+  .match-num {
+    color: var(--text-dim);
+    font-size: 11px;
+    margin-left: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .date-cell { color: var(--text-dim); white-space: nowrap; font-size: 12px; }
+  .company-cell { color: var(--text-dim); white-space: nowrap; }
+  .loc-cell { color: var(--text-dim); white-space: nowrap; }
+
+  /* Empty state */
+  .empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: var(--text-dim);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 11px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 16px 8px 48px; }
+    .brand h1 { font-size: 18px; }
+    th, td { padding: 8px 10px; font-size: 12px; }
+    .hide-mobile { display: none; }
+    .match-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <h1>Job Watch</h1>
+      <span class="tag">Rodrigo · NLK</span>
+    </div>
+    <div class="meta">
+      <div class="updated" id="updated">Loading…</div>
+      <div>Winnipeg / Manitoba · $75K+</div>
+    </div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="controls">
+    <input type="search" id="search" placeholder="Search title or company…" autocomplete="off">
+    <div class="filter-group">
+      <button data-status="all" class="active">All</button>
+      <button data-status="new">New</button>
+      <button data-status="ongoing">Ongoing</button>
+    </div>
+    <select id="salary-filter">
+      <option value="0">All salaries</option>
+      <option value="75000">$75K+</option>
+      <option value="100000">$100K+</option>
+    </select>
+    <select id="sort">
+      <option value="score">Sort: Best match</option>
+      <option value="salary_max">Sort: Salary (high→low)</option>
+      <option value="date">Sort: Newest first</option>
+      <option value="title">Sort: A–Z</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table id="jobs-table">
+      <thead>
+        <tr>
+          <th data-sort="status" style="width: 50px;"></th>
+          <th data-sort="title">Role</th>
+          <th data-sort="company" class="hide-mobile">Company</th>
+          <th data-sort="location" class="hide-mobile">Location</th>
+          <th data-sort="salary_max" style="width: 130px;">Salary</th>
+          <th data-sort="date" class="hide-mobile" style="width: 110px;">Posted</th>
+          <th data-sort="score" style="width: 100px;">Match</th>
+        </tr>
+      </thead>
+      <tbody id="jobs-tbody">
+        <tr><td colspan="7" class="empty">Loading jobs…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Auto-updated weekly · <a href="https://wademillerbombers.com">wademillerbombers.com</a>
+  </footer>
+</div>
+
+<script>
+let ALL_JOBS = [];
+let FILTER = { status: 'all', search: '', salary: 0, sort: 'score' };
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+function salaryBadge(max) {
+  if (!max || max === 0) return { class: 'badge-na', text: '—' };
+  if (max >= 100000) return { class: 'badge-100k', text: '💰💰 $' + max.toLocaleString() };
+  if (max >= 75000) return { class: 'badge-75k', text: '💰 $' + max.toLocaleString() };
+  return { class: 'badge-under', text: '💸 $' + max.toLocaleString() };
+}
+
+function render() {
+  let jobs = ALL_JOBS.slice();
+  if (FILTER.status !== 'all') jobs = jobs.filter(j => j.status === FILTER.status);
+  if (FILTER.search) {
+    const q = FILTER.search.toLowerCase();
+    jobs = jobs.filter(j =>
+      j.title.toLowerCase().includes(q) || j.company.toLowerCase().includes(q)
+    );
+  }
+  if (FILTER.salary > 0) {
+    jobs = jobs.filter(j => j.salary_annual_max >= FILTER.salary);
+  }
+  if (FILTER.sort === 'score') jobs.sort((a, b) => b.score - a.score);
+  else if (FILTER.sort === 'salary_max') jobs.sort((a, b) => b.salary_annual_max - a.salary_annual_max);
+  else if (FILTER.sort === 'date') {
+    const d = (s) => {
+      s = (s || '').toLowerCase();
+      if (s.includes('hour')) return 0.01;
+      if (s.includes('day')) {
+        const m = s.match(/(\d+)/); return m ? parseInt(m[1]) : 1;
+      }
+      if (s.includes('week')) {
+        const m = s.match(/(\d+)/); return m ? parseInt(m[1]) * 7 : 7;
+      }
+      if (s.includes('month')) {
+        const m = s.match(/(\d+)/); return m ? parseInt(m[1]) * 30 : 30;
+      }
+      return 999;
+    };
+    jobs.sort((a, b) => d(a.date) - d(b.date));
+  } else if (FILTER.sort === 'title') jobs.sort((a, b) => a.title.localeCompare(b.title));
+
+  const tbody = $('#jobs-tbody');
+  if (jobs.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="empty">No jobs match your filters.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = jobs.map((j, idx) => {
+    const sb = salaryBadge(j.salary_annual_max);
+    const newBadge = j.status === 'new' ? '<span class="new-badge">NEW</span>' : '';
+    const matchPct = Math.min(100, j.score);
+    const matchFill = `width: ${matchPct}%`;
+    return `
+      <tr class="${j.status === 'new' ? 'is-new' : ''}">
+        <td>${newBadge}</td>
+        <td class="role-cell">
+          <a href="${j.url}" target="_blank" rel="noopener">${escape(j.title)}</a>
+        </td>
+        <td class="company-cell hide-mobile">${escape(j.company || '—')}</td>
+        <td class="loc-cell hide-mobile">${escape(j.location || '—')}</td>
+        <td class="salary-cell"><span class="badge ${sb.class}">${sb.text}</span></td>
+        <td class="date-cell hide-mobile">${escape(j.date || '—')}</td>
+        <td class="match-cell">
+          <span class="match-bar"><span class="match-bar-fill" style="${matchFill}"></span></span>
+          <span class="match-num">${j.score}</span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function escape(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+function renderStats(summary) {
+  const items = [
+    { num: summary.total_relevant, label: 'Total Jobs' },
+    { num: summary.new_count, label: 'New This Week' },
+    { num: summary.ongoing_count, label: 'Ongoing' },
+    { num: summary.over_100k, label: '$100K+' },
+    { num: summary.over_75k, label: '$75K+' },
+    { num: summary.salary_known, label: 'Salary Listed' },
+  ];
+  $('#stats').innerHTML = items.map(i => `
+    <div class="stat">
+      <div class="num">${i.num}</div>
+      <div class="label">${i.label}</div>
+    </div>
+  `).join('');
+}
+
+function formatUpdated(iso) {
+  try {
+    const d = new Date(iso);
+    return 'Updated ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
+      ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  } catch { return iso; }
+}
+
+async function load() {
+  try {
+    const res = await fetch('rodrigo-jobs.json?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    ALL_JOBS = data.jobs || [];
+    renderStats(data.summary || {});
+    $('#updated').textContent = formatUpdated(data.generated_at);
+    render();
+  } catch (e) {
+    $('#updated').textContent = '⚠️ ' + e.message;
+    $('#jobs-tbody').innerHTML =
+      '<tr><td colspan="7" class="empty">No job data yet. Run the weekly scan first.</td></tr>';
+  }
+}
+
+// Wire up controls
+$('#search').addEventListener('input', e => { FILTER.search = e.target.value; render(); });
+$$('.filter-group button').forEach(b => {
+  b.addEventListener('click', () => {
+    $$('.filter-group button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    FILTER.status = b.dataset.status;
+    render();
+  });
+});
+$('#salary-filter').addEventListener('change', e => { FILTER.salary = parseInt(e.target.value); render(); });
+$('#sort').addEventListener('change', e => { FILTER.sort = e.target.value; render(); });
+
+// Header click sorting
+$$('th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const field = th.dataset.sort;
+    if (field === 'status' || field === 'location') return;
+    const sel = $('#sort');
+    const mapping = {
+      title: 'title', date: 'date', salary_max: 'salary_max', score: 'score'
+    };
+    if (mapping[field]) {
+      sel.value = mapping[field];
+      FILTER.sort = mapping[field];
+      render();
+    }
+  });
+});
+
+load();
+</script>
+</body>
+</html>
