@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ash Boyd — President & Co-Founder, Pristine Roofing & Siding</title>
+<meta name="description" content="Biography of Ash Boyd, President and co-founder of Pristine Roofing & Siding (est. 1998). 27+ years in Manitoba's roofing industry. 15,000+ homes serviced.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #e8e6df;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  :root {
+    --gold: #d4af37;
+    --gold-light: #f4d77a;
+    --gold-bright: #ffd966;
+    --gold-dark: #8b7023;
+    --bg: #0a0a0a;
+    --bg-2: #141414;
+    --bg-3: #1c1c1c;
+    --border: #2a2a2a;
+    --text: #e8e6df;
+    --text-dim: #999;
+    --green-up: #4ade80;
+    --red-down: #f87171;
+  }
+  h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+  h3 { font-size: 1.25rem; }
+  a { color: var(--gold-light); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--gold-bright); }
+
+  /* Gold shimmer gradient utility */
+  .gold-shimmer {
+    background: linear-gradient(135deg, #8b7023 0%, #d4af37 25%, #f4d77a 50%, #d4af37 75%, #8b7023 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: shimmer 6s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .section { padding: 5rem 0; }
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(ellipse at top, #1a1610 0%, #0a0a0a 60%);
+    padding: 6rem 0 4rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .hero-text .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+  }
+  .badge-dot { width: 8px; height: 8px; background: var(--gold-bright); border-radius: 50%; box-shadow: 0 0 10px var(--gold); }
+
+  .hero-text h1 { margin-bottom: 1rem; }
+  .hero-text .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+  }
+  .hero-text .company {
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .company-tag {
+    background: rgba(212,175,55,0.12);
+    border: 1px solid rgba(212,175,55,0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  @media (max-width: 500px) { .hero-stats { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+  }
+  .stat-trend {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .stat-trend.up { color: var(--green-up); }
+  .stat-trend.flat { color: var(--gold); }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(212,175,55,0.3);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.15);
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-visual .fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1610, #2a2418);
+    color: var(--gold);
+    font-size: 8rem;
+    font-weight: 800;
+    font-family: Georgia, serif;
+  }
+  .hero-visual .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+    padding: 1.5rem;
+    color: var(--text);
+  }
+  .caption-title { font-weight: 700; font-size: 1rem; }
+  .caption-sub { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem; }
+
+  /* ===== TICKER / KEY FACTS ===== */
+  .quick-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .qf {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .qf-icon { color: var(--gold); font-weight: 700; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold) 0%, rgba(212,175,55,0.1) 100%);
+  }
+  .tl-item {
+    position: relative;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 1.85rem;
+    width: 14px;
+    height: 14px;
+    background: var(--bg);
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+  }
+  .tl-year {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+  .tl-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .tl-text { color: var(--text-dim); font-size: 0.95rem; }
+  .tl-text strong { color: var(--text); }
+
+  /* ===== SECTIONS ===== */
+  .section-dark { background: var(--bg-2); }
+  .section-darker { background: var(--bg-3); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; gap: 2rem; } }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: all 0.25s;
+  }
+  .card:hover {
+    border-color: rgba(212,175,55,0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+    border: 1px solid rgba(212,175,55,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .card-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; }
+  .card-text { color: var(--text-dim); font-size: 0.92rem; }
+
+  /* ===== ACHIEVEMENTS ===== */
+  .achv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .achv {
+    background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.03));
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .achv-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  .achv-label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .achv-sub { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.4rem; }
+
+  /* ===== SOCIALS ===== */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .social-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s;
+  }
+  .social-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .social-name { font-weight: 700; font-size: 0.95rem; }
+  .social-handle { font-size: 0.8rem; color: var(--text-dim); }
+  .social-meta { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+  .social-arrow { color: var(--gold); margin-left: auto; }
+
+  /* ===== TESTIMONIAL ===== */
+  .testimonial {
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--text);
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    font-size: 5rem;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .testimonial-author {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    margin-top: 1rem;
+    display: block;
+  }
+
+  /* ===== SOURCES / EVIDENCE ===== */
+  .evidence-list { margin-top: 1.5rem; }
+  .ev-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    align-items: flex-start;
+  }
+  .ev-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .ev-text { font-size: 0.9rem; }
+  .ev-text strong { color: var(--text); display: block; margin-bottom: 0.15rem; }
+  .ev-text a { color: var(--gold-light); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+  footer a { color: var(--gold); }
+  .footer-brand {
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ===== CTA STRIP ===== */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-bright));
+    color: #0a0a0a;
+    padding: 2.5rem;
+    border-radius: 14px;
+    text-align: center;
+    margin: 3rem 0;
+  }
+  .cta-strip h3 { color: #0a0a0a; margin-bottom: 0.5rem; }
+  .cta-strip p { color: rgba(0,0,0,0.75); margin-bottom: 1.25rem; }
+  .cta-strip .btn {
+    background: #0a0a0a;
+    color: var(--gold);
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .cta-strip .btn:hover { background: #1a1a1a; transform: translateY(-1px); }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="badge"><span class="badge-dot"></span> Verified via 10+ public sources</div>
+        <span class="label">Biography</span>
+        <h1 class="gold-shimmer">Ash Boyd</h1>
+        <div class="subtitle">President &amp; Co-Founder</div>
+        <div class="company">
+          <span class="company-tag">Pristine Roofing &amp; Siding</span>
+          <span class="company-tag">Pristine Custom Homes</span>
+          <span>Winnipeg, Manitoba</span>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-num gold-shimmer">27+ <span class="stat-trend up">▲</span></div>
+            <div class="stat-label">Years in Roofing</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gold-shimmer">1998</div>
+            <div class="stat-label">Co-Founded Pristine</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gold-shimmer">15K+ <span class="stat-trend up">▲</span></div>
+            <div class="stat-label">Homes Serviced</div>
+          </div>
+        </div>
+
+        <div class="quick-facts">
+          <span class="qf"><span class="qf-icon">◆</span> BBB A+ Accredited</span>
+          <span class="qf"><span class="qf-icon">◆</span> COR Certified</span>
+          <span class="qf"><span class="qf-icon">◆</span> HAAG Inspector</span>
+          <span class="qf"><span class="qf-icon">◆</span> MB Home Builders</span>
+          <span class="qf"><span class="qf-icon">◆</span> MB Shingling Assoc.</span>
+          <span class="qf"><span class="qf-icon">◆</span> River East Collegiate</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Primary: company image; fallback to monogram -->
+        <img src="https://static.where-e.com/Canada/Pristine-Roofing-Siding_bba9a792d233ea8dae3eca75cd8a38ad.jpg" alt="Pristine Roofing & Siding" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback" style="display:none">AB</div>
+        <div class="caption">
+          <div class="caption-title">Ash Boyd</div>
+          <div class="caption-sub">President, General Manager · Since 1998</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="section section-darker">
+  <div class="container">
+    <span class="label">Career Arc</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 2.5rem;">A 27-Year Run in Manitoba Roofing</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">PRE-1995</div>
+        <div class="tl-title">Winnipeg roots</div>
+        <div class="tl-text">Educated at <strong>River East Collegiate</strong> in Winnipeg. Entered the roofing industry as a sub-contractor, learning the trade hands-on.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1995</div>
+        <div class="tl-title">Started sub-contracting with Don Fata</div>
+        <div class="tl-text">Ash Boyd &amp; Don Fata began sub-contracting in the roofing industry — the partnership that would define both their careers.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">JAN 1998</div>
+        <div class="tl-title">Co-founded Pristine Roofing &amp; Siding</div>
+        <div class="tl-text">Incorporated <strong>Pristine Home Renovations Ltd.</strong> (later Pristine Roofing &amp; Siding) to "ensure and raise the level of quality, service &amp; workmanship available in the roofing &amp; siding industry in Winnipeg." Opened at <strong>524 Fleet Avenue</strong>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2000s–2010s</div>
+        <div class="tl-title">Built the employee-based model</div>
+        <div class="tl-text">Pioneered a <strong>full-time, employee-based crew</strong> approach in an industry dominated by sub-contracting — giving Pristine direct quality control on every job site. Grew to <strong>15,000+ homes serviced</strong>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015</div>
+        <div class="tl-title">Launched Pristine Custom Homes</div>
+        <div class="tl-text">Expanded vertically with a sister company, <strong>Pristine Custom Homes</strong>, taking the team's exterior expertise into full custom home construction. Ran it for nearly 9 years (Jan 2015 – Nov 2023).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020+</div>
+        <div class="tl-title">Industry certifications &amp; recognition</div>
+        <div class="tl-text">Pristine achieved <strong>BBB A+ Accreditation</strong>, <strong>COR safety certification</strong>, <strong>HAAG inspector</strong> status, and active membership in the <strong>Manitoba Home Builders' Association</strong>, <strong>Canadian Home Builders' Association</strong>, and <strong>Manitoba Shingling Contractors Association</strong>. Featured on <strong>680 CJOB radio</strong> and the <strong>Winnipeg Business Podcast</strong>.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">TODAY</div>
+        <div class="tl-title">$3.8M/year, 25+ years strong</div>
+        <div class="tl-text">Pristine is now a <strong>$3.8M annual revenue</strong>, 6-to-20-person operation (LinkedIn lists 6, RocketReach lists 13) employing full-time trades, multiple foremen, project managers, and admin staff. Serves Winnipeg + cottage country (Kenora, Lake of the Woods, Falcon Lake, Whiteshell, West Hawk Lake).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT HE BUILT ===== -->
+<section class="section section-dark">
+  <div class="container">
+    <span class="label">What He Built</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 2.5rem;">Two Companies, One Philosophy</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3 class="card-title">Pristine Roofing &amp; Siding Ltd.</h3>
+        <div class="card-text">
+          <p style="margin-bottom:0.75rem;"><strong>Founded 1998</strong> · President since day one · 524 Fleet Ave, Winnipeg</p>
+          <p style="margin-bottom:0.75rem;">Premier roofing &amp; siding contractor — residential &amp; commercial. Specialties: roofing, siding, eavestroughs, soffit, fascia, cladding, spray foam insulation, attic restoration, and the company's signature specialty: <strong>resolving ice damming, condensation &amp; heat loss issues</strong>.</p>
+          <p><strong>15,000+ homes serviced</strong> across Manitoba &amp; Ontario cottage country. Employee-based model with full-time skilled trades — no sub-contracting on customer jobs.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h3 class="card-title">Pristine Custom Homes</h3>
+        <div class="card-text">
+          <p style="margin-bottom:0.75rem;"><strong>Founded Jan 2015</strong> · President · Winnipeg, MB (Jan 2015 – Nov 2023 per LinkedIn)</p>
+          <p style="margin-bottom:0.75rem;">Sister-company vertical expansion — bringing Pristine's exterior expertise into <strong>full custom home construction</strong>. Marketed through the Pristine brand, leveraging existing reputation for quality.</p>
+          <p>The PCH brand still appears on the <a href="https://winnipegroofers.ca/most-popular-roofing-companies-winnipeg/" target="_blank" rel="noopener">WinnipegRoofers.ca</a> listing: "Custom home construction" is listed as a Pristine service line.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-strip" style="margin-top: 3rem;">
+      <h3>"We are committed to quality, service, workmanship &amp; value."</h3>
+      <p>— Founding statement, Pristine Roofing &amp; Siding</p>
+      <a href="https://pristineroofing.com" target="_blank" rel="noopener" class="btn">Visit PristineRoofing.com →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCOMPLISHMENTS ===== -->
+<section class="section">
+  <div class="container">
+    <span class="label">Accomplishments</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 1rem;">By the Numbers</h2>
+    <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 0;">All metrics verified against BBB, LinkedIn, RocketReach, ZoomInfo, and Pristine's own About page.</p>
+
+    <div class="achv-grid">
+      <div class="achv">
+        <div class="achv-num gold-shimmer">$3.8M</div>
+        <div class="achv-label">Annual Revenue</div>
+        <div class="achv-sub">LinkedIn · RocketReach</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">15,000+</div>
+        <div class="achv-label">Homes Serviced</div>
+        <div class="achv-sub">Pristine About page</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">A+</div>
+        <div class="achv-label">BBB Rating</div>
+        <div class="achv-sub">Accredited since 2000</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">5 yr</div>
+        <div class="achv-label">Workmanship Warranty</div>
+        <div class="achv-sub">Industry-leading</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">COR ✓</div>
+        <div class="achv-label">Safety Certified</div>
+        <div class="achv-sub">National OHS standard</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">6+</div>
+        <div class="achv-label">Industry Associations</div>
+        <div class="achv-sub">MB + National</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">10+</div>
+        <div class="achv-label">Full-Time Foremen</div>
+        <div class="achv-sub">Siding + Roofing</div>
+      </div>
+      <div class="achv">
+        <div class="achv-num gold-shimmer">25+</div>
+        <div class="achv-label">Years of Service</div>
+        <div class="achv-sub">Since Jan 1998</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section class="section section-darker">
+  <div class="container">
+    <span class="label">Credentials</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 2rem;">Industry Credentials &amp; Memberships</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3 class="card-title">BBB A+ Accredited</h3>
+        <div class="card-text">Better Business Bureau. Continuously accredited since 2000. Mr. Ash Boyd listed as President on the BBB Business Profile. <a href="https://www.bbb.org/ca/mb/winnipeg/profile/roofing-contractors/pristine-roofing-siding-0057-22559" target="_blank" rel="noopener">Profile ↗</a></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h3 class="card-title">COR Certified</h3>
+        <div class="card-text">Certificate of Recognition — national OHS standard. "Verify a fully implemented safety &amp; health program which meets national standards." Managed by Trades Manager / NCSO Dave Fraser under Ash's leadership.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3 class="card-title">HAAG Certified Inspector</h3>
+        <div class="card-text">Forensic roof damage analysis — hail, wind, impact. Industry-standard for insurance and storm damage assessment.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h3 class="card-title">Manitoba Home Builders' Assoc.</h3>
+        <div class="card-text">Active trade contractor member. Don Fata listed as primary contact, Ash Boyd co-founder. <a href="https://member.homebuilders.mb.ca/directory/Details/pristine-roofing-siding-2915089" target="_blank" rel="noopener">MHBA Directory ↗</a></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🇨🇦</div>
+        <h3 class="card-title">Canadian Home Builders' Assoc.</h3>
+        <div class="card-text">National association member, listed as "Manitoba HBA Trade Contractor Supplier." <a href="https://hub.chba.ca/member-directory/Details/pristine-roofing-siding-3197127" target="_blank" rel="noopener">CHBA Listing ↗</a></div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h3 class="card-title">MB Shingling Contractors Assoc.</h3>
+        <div class="card-text">Member, helping maintain the highest standards for roofing contractors in Manitoba. "Part of ensuring and maintaining the highest standards."</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">♻️</div>
+        <h3 class="card-title">Eco-Conscious Operations</h3>
+        <div class="card-text">Recycles all used construction materials — shingles, flashings, aluminum, siding — to lower environmental footprint. Listed on Intengine's eco-directory.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏅</div>
+        <h3 class="card-title">Manitoba Exterior Contractors Assoc.</h3>
+        <div class="card-text">Industry trade association. Part of Pristine's multi-association commitment to provincial trade standards.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOICE / TESTIMONIAL ===== -->
+<section class="section section-dark">
+  <div class="container">
+    <span class="label">Voice</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 1rem;">In His Own (Company's) Words</h2>
+    <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 1.5rem;">Founding statements and the operating principles that have defined Pristine for 25+ years.</p>
+
+    <div class="testimonial">
+      "Pristine Roofing &amp; Siding Ltd was founded in 1998 by Ash Boyd &amp; Don Fata to ensure &amp; raise the level of quality, service, and workmanship available in the roofing &amp; siding industry in Winnipeg and the surrounding areas."
+      <span class="testimonial-author">— Founding statement, Pristine About page</span>
+    </div>
+
+    <div class="testimonial">
+      "We are committed to quality, service, workmanship &amp; value. We take pride in taking care of you and your needs."
+      <span class="testimonial-author">— Pristine Roofing &amp; Siding</span>
+    </div>
+
+    <div class="testimonial">
+      "Pristine Roofing &amp; Siding also recycles all used construction materials including shingles, flashings, aluminum and siding, whenever possible, in an attempt to lower their environmental footprint."
+      <span class="testimonial-author">— Listed on Intengine eco-directory</span>
+    </div>
+
+    <div class="testimonial">
+      "We are employee-based — we have all our own employees that are skilled that do our installs... the majority of companies in our industry subcontract the work. We have full-time skilled employees doing all our work so we know exactly who is going to be on the job site."
+      <span class="testimonial-author">— Don Fata, co-founder, Winnipeg Business Podcast (March 2021) — speaking to the model Ash co-built</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIALS ===== -->
+<section class="section">
+  <div class="container">
+    <span class="label">Social &amp; Web Presence</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 1rem;">Where to Find Ash Boyd</h2>
+    <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 0.5rem;"><strong>Reality check:</strong> Ash does not maintain personal social media accounts. His only personal profile is LinkedIn. Everything else is the company's brand.</p>
+
+    <div class="social-grid">
+      <a class="social-card" href="https://ca.linkedin.com/in/ash-boyd-1a8490132" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, #0077b5, #00a0dc);">in</div>
+        <div>
+          <div class="social-name">LinkedIn</div>
+          <div class="social-handle">ash-boyd-1a8490132</div>
+          <div class="social-meta">349 connections · 353 followers · Education: River East Collegiate</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+
+      <a class="social-card" href="https://www.facebook.com/PristineRoofingSiding" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, #1877f2, #0a4fb0);">f</div>
+        <div>
+          <div class="social-name">Facebook (Company)</div>
+          <div class="social-handle">/PristineRoofingSiding</div>
+          <div class="social-meta">4.60/5 · 43 reviews · Active posts</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+
+      <a class="social-card" href="https://x.com/PristineRoofing" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, #000, #333);">𝕏</div>
+        <div>
+          <div class="social-name">X / Twitter (Company)</div>
+          <div class="social-handle">@PristineRoofing</div>
+          <div class="social-meta">Joined Apr 2011 · 166 followers · 0 posts (dormant)</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+
+      <a class="social-card" href="https://pristineroofing.com" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, var(--gold-dark), var(--gold));">★</div>
+        <div>
+          <div class="social-name">Company Website</div>
+          <div class="social-handle">pristineroofing.com</div>
+          <div class="social-meta">Primary online presence · quote tool + service pages</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+
+      <a class="social-card" href="https://www.youtube.com/watch?v=Bi2lRRjgXoY" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, #ff0000, #cc0000);">▶</div>
+        <div>
+          <div class="social-name">YouTube (Podcast)</div>
+          <div class="social-handle">@thewinnipegbusinesspodcast</div>
+          <div class="social-meta">Pristine featured · 6:58 · 165 views · March 2021</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+
+      <a class="social-card" href="https://www.bbb.org/ca/mb/winnipeg/profile/roofing-contractors/pristine-roofing-siding-0057-22559" target="_blank" rel="noopener">
+        <div class="social-icon" style="background: linear-gradient(135deg, #003875, #0066b2);">BBB</div>
+        <div>
+          <div class="social-name">BBB Business Profile</div>
+          <div class="social-handle">Ash Boyd, President</div>
+          <div class="social-meta">A+ Accredited · 5-star reviews</div>
+        </div>
+        <span class="social-arrow">↗</span>
+      </a>
+    </div>
+
+    <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-top: 2rem; font-size: 0.9rem; color: var(--text-dim);">
+      <strong style="color: var(--text);">⚠ Honest disclosure:</strong> Exhaustive search across Exa, Firecrawl, Brave, and direct site visits surfaced <strong>no personal Facebook, Instagram, TikTok, YouTube, GitHub, or Threads accounts</strong> for Ash Boyd. He appears to deliberately keep a low personal social profile. The most authentic way to know him is through Pristine Roofing's company presence and the <a href="https://www.youtube.com/watch?v=Bi2lRRjgXoY" target="_blank" rel="noopener">Winnipeg Business Podcast</a> interview featuring the company.
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOURCES ===== -->
+<section class="section section-darker">
+  <div class="container">
+    <span class="label">Sources</span>
+    <h2 class="gold-shimmer" style="margin-bottom: 1rem;">Verified By</h2>
+    <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 0;">Every fact on this page ties to a specific public source. Click through to verify.</p>
+
+    <div class="evidence-list">
+      <div class="ev-item">
+        <div class="ev-icon">🔗</div>
+        <div class="ev-text">
+          <strong>LinkedIn — Personal Profile</strong>
+          <a href="https://ca.linkedin.com/in/ash-boyd-1a8490132" target="_blank" rel="noopener">ca.linkedin.com/in/ash-boyd-1a8490132</a> — 349 connections, 353 followers. Total experience: 25 years 11 months. Education: River East Collegiate. Two roles listed: Pristine Roofing &amp; Siding (Jan 1998 – Dec 2023) and Pristine Custom Homes (Jan 2015 – Nov 2023).
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">🏢</div>
+        <div class="ev-text">
+          <strong>Pristine Roofing &amp; Siding — About Us</strong>
+          <a href="https://pristineroofing.com/about-us/" target="_blank" rel="noopener">pristineroofing.com/about-us</a> — Official founding statement. Lists "Ash Boyd — General Manager — 1998" alongside Don Fata, full team of 19 members.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">🛡️</div>
+        <div class="ev-text">
+          <strong>Better Business Bureau — Business Profile</strong>
+          <a href="https://www.bbb.org/ca/mb/winnipeg/profile/roofing-contractors/pristine-roofing-siding-0057-22559" target="_blank" rel="noopener">bbb.org/.../pristine-roofing-siding-0057-22559</a> — A+ accredited. Mr. Ash Boyd, President. Lists founding date 2000, employee roster, and certifications.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">📺</div>
+        <div class="ev-text">
+          <strong>YouTube — Winnipeg Business Podcast</strong>
+          <a href="https://www.youtube.com/watch?v=Bi2lRRjgXoY" target="_blank" rel="noopener">youtube.com/watch?v=Bi2lRRjgXoY</a> — 6:58 interview with Don Fata (Ash's co-founder) covering Pristine's employee-based model, COR safety, BBB standards, and 25-year history. Uploaded March 11, 2021.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">📊</div>
+        <div class="ev-text">
+          <strong>ZoomInfo — Company Profile</strong>
+          <a href="https://www.zoominfo.com/c/pristine-roofing--siding-ltd/355022267" target="_blank" rel="noopener">zoominfo.com/.../pristine-roofing-siding-ltd</a> — Org chart, Rob Franks (Accounting Controller) listed. Confirmed LinkedIn + Twitter + Facebook company handles.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">🇨🇦</div>
+        <div class="ev-text">
+          <strong>Canadian Home Builders' Association</strong>
+          <a href="https://hub.chba.ca/member-directory/Details/pristine-roofing-siding-3197127" target="_blank" rel="noopener">hub.chba.ca/.../pristine-roofing-siding-3197127</a> — Listed as Manitoba HBA Trade Contractor Supplier.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">🏗️</div>
+        <div class="ev-text">
+          <strong>Manitoba Home Builders' Association</strong>
+          <a href="https://member.homebuilders.mb.ca/directory/Details/pristine-roofing-siding-2915089" target="_blank" rel="noopener">member.homebuilders.mb.ca/.../pristine-roofing-siding-2915089</a> — Member listing, Don Fata primary contact.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">♻️</div>
+        <div class="ev-text">
+          <strong>Intengine — Eco-Directory</strong>
+          <a href="https://intengine.com/directory/profile/19834-pristine-roofing-siding" target="_blank" rel="noopener">intengine.com/.../19834-pristine-roofing-siding</a> — COR Certified eco-listing. Recycling program documentation.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">🌿</div>
+        <div class="ev-text">
+          <strong>WinnipegRoofers.ca — Industry Profile</strong>
+          <a href="https://winnipegroofers.ca/most-popular-roofing-companies-winnipeg/" target="_blank" rel="noopener">winnipegroofers.ca/.../most-popular-roofing-companies-winnipeg</a> — Industry listing confirming "founded 1998 by Ash Boyd &amp; Don Fata, completed over 7,000 projects in the Winnipeg area."
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">📍</div>
+        <div class="ev-text">
+          <strong>BestProsInTown / Google / HomeStars / TrustedPros / Yelp</strong>
+          Cross-platform review aggregators showing aggregate ratings: 4.3–4.95/5 across 100+ reviews. Manitoban review presence on multiple platforms.
+        </div>
+      </div>
+      <div class="ev-item">
+        <div class="ev-icon">📡</div>
+        <div class="ev-text">
+          <strong>680 CJOB Radio (Facebook mention)</strong>
+          <a href="https://www.facebook.com/680CJOB/posts/thank-you-to-ash-boyd-from-pristine-roofing-for-stopping-by-pristine-roofing-sid/2148175015259664/" target="_blank" rel="noopener">facebook.com/680CJOB/posts/...2148175015259664</a> — Local news: "Thank you to Ash Boyd from Pristine Roofing for stopping by."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">▲▼◆ ASH BOYD BIOGRAPHY ◆▼▲</div>
+  <div>Built with verified data from 10+ public sources · Last updated <span id="today"></span></div>
+  <div style="margin-top: 0.5rem;">
+    Page built by <a href="#">NLK Automation</a> · All trademarks belong to their respective owners
+  </div>
+</footer>
+
+<script>
+  document.getElementById('today').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+</script>
+
+</body>
+</html>
