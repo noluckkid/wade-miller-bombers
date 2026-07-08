@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>NLK · Telegram Chat IDs</title>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --panel: #14181d;
+    --border: #232a32;
+    --text: #e6e9ef;
+    --muted: #8a95a3;
+    --accent: #d4a04a;
+    --accent-2: #f0c674;
+    --ok: #4ade80;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0d10 0%, #11161c 100%);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 40px 20px 80px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+  h1 .tag { color: var(--accent); }
+  .updated { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; align-items: center; }
+  .toolbar input {
+    flex: 1 1 220px; min-width: 0;
+    background: var(--panel); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 12px; font: inherit; outline: none;
+  }
+  .toolbar input:focus { border-color: var(--accent); }
+  .toolbar a.btn, .toolbar button {
+    background: var(--panel); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 12px; font: inherit; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    transition: border-color .15s, background .15s;
+  }
+  .toolbar a.btn:hover, .toolbar button:hover { border-color: var(--accent); }
+  .toolbar button.primary { background: var(--accent); color: #0b0d10; border-color: var(--accent); font-weight: 600; }
+  .toolbar button.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  thead th {
+    text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); padding: 12px 14px; background: #181d23; border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  tbody td { padding: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #181d23; }
+  .name { font-weight: 600; }
+  .id { font-family: var(--mono); font-size: 13px; color: var(--text); }
+  .id a { color: var(--accent); text-decoration: none; }
+  .id a:hover { text-decoration: underline; }
+  .purpose { color: var(--muted); font-size: 13px; }
+  .copy {
+    background: transparent; border: 1px solid var(--border); color: var(--muted);
+    padding: 4px 9px; border-radius: 6px; font: 12px var(--mono); cursor: pointer;
+    transition: all .15s;
+  }
+  .copy:hover { color: var(--text); border-color: var(--accent); }
+  .copy.ok { color: var(--ok); border-color: var(--ok); }
+  .actions { display: flex; gap: 6px; align-items: center; }
+  .empty { padding: 40px; text-align: center; color: var(--muted); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-family: var(--mono); background: #1f2630; color: var(--muted); border: 1px solid var(--border); }
+  footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+  footer code { font-family: var(--mono); color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1><span class="tag">NLK</span> · Telegram Chat IDs</h1>
+      <div class="updated" id="updated"></div>
+    </header>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Filter by name, purpose, or ID…">
+      <a class="btn" href="tg-chats.json" target="_blank">JSON ↗</a>
+      <button class="primary" id="copyAll">Copy all as JSON</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Chat ID</th>
+          <th>Purpose</th>
+          <th>Added</th>
+          <th style="text-align:right">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <footer>
+      Append-only registry. Update <code>tg-chats.json</code> on the server to add entries. ·
+      <a href="tg-chats.html" style="color:var(--muted)">refresh</a>
+    </footer>
+  </div>
+
+<script>
+  const $ = (s, c=document) => c.querySelector(s);
+  const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
+
+  async function load() {
+    const res = await fetch('tg-chats.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('Failed to load tg-chats.json: ' + res.status);
+    const data = await res.json();
+    render(data);
+  }
+
+  function render(data) {
+    $('#updated').textContent = 'updated ' + (data.updated || '—');
+    const tbody = $('#rows');
+    const chats = data.chats || [];
+    if (!chats.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty">No chats registered yet.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = chats.map(c => `
+      <tr data-name="${esc(c.name||'')}" data-purpose="${esc(c.purpose||'')}" data-id="${esc(c.id||'')}">
+        <td class="name">${esc(c.name||'—')} <span class="pill">${esc(c.kind||'group')}</span></td>
+        <td class="id"><a href="${esc(c.url||'#')}" title="Open in Telegram">${esc(c.id||'—')}</a></td>
+        <td class="purpose">${esc(c.purpose||'')}</td>
+        <td><span class="pill">${esc(c.date_added||'')}</span></td>
+        <td>
+          <div class="actions" style="justify-content:flex-end">
+            <button class="copy" data-copy="${esc(c.id||'')}">Copy ID</button>
+            <a class="copy" href="${esc(c.url||'#')}">Open ↗</a>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[m]));
+  }
+
+  // Filter
+  $('#q').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase().trim();
+    $$('#rows tr').forEach(tr => {
+      const hit = !q || tr.dataset.name.toLowerCase().includes(q)
+                          || tr.dataset.purpose.toLowerCase().includes(q)
+                          || tr.dataset.id.toLowerCase().includes(q);
+      tr.style.display = hit ? '' : 'none';
+    });
+  });
+
+  // Copy buttons (event delegation)
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('.copy[data-copy]');
+    if (!btn) return;
+    const val = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(val);
+      const orig = btn.textContent;
+      btn.textContent = '✓ copied';
+      btn.classList.add('ok');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('ok'); }, 1200);
+    } catch (err) {
+      btn.textContent = '✗ failed';
+      setTimeout(() => { btn.textContent = 'Copy ID'; }, 1200);
+    }
+  });
+
+  // Copy all
+  $('#copyAll').addEventListener('click', async () => {
+    try {
+      const res = await fetch('tg-chats.json');
+      const txt = await res.text();
+      await navigator.clipboard.writeText(txt);
+      const btn = $('#copyAll');
+      const orig = btn.textContent;
+      btn.textContent = '✓ copied';
+      setTimeout(() => { btn.textContent = orig; }, 1200);
+    } catch (e) { alert('Copy failed: ' + e.message); }
+  });
+
+  load().catch(err => {
+    $('#rows').innerHTML = `<tr><td colspan="5" class="empty">⚠ ${esc(err.message)}</td></tr>`;
+  });
+</script>
+</body>
+</html>

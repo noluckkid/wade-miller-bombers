@@ -1,0 +1,13 @@
+{
+  "_comment": "Telegram chat IDs for NLK Automation. Append-only — never edit, just add new entries with date_added.",
+  "updated": "2026-07-07",
+  "chats": [
+    {
+      "name": "AMZscrapper",
+      "id": "-5462007729",
+      "purpose": "Amazon arbitrage scraping",
+      "url": "tg://resolve?domain=&message=-5462007729",
+      "date_added": "2026-07-07"
+    }
+  ]
+}
