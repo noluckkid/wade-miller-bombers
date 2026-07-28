@@ -677,6 +677,69 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 </div>
 </div>
 </div></section>
+<!-- Newsletter Signup -->
+<section id="signup" style="background:linear-gradient(180deg,#0a0e17 0%,#0f172a 100%);padding:60px 24px;border-top:1px solid rgba(212,175,55,0.15);border-bottom:1px solid rgba(212,175,55,0.15)">
+<div style="max-width:600px;margin:0 auto;text-align:center">
+<h2 style="font-size:clamp(20px,3vw,28px);font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;letter-spacing:0.5px">Get daily Bombers intel in your inbox</h2>
+<p style="color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:28px">AI-powered analysis, roster moves, and insider takes — delivered 4x daily. No spam, just signal.</p>
+<form id="newsletterForm" style="display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center">
+<input id="newsletterEmail" type="email" placeholder="you@email.com" required style="flex:1;min-width:200px;background:#111827;border:1px solid var(--bd);border-radius:8px;padding:14px 16px;color:#e2e8f0;font-size:16px;outline:none;transition:border-color 0.3s,box-shadow 0.3s" />
+<button type="submit" style="background:linear-gradient(135deg,#d4af37,#f0e6c0);color:#080c14;border:none;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.3s;white-space:nowrap">Subscribe</button>
+</form>
+<div id="newsletterMsg" style="margin-top:14px;font-size:14px;min-height:20px"></div>
+<p style="color:var(--dim);font-size:12px;margin-top:16px">Know a fellow Bombers fan? <a href="https://wademillerbombers.com#signup" style="color:var(--gold);text-decoration:underline">Forward this link</a></p>
+</div>
+</section>
+<style>
+#newsletterEmail:focus{border-color:rgba(212,175,55,0.5);box-shadow:0 0 12px rgba(212,175,55,0.15)}
+#newsletterForm button:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(212,175,55,0.25)}
+@media(max-width:768px){
+#newsletterForm{flex-direction:column}
+#newsletterForm input{min-width:0;width:100%}
+#newsletterForm button{width:100%}
+}
+</style>
+<script>
+(function(){
+var form=document.getElementById('newsletterForm');
+var input=document.getElementById('newsletterEmail');
+var msg=document.getElementById('newsletterMsg');
+if(!form)return;
+form.addEventListener('submit',function(e){
+e.preventDefault();
+var email=input.value.trim();
+if(!email){msg.style.color='#ef4444';msg.textContent='Please enter your email.';return}
+var btn=form.querySelector('button');
+btn.textContent='Joining...';btn.disabled=true;
+msg.textContent='';msg.style.color='';
+fetch('/newsletter',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({email:email})
+})
+.then(function(r){return r.json()})
+.then(function(d){
+if(d.success){
+msg.style.color='#22c55e';
+msg.textContent='✓ You\'re in. Daily intel incoming.';
+input.value='';
+btn.textContent='Subscribed ✓';
+btn.style.background='#22c55e';
+setTimeout(function(){btn.textContent='Subscribe';btn.style.background='';btn.disabled=false},4000);
+}else{
+msg.style.color='#ef4444';
+msg.textContent=d.error||'Something went wrong. Try again.';
+btn.textContent='Subscribe';btn.disabled=false;
+}
+})
+.catch(function(){
+msg.style.color='#ef4444';
+msg.textContent='Connection error. Please try again.';
+btn.textContent='Subscribe';btn.disabled=false;
+});
+});
+})();
+</script>
 <footer>wademillerbombers.com · <strong>Built by NLK Automation</strong> · Not affiliated with the Winnipeg Blue Bombers</footer>
 <!-- Wade Bot Floating Chat -->
 <div class="wadebot" id="wadebot">
