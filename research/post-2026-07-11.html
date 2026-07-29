@@ -18,7 +18,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,Georgia,serif;background:#000212;color:#e2e8f0;padding-top:32px;line-height:1.8}
-:root{--gold:#d4af37;--teal:#06b6d4;--card:#0f172a;--bd:#1e293b;--muted:#64748b;--dim:#475569}
+:root{--gold:#d4af37;--teal:#06b6d4;--card:#0f172a;--bd:#1e293b;--muted:#94a3b8;--dim:#64748b}
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px}
 .site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
 .site-nav a:hover{color:var(--gold)}
@@ -37,6 +37,7 @@ article blockquote{border-left:3px solid var(--gold);padding:12px 20px;margin:24
 .back:hover{color:var(--gold-l)}
 footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top:1px solid var(--bd)}
 @media(max-width:600px){article{padding:16px 16px}article h1{font-size:20px}}
+@media(max-width:768px){article{padding:16px 20px}}
 </style>
 </head>
 <body>
@@ -56,9 +57,17 @@ footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top
 <a href="/#contact">📩 Contact</a>
 <a href="/research/">📝 Auto Blog</a>
 <a href="/archive/" class="act">📚 Archive</a>
+<div class="nav-more" style="position:relative">
+<a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
+<div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
+<a href="/history.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📖 Team History</a>
+<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📋 CFL Rules</a>
+</div>
+</div>
 </div>
 <!-- Mobile: hamburger -->
-<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:12px">
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
@@ -70,18 +79,18 @@ footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
-<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
-<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
-<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
-<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
+<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📺 Drama</a>
+<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
+<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Rankings</a>
 </div>
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
-<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
-<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
-<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
-<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
-<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📋 CFL Rules</a>
 </div>
 </div>
 <a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
@@ -122,15 +131,14 @@ function closeMobileMenu() {
   .mobile-hide{display:none !important}
   .desktop-brand{display:none !important}
   .mobile-brand{display:inline !important}
-  body{padding-top:60px !important}
-}
+  }
 </style>
 
 <article>
   <div class="tag">🔥 CFL Insider</div>
   <h1>Dru Brown's Revenge Game Exposes the Blue Bombers' Real QB Problem</h1>
   <div class="date">July 11, 2026 · AI-synthesized from real news sources</div>
-  <img src="/assets/blog_20260728_213537.png" alt="" style="width:100%;max-height:400px;object-fit:cover;border-radius:10px;margin-bottom:24px">
+  <img src="/assets/blog_20260728_213537.png" alt="Dru Brown's Revenge Game Exposes the Blue Bombers' Real QB Problem" loading="lazy" style="width:100%;max-height:400px;object-fit:cover;border-radius:10px;margin-bottom:24px">
   
   <h2>The Revenge Narrative That Actually Matters</h2>
 <p>When the CFL schedule makers penciled in Dru Brown's return to Winnipeg for Week 6, they probably hoped for a little drama. What they got was a masterclass in how the Blue Bombers have mismanaged their quarterback room.</p>
@@ -173,5 +181,22 @@ function closeMobileMenu() {
   <a href="https://wademillerbombers.com">wademillerbombers.com</a> · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers
 
 </footer>
+<script>
+function toggleNavMore(e) {
+  e.preventDefault(); e.stopPropagation();
+  var m = document.getElementById('navMoreMenu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('navMoreMenu');
+  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    var mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.display = 'none';
+  }
+});
+</script>
 </body>
 </html>

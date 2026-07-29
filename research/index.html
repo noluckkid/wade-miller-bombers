@@ -15,7 +15,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,sans-serif;background:#000212;color:#e2e8f0;padding-top:32px}
-:root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#64748b;--dim:#475569}
+:root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px;flex-wrap:wrap}
 nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
 nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
@@ -47,9 +47,17 @@ a:hover{color:var(--gold-l)}
 <a href="/#contact">📩 Contact</a>
 <a href="/research/">📝 Auto Blog</a>
 <a href="/archive/" class="act">📚 Archive</a>
+<div class="nav-more" style="position:relative">
+<a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
+<div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
+<a href="/history.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📖 Team History</a>
+<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📋 CFL Rules</a>
+</div>
+</div>
 </div>
 <!-- Mobile: hamburger -->
-<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:12px">
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
@@ -61,18 +69,18 @@ a:hover{color:var(--gold-l)}
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
-<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
-<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
-<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
-<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
+<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📺 Drama</a>
+<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
+<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Rankings</a>
 </div>
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
-<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
-<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
-<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
-<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
-<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📋 CFL Rules</a>
 </div>
 </div>
 <a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
@@ -120,7 +128,7 @@ function closeMobileMenu() {
   <p class="subtitle">AI-synthesized deep analysis on Winnipeg Blue Bombers and CFL — history, community, and insider takes. Every article is researched from real news sources and written fresh. Updated 2-3x weekly.</p>
 
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
-      <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · June 30, 2026<img src="/assets/blog_20260728_213521.png" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · June 30, 2026<img src="/assets/blog_20260728_213521.png" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-06-30.html" style="color:inherit;text-decoration:none">More Than a Game: How the Blue Bombers Unite Manitoba</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a record sellout streak to youth programs reaching thousands, the Winnipeg Blue Bombers are the heartbeat of a province.</p>
       <a href="/research/post-2026-06-30.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
@@ -190,21 +198,21 @@ function closeMobileMenu() {
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 07, 2026</div>
-      <img src="/research/images/post-20260707.png" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260707.png" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-07.html" style="color:inherit;text-decoration:none">More Than a Game: How the Blue Bombers Unite Manitoba</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a record sellout streak to youth programs reaching thousands, the Winnipeg Blue Bombers are the heartbeat of a province.</p>
       <a href="/research/post-2026-07-07.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📜 From the Archives · July 04, 2026</div>
-      <img src="/research/images/post-20260704.png" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260704.png" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-04.html" style="color:inherit;text-decoration:none">The Drought That Defined a Province: How 1990 Ended Winnipeg's 29-Year Curse</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">For 29 years, the Grey Cup eluded Winnipeg. The 1990 victory wasn't just a championship—it was the exorcism of a provincial trauma that still echoes in today's </p>
       <a href="/research/post-2026-07-04.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 02, 2026</div>
-      <img src="/research/images/post-20260702.png" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260702.png" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-02.html" style="color:inherit;text-decoration:none">The Blue Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them By</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">Winnipeg's bloated contracts for fading stars are sinking their cap flexibility. While rivals reload, the Bombers cling to a formula that's already stopped work</p>
       <a href="/research/post-2026-07-02.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
@@ -215,5 +223,22 @@ function closeMobileMenu() {
 <footer>
   <a href="https://wademillerbombers.com">wademillerbombers.com</a> · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers
 </footer>
+<script>
+function toggleNavMore(e) {
+  e.preventDefault(); e.stopPropagation();
+  var m = document.getElementById('navMoreMenu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('navMoreMenu');
+  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    var mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.display = 'none';
+  }
+});
+</script>
 </body>
 </html>
