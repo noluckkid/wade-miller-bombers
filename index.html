@@ -352,7 +352,7 @@ footer{padding:24px;text-align:center;font-size:13px;color:var(--dim);border-top
 </head>
 <body>
 <!-- Sticky Nav -->
-<nav aria-label="Main navigation" role="banner navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:fixed;top:0;left:0;right:0;z-index:1000">
+<header role="banner" style="position:fixed;top:0;left:0;right:0;z-index:1000"><nav aria-label="Main navigation" role="navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px)">
 <!-- Left: brand -->
 <div style="flex:1">
 <span class="desktop-brand" style="font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
@@ -405,7 +405,7 @@ footer{padding:24px;text-align:center;font-size:13px;color:var(--dim);border-top
 </div>
 <a href="#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
 </div>
-</nav>
+</nav></header>
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
