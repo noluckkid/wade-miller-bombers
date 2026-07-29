@@ -213,7 +213,7 @@
       const hot = dpct >= 30 ? ' <span class="badge hot">🔥 ' + dpct + '%</span>' : '';
       const imgRaw = d.image_url;
       const img = imgRaw
-        ? `<img src="/img-proxy/?u=${encodeURIComponent(imgRaw)}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'ph\\'>no image</span>'">`
+        ? `<img src="${imgRaw}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'ph\\'>no image</span>'">`
         : '<span class="ph">no image</span>';
       const url = d.source_url || '#';
       return `
