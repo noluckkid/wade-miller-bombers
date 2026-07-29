@@ -19,9 +19,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,sans-serif;background:#000212;color:#e2e8f0;padding-top:32px}
 :root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#64748b}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
-nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;flex-wrap:wrap}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+.site-nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
 .section{padding:32px 24px;max-width:900px;margin:0 auto}
 h1{font-size:clamp(22px,4vw,32px);font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .meta{color:var(--muted);font-size:13px;margin-bottom:32px;display:flex;gap:16px;flex-wrap:wrap}
@@ -35,13 +35,6 @@ h2{font-size:18px;color:var(--gold);margin:36px 0 16px;text-transform:uppercase;
 .card h3{font-size:14px;color:#f1f5f9;margin-bottom:4px}
 .card p{font-size:12px;color:var(--muted);line-height:1.5}
 .card .tag{font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.ticker-box{background:var(--card);border:1px solid var(--bd);border-top:2px solid var(--gold);border-radius:0 0 10px 10px;padding:12px 16px;margin-bottom:32px;overflow:hidden}
-.ticker-box .item{font-size:14px;color:#94a3b8;line-height:2}
-.ticker-box .item span{color:var(--gold);font-weight:700;margin:0 20px}
-.ticker-box .item span:first-child{margin-left:0}
-.juice-box{background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid rgba(212,175,55,0.15);border-radius:12px;padding:32px;margin-bottom:32px}
-.juice-box h3{color:#f1f5f9;font-size:17px;margin-bottom:10px}
-.juice-box p{color:var(--muted);font-size:13px;line-height:1.8}
 .chip{display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 footer{padding:32px;text-align:center;font-size:11px;color:var(--dim);border-top:1px solid var(--bd)}
 footer a{color:var(--gold);text-decoration:none}
@@ -49,11 +42,89 @@ footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
-<nav>
-  <a href="https://wademillerbombers.com">← Operations Desk</a>
-  <a href="/archive/">📚 All Updates</a>
-  <span style="font-size:12px;color:var(--dim)">July 25, 2026 · 06:00 AM</span>
+<!-- Sticky Nav -->
+<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:relative">
+<!-- Left: brand -->
+<div style="flex:1">
+<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
+</div>
+<!-- Center: nav links (desktop) -->
+<div class="nav-links" style="display:flex;justify-content:center;gap:4px">
+<a href="/">📺 Drama</a>
+<a href="/#juice">⏰ The Juice</a>
+<a href="/#news">📡 News</a>
+<a href="/#rankings">🏈 Rankings</a>
+<a href="/#contact">📩 Contact</a>
+<a href="/research/">📝 Auto Blog</a>
+<a href="/archive/" class="act">📚 Archive</a>
+</div>
+<!-- Mobile: hamburger -->
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+</button>
+<!-- Right: Winnipeg Local (desktop) -->
+<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
+<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
+<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
+<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
+</div>
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
+</div>
+</div>
+<a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
+</div>
 </nav>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('mobileMenuBtn');
+  const isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  // Animate hamburger
+  const spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  const btn = document.getElementById('mobileMenuBtn');
+  const spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none';
+  spans[1].style.opacity = '1';
+  spans[2].style.transform = 'none';
+}
+</script>
+<style>
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+}
+</style>
 
 <section class="section">
   <h1>Identity Void, Coverage Busts: Anatomy of Winnipeg’s 52-30 Loss</h1>
@@ -67,29 +138,7 @@ footer a{color:var(--gold);text-decoration:none}
     <p>Brady Oliveira’s post-game admission that the Bombers’ offence doesn’t know “who we are” is a damning film-room confession. The tape against Calgary will reveal a unit caught between scripted misdirection and reactive chaos. Quarterback Zach Collaros tossed four interceptions, often forcing throws i</p>
   </div>
 
-  <h2>🔍 Deep Research Insight</h2>
-  <div class="insight-box">
-    <h3>Turnover Cascade and Short-Field Snaps Expose a Structurally Brittle Defence</h3>
-    <p>The Bombers gifted Calgary 14 points directly from a missed-field-goal return touchdown and a punt block, on top of six total giveaways (four interceptions). With Zach Collaros’ four picks repeatedly</p>
-  </div>
-
-  <h2>🏆 Around the CFL</h2>
-  <div class="grid-4">
-    
-  </div>
-
-  <h2>📡 Drama Ticker</h2>
-  <div class="ticker-box">
-    
-  </div>
-
-  <h2>🍿 The Juice</h2>
-  <div class="juice-box">
-    <div class="chip">🍿 COACHING CRISIS</div>
-    <h3>Brady vs. Buck: The Bombers’ Real Civil War Erupted Friday Night</h3>
-    <p>Brady Oliveira’s post-game soundbite Friday wasn’t just frustration—it was a match dropped on months of simmering gasoline. “I don’t know who we are right now as an offence,” the star RB told 680 CJOB, and every vet in that locker room knew exactly who he was torching: offensive coordinator Buck Pierce. I’ve heard from four sources that during a closed-door offensive meeting back in Week 5 after the Ottawa win, Oliveira unloaded on Pierce for abandoning the power-run identity that won them a Grey Cup in ’24. “We’re a finesse team now and it makes us soft,” he said, per one player who was there</p>
-  </div>
-</section>
+  </section>
 
 <footer>
   <a href="https://wademillerbombers.com">wademillerbombers.com</a> · AI Operations Desk Archive · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers
@@ -100,7 +149,7 @@ footer a{color:var(--gold);text-decoration:none}
 
 
 <!-- bombers-archive-nav start -->
-<nav class="bombers-archive-nav">
+<div class="bombers-archive-nav">
   <div class="bombers-archive-nav-prevnext">
     <span class="bombers-archive-nav-arrow">←</span> Previous: <a href="/archive/2026-07-24-1001.html">Bombers’ Jefferson Resurgent at 34; Ceresna Tied for Sack Lead</a>
     <span class="bombers-archive-nav-sep">|</span>

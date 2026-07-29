@@ -11,9 +11,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,Georgia,serif;background:#000212;color:#e2e8f0;padding-top:32px;line-height:1.8}
 :root{--gold:#d4af37;--teal:#06b6d4;--card:#0f172a;--bd:#1e293b;--muted:#64748b;--dim:#475569}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px}
-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px}
-nav a:hover{color:var(--gold)}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px}
+.site-nav a:hover{color:var(--gold)}
 article{max-width:760px;margin:0 auto;padding:16px 16px}
 article h1{font-size:clamp(24px,4vw,36px);font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:12px}
 article h2{font-size:20px;color:var(--gold);margin:32px 0 12px;font-weight:700}
@@ -25,16 +25,95 @@ article p{font-size:16px;color:#cbd5e1;margin-bottom:20px}
 .back{display:inline-block;margin-top:32px;color:var(--gold);text-decoration:none}
 footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top:1px solid var(--bd)}
 </style></head><body>
-<nav><a href="https://wademillerbombers.com">← Operations Desk</a>
-<a href="https://wademillerbombers.com/research/">All Research</a></nav>
+<!-- Sticky Nav -->
+<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:relative">
+<!-- Left: brand -->
+<div style="flex:1">
+<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
+</div>
+<!-- Center: nav links (desktop) -->
+<div class="nav-links" style="display:flex;justify-content:center;gap:4px">
+<a href="/">📺 Drama</a>
+<a href="/#juice">⏰ The Juice</a>
+<a href="/#news">📡 News</a>
+<a href="/#rankings">🏈 Rankings</a>
+<a href="/#contact">📩 Contact</a>
+<a href="/research/">📝 Auto Blog</a>
+<a href="/archive/" class="act">📚 Archive</a>
+</div>
+<!-- Mobile: hamburger -->
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+</button>
+<!-- Right: Winnipeg Local (desktop) -->
+<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
+<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
+<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
+<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
+</div>
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
+</div>
+</div>
+<a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
+</div>
+</nav>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('mobileMenuBtn');
+  const isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  // Animate hamburger
+  const spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  const btn = document.getElementById('mobileMenuBtn');
+  const spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none';
+  spans[1].style.opacity = '1';
+  spans[2].style.transform = 'none';
+}
+</script>
+<style>
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+}
+</style>
 <article>
 <h1>Winnipeg Blue Bombers: Offensive Stalls Masking a 4-2 Record</h1>
 <div class="date">July 22, 2026 · AI-synthesized analysis</div>
 <h2>Standings and the West Division Battle Royale</h2><p>The Winnipeg Blue Bombers sit at 4-2, good for second place in the CFL's West Division as of July 23, 2025. They trail the 5-1 BC Lions by one game but hold a two-game lead over the 2-4 Saskatchewan Roughriders and a three-game cushion over the 1-5 Edmonton Elks. The Calgary Stampeders, who visit IG Field on Friday night, are 3-3 and lurking in the middle of the pack. Winnipeg's next three games are at home—against Calgary, the Ottawa RedBlacks, and the Hamilton Tiger-Cats—offering a critical window to build separation before a brutal road stretch in August. The Bombers' +14 point differential is solid but unspectacular, and their 24.3 offensive points per game ranks eighth in a nine-team league, ahead of only the winless Ottawa RedBlacks. That number is the clearest indicator of a team that wins on grit and defence, not offensive firepower.</p>
 
 <h2>Stats Leaders: Castillo's Boot vs. Oliveira's Grind</h2><p>Kicker Sergio Castillo is the team's statistical MVP through six games, leading the CFL with 18 field goals on 20 attempts—a 90 percent conversion rate. He is on pace for 54 field goals this season, which would shatter the single-season record of 59 held by Montreal's David Cote (1997) if he maintains this volume. But that volume is the problem: the Bombers are settling for three points instead of seven. Running back Brady Oliveira has 456 rushing yards on 92 carries (4.96 yards per carry) with two touchdowns, ranking third in the league in rushing. Quarterback Zach Collaros has thrown for 1,542 yards with nine touchdowns and five interceptions, good for a 96.3 passer rating—solid but not elite. The receiving corps, led by Kenny Lawler (32 catches, 432 yards, three touchdowns) and Dalton Schoen (28 catches, 389 yards, four touchdowns), is producing yards but not finishing drives. The defence has been stingy, allowing just 22.5 points per game, third-best in the CFL, with defensive back Deatrick Nichols leading the team with three interceptions.</p>
-
-<h2>Playoff Picture and Power Rankings</h2><p>In the current CFL playoff format, the top two teams in each division earn home playoff games, while the third-place team in the West crosses over to the East if it has a better record than the East's fourth-place team. Winnipeg's 4-2 record places them firmly in the driver's seat for a home playoff date, but the offence must improve to avoid a first-round upset. In the latest CFL power rankings, the Bombers sit at No. 3 behind the BC Lions and Montreal Alouettes, with analysts citing their defensive consistency and special teams as strengths but flagging the red-zone offence as a fatal flaw. The Lions have scored 30-plus points in four of six games; the Bombers have done so just twice. If Winnipeg cannot convert drives into touchdowns against Calgary's 24th-ranked scoring defence (allowing 27.7 points per game), the alarm bells will grow louder.</p>
 
 <h2>Matchup Preview: Calgary Stampeders at Winnipeg Blue Bombers</h2><p>Friday's matchup at IG Field pits a Bombers team that is 3-0 at home this season against a Stampeders squad that is 1-2 on the road. Calgary quarterback Jake Maier has thrown for 1,487 yards with eight touchdowns and six interceptions, and the Stampeders' offence averages 25.3 points per game—slightly better than Winnipeg's. The key battle will be in the trenches: Winnipeg's offensive line, which just released guard Micah Mazzccua after a single start, must protect Collaros against a Calgary pass rush that has 14 sacks, tied for third in the league. On the other side, the Bombers' defence, led by linebacker Adam Bighill (38 tackles), must contain Calgary running back Dedrick Mills, who has 412 rushing yards and three touchdowns. The Bombers are favoured by 4.5 points, per CFL betting lines, but the over/under of 49.5 suggests oddsmakers expect a moderate-scoring affair. If Winnipeg's offence stalls again, Castillo will be busy—and that is not a recipe for long-term success.</p>
 
@@ -47,7 +126,7 @@ footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top
 
 
 <!-- bombers-archive-nav start -->
-<nav class="bombers-archive-nav">
+<div class="bombers-archive-nav">
   <div class="bombers-archive-nav-prevnext">
     <span class="bombers-archive-nav-arrow">←</span> Previous: <a href="/archive/post-2026-07-22-roster-analysis.html">Bombers&#x27; Roster Calculus: Balancing Nostalgia with a 2026 Cap Crunch</a>
     <span class="bombers-archive-nav-sep">|</span>

@@ -11,9 +11,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,Georgia,serif;background:#000212;color:#e2e8f0;padding-top:32px;line-height:1.8}
 :root{--gold:#d4af37;--teal:#06b6d4;--card:#0f172a;--bd:#1e293b;--muted:#64748b;--dim:#475569}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px}
-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px}
-nav a:hover{color:var(--gold)}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px}
+.site-nav a:hover{color:var(--gold)}
 article{max-width:760px;margin:0 auto;padding:16px 16px}
 article h1{font-size:clamp(24px,4vw,36px);font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:12px}
 article h2{font-size:20px;color:var(--gold);margin:32px 0 12px;font-weight:700}
@@ -25,8 +25,89 @@ article p{font-size:16px;color:#cbd5e1;margin-bottom:20px}
 .back{display:inline-block;margin-top:32px;color:var(--gold);text-decoration:none}
 footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top:1px solid var(--bd)}
 </style></head><body>
-<nav><a href="https://wademillerbombers.com">← Operations Desk</a>
-<a href="https://wademillerbombers.com/research/">All Research</a></nav>
+<!-- Sticky Nav -->
+<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:relative">
+<!-- Left: brand -->
+<div style="flex:1">
+<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
+</div>
+<!-- Center: nav links (desktop) -->
+<div class="nav-links" style="display:flex;justify-content:center;gap:4px">
+<a href="/">📺 Drama</a>
+<a href="/#juice">⏰ The Juice</a>
+<a href="/#news">📡 News</a>
+<a href="/#rankings">🏈 Rankings</a>
+<a href="/#contact">📩 Contact</a>
+<a href="/research/">📝 Auto Blog</a>
+<a href="/archive/" class="act">📚 Archive</a>
+</div>
+<!-- Mobile: hamburger -->
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+</button>
+<!-- Right: Winnipeg Local (desktop) -->
+<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
+<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
+<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
+<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
+</div>
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
+</div>
+</div>
+<a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
+</div>
+</nav>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('mobileMenuBtn');
+  const isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  // Animate hamburger
+  const spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  const btn = document.getElementById('mobileMenuBtn');
+  const spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none';
+  spans[1].style.opacity = '1';
+  spans[2].style.transform = 'none';
+}
+</script>
+<style>
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+}
+</style>
 <article>
 <h1>Winnipeg’s Special Teams Edge: The Bombers’ 3-2 Foundation</h1>
 <div class="date">July 16, 2026 · AI-synthesized analysis</div>
@@ -35,9 +116,6 @@ footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top
 
 <h2>The Quarterback Carousel: Dru Brown vs. Ottawa Narrative</h2>
 <p>The Bombers’ offensive inconsistency is best illustrated by the quarterback situation. Zach Collaros, the 2023 MOP, has been limited in practice this week after a sluggish start to 2026 (six touchdowns, four interceptions, 89.3 passer rating). In his place, Dru Brown took first-team reps on Tuesday — the same Dru Brown whom Ottawa traded to Winnipeg on June 23 for draft picks. Brown led the Bombers to a 30-21 win over Toronto in Week 5, throwing for 339 yards and a touchdown, earning CFL Player of the Week honors. The narrative writes itself: Brown faces his former team, which is still winless at 0-5. But the deeper analysis is about offensive structure. Under Brown, the Bombers’ time of possession jumped to 32:14 (from 28:47 with Collaros), and the offense converted 47% of second downs (up from 38%). Brown’s mobility — he scrambled for 28 yards against Toronto — adds a dimension Collaros lacks at age 36. Head coach Mike O’Shea has not named a starter, but the data suggests Brown gives Winnipeg a higher floor against Ottawa’s 29th-ranked defense (allowing 28.4 points per game). The Bombers’ run game, led by Brady Oliveira (412 yards, 4.8 YPC), has been steady, but the passing attack needs a jolt. Brown’s deep ball accuracy (11.2 yards per attempt vs. Collaros’ 8.7) could exploit an Ottawa secondary that has allowed seven completions of 30+ yards.</p>
-
-<h2>Playoff Picture and Power Rankings: The West Is Tight</h2>
-<p>In the CFL’s West Division, the Bombers sit second at 3-2, one game behind BC (4-1) and one game ahead of Saskatchewan (2-3) and Calgary (2-3). The crossover playoff spot is currently held by Toronto (3-2) from the East, meaning Winnipeg cannot afford a losing streak. The CFL power rankings from 3DownNation place the Bombers at No. 3 overall, behind BC and Montreal (4-1). The advanced metrics are mixed: Winnipeg ranks 4th in offensive yards per game (358.2), 3rd in defensive yards allowed (342.6), but 1st in special teams net efficiency. The Bombers’ +4 turnover differential is tied for second in the league, driven largely by special teams takeaways (three fumble recoveries on coverage units). The schedule ahead is brutal: after Ottawa, Winnipeg faces BC, Montreal, and Saskatchewan in consecutive weeks. If the Bombers drop a game to the 0-5 RedBlacks, they could fall to 3-3 and into a tie for third in the West. The margin for error is razor-thin, and the special teams unit — which Miller calls “the keepers of momentum” — will need to sustain its elite play. The Bombers have not lost two straight games since September 2024, but the offensive inconsistency and quarterback uncertainty make this Ottawa matchup a trap game. A win keeps them in striking distance of BC; a loss exposes the cracks in a 3-2 facade.</p>
 
 <h2>Matchup Preview: Winnipeg at Ottawa — The Revenge Game Trap</h2>
 <p>Sunday’s game at TD Place (1:00 PM ET) features a 3-2 Bombers team against an 0-5 RedBlacks squad that has lost four games by one score. Ottawa’s defense is vulnerable against the run (allowing 118.6 yards per game, 5th in CFL) and has generated only five sacks. The Bombers’ offensive line, anchored by left tackle Stanley Bryant, has allowed just six sacks all season — second-fewest in the league. The key matchup is Winnipeg’s special teams against Ottawa’s return game. RedBlacks returner DeVonte Dedmon is averaging 12.1 yards per punt return (3rd in CFL) and has one return touchdown. The Bombers’ coverage unit, led by Vaval and linebacker Shayne Gauthier, ranks first in punt coverage yards allowed (4.2 per return). If Winnipeg can pin Ottawa deep and force quarterback Dustin Crum to drive the field, the Bombers’ defense — which has 10 sacks and 7 interceptions — can feast. The X-fac
@@ -49,7 +127,7 @@ footer{text-align:center;padding:40px;color:var(--dim);font-size:11px;border-top
 
 
 <!-- bombers-archive-nav start -->
-<nav class="bombers-archive-nav">
+<div class="bombers-archive-nav">
   <div class="bombers-archive-nav-prevnext">
     <span class="bombers-archive-nav-arrow">←</span> Previous: <a href="/archive/post-2026-07-16-roster-analysis.html">Winnipeg’s Roster Reckoning: Dru Brown Trade, Special Teams Salvage a 3-2 Start</a>
     <span class="bombers-archive-nav-sep">|</span>
