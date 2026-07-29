@@ -347,11 +347,14 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 </head>
 <body>
 <!-- Sticky Nav -->
-<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:8px 20px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px)">
+<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:relative">
 <!-- Left: brand -->
-<span class="mobile-hide" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
-<!-- Center: nav links -->
-<div class="nav-links" style="flex:1;display:flex;justify-content:center;gap:4px">
+<div style="flex:1">
+<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
+</div>
+<!-- Center: nav links (desktop) -->
+<div class="nav-links" style="display:flex;justify-content:center;gap:4px">
 <a class="act" href="#dirt">📺 Drama</a>
 <a href="#juice">⏰ The Juice</a>
 <a href="#news">📡 News</a>
@@ -360,9 +363,73 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <a href="/research/">📝 Auto Blog</a>
 <a href="/archive/">📚 Archive</a>
 </div>
-<!-- Right: Winnipeg Local -->
+<!-- Mobile: hamburger -->
+<button id="mobileMenuBtn" aria-label="Toggle menu" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px" onclick="toggleMobileMenu()">
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+</button>
+<!-- Right: Winnipeg Local (desktop) -->
 <span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
+<a href="#dirt" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📺 Drama</a>
+<a href="#juice" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">⏰ The Juice</a>
+<a href="#news" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📡 News</a>
+<a href="#rankings" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">🏈 Rankings</a>
+</div>
+<div>
+<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
+<a href="/research/" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📝 Auto Blog</a>
+<a href="/archive/" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📚 Archive</a>
+<a href="/history.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📖 Team History</a>
+<a href="/schedule.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📋 CFL Rules</a>
+</div>
+</div>
+<a href="#contact" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s" onclick="closeMobileMenu()">📩 Contact</a>
+</div>
 </nav>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('mobileMenuBtn');
+  const isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  // Animate hamburger
+  const spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  const btn = document.getElementById('mobileMenuBtn');
+  const spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none';
+  spans[1].style.opacity = '1';
+  spans[2].style.transform = 'none';
+}
+</script>
+<style>
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+  body{padding-top:0 !important}
+}
+</style>
 <!-- Scrolling CFL Drama Ticker -->
 <!-- AUTO:TICKER_START -->
 <div class="ticker"><div class="ticker-inner"><span>🔴 BREAKING: RT Broxton (leg) hobbled; Vanterpool works with 1s for Thu vs BC</span> · <span>🔄 RUMOR: Locker-room frustration over Oliveira's late-game usage, sources say</span> · <span>📊 STAT: Oliveira had 1 touch in the final 20 mins of the 52-30 loss to Calgary</span> · <span>🔥 HOT TAKE: Bombers' refusal to use Oliveira late exposes them as non-contenders</span><span>🔴 BREAKING: RT Broxton (leg) hobbled; Vanterpool works with 1s for Thu vs BC</span> · <span>🔄 RUMOR: Locker-room frustration over Oliveira's late-game usage, sources say</span> · <span>📊 STAT: Oliveira had 1 touch in the final 20 mins of the 52-30 loss to Calgary</span> · <span>🔥 HOT TAKE: Bombers' refusal to use Oliveira late exposes them as non-contenders</span></div></div>
@@ -713,6 +780,28 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <a href="/archive/2026-07-28-0920.html" style="display:block;padding:12px 16px;background:var(--card);border:1px solid var(--bd);border-radius:8px;text-decoration:none;color:var(--muted);font-size:13px;transition:border-color 0.2s"><span style="color:var(--gold);font-weight:600">Jul 28, 9:20 AM</span> — Broxton's Limp Forces Bombers to Juggle O-Line; Vanterpool, Poncius Step into Starting Spots</a>
 <a href="/archive/post-2026-07-28-analysis.html" style="display:block;padding:12px 16px;background:var(--card);border:1px solid var(--bd);border-radius:8px;text-decoration:none;color:var(--muted);font-size:13px;transition:border-color 0.2s"><span style="color:var(--gold);font-weight:600">Jul 28</span> — The Bombers' Scramble: Roster Moves Reveal a Team on the Brink</a>
 </div></div></section>
+<!-- CFL Knowledge Base - Evergreen Pages -->
+<section style="background:#0a0e17;padding:50px 24px;border-top:1px solid rgba(212,175,55,0.1)">
+<div style="max-width:1100px;margin:0 auto">
+<h3 style="color:var(--gold);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px">📚 CFL Knowledge Base</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+<a href="/history.html" style="display:block;padding:20px 24px;background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:10px;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">📜 Evergreen</div>
+<div style="color:#f1f5f9;font-size:15px;font-weight:600;margin-bottom:6px">Bombers History &amp; Legacy</div>
+<p style="color:var(--muted);font-size:13px;line-height:1.6;margin:0">From 1930 founding to 4 Grey Cups — the complete timeline of Winnipeg's most decorated franchise.</p>
+</a>
+<a href="/schedule.html" style="display:block;padding:20px 24px;background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:10px;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">📅 Evergreen</div>
+<div style="color:#f1f5f9;font-size:15px;font-weight:600;margin-bottom:6px">2026 CFL Schedule &amp; Scores</div>
+<p style="color:var(--muted);font-size:13px;line-height:1.6;margin:0">Full 18-week schedule with dates, times, opponents, and live score tracking for every Bombers game.</p>
+</a>
+<a href="/cfl-rules.html" style="display:block;padding:20px 24px;background:linear-gradient(135deg,var(--card),var(--dark));border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:10px;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">📋 Evergreen</div>
+<div style="color:#f1f5f9;font-size:15px;font-weight:600;margin-bottom:6px">CFL Rules &amp; Format Explained</div>
+<p style="color:var(--muted);font-size:13px;line-height:1.6;margin:0">3 downs, 110 yards, the rouge — everything you need to understand Canadian football vs. the NFL.</p>
+</a>
+</div>
+</div></section>
 </main>
 <style>
 #newsletterEmail:focus{border-color:rgba(212,175,55,0.5);box-shadow:0 0 12px rgba(212,175,55,0.15)}
