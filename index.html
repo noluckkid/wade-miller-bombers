@@ -342,8 +342,8 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <link rel="dns-prefetch" href="https://v3b.fal.media">
 <link rel="dns-prefetch" href="https://upload.wikimedia.org">
 </style>
-<meta name="theme-color" content="#0a0a0f">
-<link rel="apple-touch-icon" href="/favicon.png">
+<meta content="#0a0a0f" name="theme-color"/>
+<link href="/favicon.png" rel="apple-touch-icon"/>
 </head>
 <body>
 <!-- Sticky Nav -->
@@ -364,7 +364,7 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <a href="/archive/">📚 Archive</a>
 </div>
 <!-- Mobile: hamburger -->
-<button id="mobileMenuBtn" aria-label="Toggle menu" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px" onclick="toggleMobileMenu()">
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px">
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
@@ -376,21 +376,21 @@ footer{padding:24px;text-align:center;font-size:12px;color:var(--dim);border-top
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
-<a href="#dirt" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📺 Drama</a>
-<a href="#juice" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">⏰ The Juice</a>
-<a href="#news" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📡 News</a>
-<a href="#rankings" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">🏈 Rankings</a>
+<a href="#dirt" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📺 Drama</a>
+<a href="#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📡 News</a>
+<a href="#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">🏈 Rankings</a>
 </div>
 <div>
 <div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
-<a href="/research/" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📝 Auto Blog</a>
-<a href="/archive/" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📚 Archive</a>
-<a href="/history.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📖 Team History</a>
-<a href="/schedule.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📅 2026 Schedule</a>
-<a href="/cfl-rules.html" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s" onclick="closeMobileMenu()">📋 CFL Rules</a>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📖 Team History</a>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 0;transition:color 0.2s">📋 CFL Rules</a>
 </div>
 </div>
-<a href="#contact" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s" onclick="closeMobileMenu()">📩 Contact</a>
+<a href="#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
 </div>
 </nav>
 <script>
@@ -432,7 +432,7 @@ function closeMobileMenu() {
 </style>
 <!-- Scrolling CFL Drama Ticker -->
 <!-- AUTO:TICKER_START -->
-<div class="ticker"><div class="ticker-inner"><span>🔴 BREAKING: RT Broxton (leg) hobbled; Vanterpool works with 1s for Thu vs BC</span> · <span>🔄 RUMOR: Locker-room frustration over Oliveira's late-game usage, sources say</span> · <span>📊 STAT: Oliveira had 1 touch in the final 20 mins of the 52-30 loss to Calgary</span> · <span>🔥 HOT TAKE: Bombers' refusal to use Oliveira late exposes them as non-contenders</span><span>🔴 BREAKING: RT Broxton (leg) hobbled; Vanterpool works with 1s for Thu vs BC</span> · <span>🔄 RUMOR: Locker-room frustration over Oliveira's late-game usage, sources say</span> · <span>📊 STAT: Oliveira had 1 touch in the final 20 mins of the 52-30 loss to Calgary</span> · <span>🔥 HOT TAKE: Bombers' refusal to use Oliveira late exposes them as non-contenders</span></div></div>
+<div class="ticker"><div class="ticker-inner"><span>🔴 BREAKING: Kaidon Salter to make first CFL start for BC Lions vs. Blue Bombers on Thursda</span> · <span>🔄 RUMOR: Nathan Rourke’s ongoing absence fueling trade whispers around the league.</span> · <span>📊 STAT: Salter posted 1,089 rush yards, 32 TD passes, and a C-USA MVP at Liberty in 2023.</span> · <span>🔥 HOT TAKE: Throwing Salter into his first start on the road is a desperation move that wi</span><span>🔴 BREAKING: Kaidon Salter to make first CFL start for BC Lions vs. Blue Bombers on Thursda</span> · <span>🔄 RUMOR: Nathan Rourke’s ongoing absence fueling trade whispers around the league.</span> · <span>📊 STAT: Salter posted 1,089 rush yards, 32 TD passes, and a C-USA MVP at Liberty in 2023.</span> · <span>🔥 HOT TAKE: Throwing Salter into his first start on the road is a desperation move that wi</span></div></div>
 <!-- AUTO:TICKER_END -->
 <main>
 <!-- Hero -->
@@ -459,7 +459,7 @@ function closeMobileMenu() {
 <h1>Wade Miller Bombers</h1>
 <p class="sub">Autonomous AI intelligence for the Winnipeg Blue Bombers — deep research, exclusive analysis, live data. 4x daily. Built by NLK Automation.</p>
 <div style="display:flex;gap:10px;justify-content:flex-start;position:relative;z-index:1;flex-wrap:wrap;margin-bottom:24px">
-<a href="https://x.com/NLKautomations" style="background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none" target="_blank" rel="noopener noreferrer">Follow @NLKautomations ↗</a>
+<a href="https://x.com/NLKautomations" rel="noopener noreferrer" style="background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none" target="_blank">Follow @NLKautomations ↗</a>
 <button onclick="window.open('https://x.com/intent/tweet?text='+encodeURIComponent('Day '+document.getElementById('dDay').textContent+' · '+document.getElementById('dClock').textContent+' — Wade Miller still has not called. wademillerbombers.com'),'_blank','width=550,height=420')" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px 22px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer">Share the Clock</button>
 </div>
 <div class="stat-row hero-mini-stats">
@@ -475,7 +475,7 @@ function closeMobileMenu() {
 <h2>🔍 The Dirt — What No One's Talking About</h2>
 <!-- What No One's Talking About -->
 <!-- AUTO:INSIGHTS_START -->
-<div class="insight-grid"><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>O-Line Shuffle Exposes a Trust Gap Between Coaches and Established Interior Depth</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">Against Calgary, the in-game response to Broxton’s injury shifted Gabe Wallace from left guard to right tackle, but Monday’s practice revealed a stark pivot: Micah Vanterpool, a natural tackle with ze</p></div><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>Oliveira’s Fourth-Quarter Disappearance Hints at a Silent Workload Rift</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">Oliveira piled up 128 rushing yards, yet the “loudest narrative” post-game was his vanishing act in the final frame of a blowout. The decision to shelf the league’s leading rusher while the game still</p></div><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>52-Point Collapse Unmasks a Defense-Offense Blame Cycle</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">Winnipeg surrendered 52 points, their worst defensive outing since 2015, while Collaros threw four interceptions that repeatedly handed Calgary short fields—the Stamps started six drives inside Bomber</p></div></div>
+<div class="insight-grid"><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>Defensive chokehold on rookie QBs masks a structural containment weakness</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">Since 2022, Richie Hall’s unit has suffocated first-time starters to 5.2 yards per attempt, a 61.3 passer rating, and a 7-1 record, but Kaidon Salter’s 1,203 rushing yards at Liberty in 2023 exposes a</p></div><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>Oliveira’s late-game usage is a statistical outlier that kills comeback math</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">In five games this season decided by one score or fewer entering the fourth quarter, Brady Oliveira has been handed the ball on only 19% of Winnipeg’s offensive snaps – the lowest rate for any top‑fiv</p></div><div class="insight-crd"><div class="tag">🔬 Deep Dive</div><h3>O‑line shuffling gives Winnipeg a run‑blocking floor that Thursday’s line‑up could shatter</h3><p style="color:var(--muted);font-size:14px;margin:8px 0;line-height:1.7">With Jarell Broxton limping and Stanley Bryant sidelined, the Bombers are poised to field their sixth different starting offensive line in eight games. In 18 snaps without Broxton last Friday, the pat</p></div></div>
 <!-- AUTO:INSIGHTS_END -->
 </div></section>
 <!-- Latest News + Carousel -->
@@ -496,7 +496,7 @@ function closeMobileMenu() {
 <!-- 10 AM Slot -->
 <div class="card" data-slot="10am">
 <div class="card-hd" style="display:flex;align-items:center;gap:10px">
-<img alt="Collaros" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/120px-Zach_Collaros_2019.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,0.4);flex-shrink:0"/ loading="lazy" decoding="async">
+<img alt="Collaros" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/120px-Zach_Collaros_2019.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,0.4);flex-shrink:0"/>
 <span class="tag" style="color:var(--amber)">🌤️ 10:00 AM — Roster Analysis</span>
 </div>
 <h3>Zach Collaros Contract Year: What It Means for the Bombers' Cap Strategy</h3>
@@ -509,7 +509,7 @@ function closeMobileMenu() {
 <!-- 2 PM Slot -->
 <div class="card" data-slot="2pm">
 <div class="card-hd" style="display:flex;align-items:center;gap:10px">
-<img alt="Oliveira" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Brady_Oliveira_2022.jpg/120px-Brady_Oliveira_2022.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(148,163,184,0.4);flex-shrink:0"/ loading="lazy" decoding="async">
+<img alt="Oliveira" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Brady_Oliveira_2022.jpg/120px-Brady_Oliveira_2022.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(148,163,184,0.4);flex-shrink:0"/>
 <span class="tag" style="color:var(--muted)">🔥 2:00 PM — The Juice</span>
 </div>
 <h3>Inside the Locker Room: Who's the Real Leader When Collaros Isn't Talking?</h3>
@@ -522,7 +522,7 @@ function closeMobileMenu() {
 <!-- 8 PM Slot -->
 <div class="card" data-slot="8pm">
 <div class="card-hd" style="display:flex;align-items:center;gap:10px">
-<img alt="Bombers" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Zach_Collaros_%282021%29.jpg/120px-Zach_Collaros_%282021%29.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,175,55,0.4);flex-shrink:0"/ loading="lazy" decoding="async">
+<img alt="Bombers" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Zach_Collaros_%282021%29.jpg/120px-Zach_Collaros_%282021%29.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,175,55,0.4);flex-shrink:0"/>
 <span class="tag" style="color:var(--gold)">🌙 8:00 PM — Roster Tracker</span>
 </div>
 <h3>Bombers vs. Elks: Early-Season Showdown Tests Winnipeg’s Bounce-Back Potential</h3>
@@ -595,12 +595,12 @@ function closeMobileMenu() {
 <div style="position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Zach_Collaros_2019.jpg/800px-Zach_Collaros_2019.jpg') center/cover no-repeat;opacity:0.06;filter:blur(4px);z-index:0;pointer-events:none"></div>
 <h2 style="position:relative;z-index:1">⏰ The Juice — Daily Insider Take</h2>
 <!-- AUTO:JUICE_START -->
-<div class="countdown-box" id="juiceBox" style="position:relative;z-index:1"><div class="cnt" id="juiceCountdown" style="font-size:clamp(20px,4vw,36px);margin-bottom:8px">Next: 2:00 PM</div><div class="juice-body" style="margin-top:0;text-align:left;display:block"><div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 COORDINATOR COLLAPSE</div><h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">Oliveira Seething After Pierce’s Gutless Late-Game Abandonment of the Run: “It’s a Joke”</h3><p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:10px">The stench from Friday’s 52-30 drubbing by Calgary isn’t just about four Collaros picks or a Swiss-cheese secondary — it’s the silent civil war reignited on the Winnipeg sideline. I’m told star tailback Brady Oliveira, who gouged the Stamps for 128 yards before halftime, was apoplectic post-game, and not quietly. A source inside the tunnel says Oliveira went right at offensive coordinator Buck Pierce, voice dripping with disgust: “Run the damn ball when it matters, man. What are we doing?” The exchange was brief but loud enough to turn heads. It’s been simmering since 2025, but watching a 14-p</p><div style="font-size:11px;color:var(--dim)">🕐 July 28, 2026 · 02:05 PM</div></div><div class="hint" style="margin-top:12px">🔄 Next juice drops tomorrow at 2 PM</div></div>
+<div class="countdown-box" id="juiceBox" style="position:relative;z-index:1"><div class="cnt" id="juiceCountdown" style="font-size:clamp(20px,4vw,36px);margin-bottom:8px">Next: 2:00 PM</div><div class="juice-body" style="margin-top:0;text-align:left;display:block"><div style="display:inline-block;background:rgba(245,158,11,0.15);color:var(--amber);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🍿 OC MELTDOWN</div><h3 style="color:#f1f5f9;font-size:17px;margin-bottom:8px;line-height:1.3">Condell’s Clueless Clock Management Has Oliveira Fuming — And Free Agency Beckoning</h3><p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:10px">Look, you saw it Friday. Brady Oliveira houses a 45-yard touchdown — career-long, crowd erupting — to cut Calgary’s lead to 39-27. Then, poof. Not a single carry the rest of the night. Tommy Condell’s Monday presser was a masterclass in arrogant deflection: “I make a decision what’s best for the team.” Best for the team? Leaving your league-leading rusher on the sideline while the Stamps piled on 52 points is galaxy-brain stuff. I’ve got locker-room whispers saying Oliveira wasn’t just frustrated post-game — he was silent, simmering, the kind of quiet that worries vets. And it’s not the first </p><div style="font-size:11px;color:var(--dim)">🕐 July 28, 2026 · 08:04 PM</div></div><div class="hint" style="margin-top:12px">🔄 Next juice drops tomorrow at 2 PM</div></div>
 <!-- AUTO:JUICE_END -->
 </div></section>
 <section class="section" id="rankings" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
 <h2>🏈 CFL Power Rankings</h2>
-<div class="grid-2"><div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Montreal Alouettes</h3><p>7-1 record, +98 point differential—Cody Fajardo leads the league's most balanced attack.</p></div><div class="card"><div class="tag">🥈 Power Rank #2</div><h3>Ottawa Redblacks</h3><p>5-2, allowing a league-low 20.1 points per game—defense is carrying Dru Brown's efficient starts.</p></div><div class="card"><div class="tag">📈 Rising #3</div><h3>Toronto Argonauts</h3><p>4-3, held opponents under 24 points in 5 straight—Wynton McManis' unit is elite, but offense lags.</p></div><div class="card"><div class="tag">📊 Trending #4</div><h3>Saskatchewan Roughriders</h3><p>4-3, 6.3 yards per play with Trevor Harris back—legitimate Grey Cup threat if he stays upright.</p></div></div>
+<div class="grid-2"><div class="card"><div class="tag">🏆 Power Rank #1</div><h3>Montreal Alouettes</h3><p>Undefeated at 5-0 with a league-best +56 point differential, anchored by a defense allowing a CFL-lo</p></div><div class="card"><div class="tag">🥈 Power Rank #2</div><h3>Toronto Argonauts</h3><p>4-1 record powered by a CFL-high 34.8 points per game and a +10 turnover ratio that ranks first.</p></div><div class="card"><div class="tag">📈 Rising #3</div><h3>Winnipeg Blue Bombers</h3><p>3-2 with the league’s stingiest total defense (316.2 yards per game) — but inconsistent offense crea</p></div><div class="card"><div class="tag">📊 Trending #4</div><h3>BC Lions</h3><p>3-2 despite a -5 turnover differential; Kaidon Salter’s Week 7 start introduces massive uncertainty </p></div></div>
 </div></section>
 <!-- Top Chat Reactions -->
 <section class="section" style="background:#000212;padding:60px 24px;max-width:none"><div style="max-width:1100px;margin:0 auto">
@@ -730,9 +730,9 @@ function closeMobileMenu() {
 <h2>📩 Want Your Own AI System?</h2>
 <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:20px">I built this entire site with AI — autonomous research, content generation, live updates, email campaigns, chatbot, and analytics. <strong style="color:#e2e8f0">Let me build yours.</strong></p>
 <div class="form-box" style="margin:0">
-<input placeholder="Your Name" type="text" aria-label="Your name"/>
-<input placeholder="Your Email" type="email" aria-label="Your email"/>
-<textarea placeholder="What do you need built? (e.g. lead gen site, AI chatbot, automation pipeline)" aria-label="Your message"></textarea>
+<input aria-label="Your name" placeholder="Your Name" type="text"/>
+<input aria-label="Your email" placeholder="Your Email" type="email"/>
+<textarea aria-label="Your message" placeholder="What do you need built? (e.g. lead gen site, AI chatbot, automation pipeline)"></textarea>
 <button onclick="submitContact()" style="font-size:15px;font-weight:700;letter-spacing:0.5px">🚀 Start the Conversation</button>
 </div>
 <div style="margin-top:14px;padding:10px 14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:6px;display:flex;align-items:center;gap:10px">
@@ -749,7 +749,7 @@ function closeMobileMenu() {
 <p style="color:var(--muted);line-height:1.8;font-size:14px;margin-top:12px">The goal: demonstrate what AI infrastructure looks like in the hands of the Winnipeg Blue Bombers front office. Every insight, every update, every email to news desks — all AI. All automated. All day.</p>
 <p style="color:var(--muted);line-height:1.8;font-size:14px;margin-top:12px"><strong style="color:#e2e8f0">NLK Automation builds these systems for local businesses</strong> — pressure washing companies, roofing contractors, restaurants, service businesses. If this site can autonomously cover a CFL team, imagine what it can do for your leads.</p>
 <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-<a href="https://x.com/NLKautomations" style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:var(--gold);padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none" target="_blank" rel="noopener noreferrer">@NLKautomations ↗</a>
+<a href="https://x.com/NLKautomations" rel="noopener noreferrer" style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:var(--gold);padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none" target="_blank">@NLKautomations ↗</a>
 <a href="#contact" style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.3);color:var(--teal);padding:8px 16px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none">Get a Free Consult →</a>
 </div>
 </div>
@@ -761,8 +761,8 @@ function closeMobileMenu() {
 <h2 style="font-size:clamp(20px,3vw,28px);font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;letter-spacing:0.5px">Get daily Bombers intel in your inbox</h2>
 <p style="color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:28px">AI-powered analysis, roster moves, and insider takes — delivered 4x daily. No spam, just signal.</p>
 <form id="newsletterForm" style="display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center">
-<input id="newsletterEmail" type="email" placeholder="you@email.com" required aria-label="Email address for newsletter" style="flex:1;min-width:200px;background:#111827;border:1px solid var(--bd);border-radius:8px;padding:14px 16px;color:#e2e8f0;font-size:16px;outline:none;transition:border-color 0.3s,box-shadow 0.3s" />
-<button type="submit" style="background:linear-gradient(135deg,#d4af37,#f0e6c0);color:#080c14;border:none;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.3s;white-space:nowrap">Subscribe</button>
+<input aria-label="Email address for newsletter" id="newsletterEmail" placeholder="you@email.com" required="" style="flex:1;min-width:200px;background:#111827;border:1px solid var(--bd);border-radius:8px;padding:14px 16px;color:#e2e8f0;font-size:16px;outline:none;transition:border-color 0.3s,box-shadow 0.3s" type="email"/>
+<button style="background:linear-gradient(135deg,#d4af37,#f0e6c0);color:#080c14;border:none;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;cursor:pointer;transition:transform 0.2s,box-shadow 0.3s;white-space:nowrap" type="submit">Subscribe</button>
 </form>
 <div id="newsletterMsg" style="margin-top:14px;font-size:14px;min-height:20px"></div>
 <p style="color:var(--dim);font-size:12px;margin-top:16px">Know a fellow Bombers fan? <a href="https://wademillerbombers.com#signup" style="color:var(--gold);text-decoration:underline">Forward this link</a></p>
@@ -854,10 +854,10 @@ btn.textContent='Subscribe';btn.disabled=false;
 })();
 </script>
 <footer role="contentinfo">wademillerbombers.com · <strong>Built by NLK Automation</strong> · Not affiliated with the Winnipeg Blue Bombers
-<p style="color:var(--muted);font-size:12px;margin-top:12px">CFL Resources: <a href="https://www.cfl.ca" rel="noopener noreferrer" target="_blank" style="color:var(--dim);text-decoration:underline">CFL.ca</a> · <a href="https://www.bluebombers.com" rel="noopener noreferrer" target="_blank" style="color:var(--dim);text-decoration:underline">bluebombers.com</a> · <a href="https://en.wikipedia.org/wiki/Winnipeg_Blue_Bombers" rel="noopener noreferrer" target="_blank" style="color:var(--dim);text-decoration:underline">Wikipedia</a></p>
+<p style="color:var(--muted);font-size:12px;margin-top:12px">CFL Resources: <a href="https://www.cfl.ca" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">CFL.ca</a> · <a href="https://www.bluebombers.com" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">bluebombers.com</a> · <a href="https://en.wikipedia.org/wiki/Winnipeg_Blue_Bombers" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">Wikipedia</a></p>
 </footer>
 <!-- Wade Bot Floating Chat -->
-<div role="complementary" class="wadebot" id="wadebot">
+<div class="wadebot" id="wadebot" role="complementary">
 <div class="wadebot-hd" onclick="var hd=this;var b=document.getElementById('wadebot').querySelector('.wadebot-bd');var f=document.getElementById('wadebot').querySelector('.wadebot-ft');var m=hd.querySelector('.min-btn');if(b.style.display==='none'){b.style.display='';f.style.display='';m.textContent='−';m.style.background='rgba(212,175,55,0.08)'}else{b.style.display='none';f.style.display='none';m.textContent='+';m.style.background='rgba(212,175,55,0.18)'}">
 <div class="av">B</div>
 <div class="nm">Wade Bot</div>
