@@ -12,14 +12,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wademillerbombers.com/research/">
 <title>Bombers Research — Deep CFL Analysis | Wade Miller Bombers</title>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Wade Miller Bombers", "item": "https://wademillerbombers.com"}, {"@type": "ListItem", "position": 2, "name": "Research", "item": "https://wademillerbombers.com/research/"}]}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,sans-serif;background:#000212;color:#e2e8f0;padding-top:52px}
 :root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#94a3b8}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
-nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
-nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 16px;flex-wrap:wrap}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+.site-nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
+.site-nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 .section{padding:60px 24px;max-width:900px;margin:0 auto}
 h1{font-size:28px;font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .subtitle{color:var(--muted);font-size:14px;margin-bottom:40px;line-height:1.6}
@@ -28,6 +29,25 @@ footer a{color:var(--gold);text-decoration:none}
 a{transition:color 0.15s}
 a:hover{color:var(--gold-l)}
 @media(max-width:600px){.section{padding:40px 16px}h1{font-size:22px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000}
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+  .card p{font-size:16px}
+  .card h3{font-size:17px}
+  .insight-box p{font-size:16px}
+  .insight-box h3{font-size:18px}
+  .meta,.meta span{font-size:13px}
+  h2{font-size:20px}
+  footer{font-size:13px}
+  .ticker-box .item{font-size:15px}
+  .juice-box p{font-size:16px}
+  .juice-box h3{font-size:18px}
+}
+@media(max-width:768px){article{padding:16px 20px}}
 </style>
 </head>
 <body>
@@ -45,8 +65,8 @@ a:hover{color:var(--gold-l)}
 <a href="/#news">📡 News</a>
 <a href="/#rankings">🏈 Rankings</a>
 <a href="/#contact">📩 Contact</a>
-<a href="/research/">📝 Auto Blog</a>
-<a href="/archive/" class="act">📚 Archive</a>
+<a href="/research/" class="act">📝 Auto Blog</a>
+<a href="/archive/">📚 Archive</a>
 <div class="nav-more" style="position:relative">
 <a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
 <div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
@@ -86,133 +106,105 @@ a:hover{color:var(--gold-l)}
 <a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
 </div>
 </nav>
-<script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('mobileMenuBtn');
-  const isOpen = menu.style.display === 'block';
-  menu.style.display = isOpen ? 'none' : 'block';
-  // Animate hamburger
-  const spans = btn.querySelectorAll('span');
-  if (!isOpen) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-  } else {
-    spans[0].style.transform = 'none';
-    spans[1].style.opacity = '1';
-    spans[2].style.transform = 'none';
-  }
-}
-function closeMobileMenu() {
-  document.getElementById('mobileMenu').style.display = 'none';
-  const btn = document.getElementById('mobileMenuBtn');
-  const spans = btn.querySelectorAll('span');
-  spans[0].style.transform = 'none';
-  spans[1].style.opacity = '1';
-  spans[2].style.transform = 'none';
-}
-</script>
-<style>
-@media(max-width:768px){
-  .nav-links{display:none !important}
-  #mobileMenuBtn{display:flex !important}
-  .mobile-hide{display:none !important}
-  .desktop-brand{display:none !important}
-  .mobile-brand{display:inline !important}
-}
-</style>
 
-<section class="section">
+<section class="section" role="main">
   <h1>Bombers Research</h1>
   <p class="subtitle">AI-synthesized deep analysis on Winnipeg Blue Bombers and CFL — history, community, and insider takes. Every article is researched from real news sources and written fresh. Updated 2-3x weekly.</p>
 
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
-      <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · June 30, 2026<img src="/assets/blog_20260728_213521.webp" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · June 30, 2026</div>
+      <img src="/assets/blog_20260728_213521.png" alt="More Than a Game: How the Blue Bombers Unite Manitoba" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-06-30.html" style="color:inherit;text-decoration:none">More Than a Game: How the Blue Bombers Unite Manitoba</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a record sellout streak to youth programs reaching thousands, the Winnipeg Blue Bombers are the heartbeat of a province.</p>
       <a href="/research/post-2026-06-30.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
+      <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 30, 2026</div>
+      <img src="/research/images/post-20260730.webp" alt="The Sea of Blue: How Bombers Sellouts Define Manitoba’s Heartbeat" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-30.html" style="color:inherit;text-decoration:none">The Sea of Blue: How Bombers Sellouts Define Manitoba’s Heartbeat</a></h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">For over 30 consecutive home games, Princess Auto Stadium has been a sold-out sea of blue and gold. Fans share the traditions that make game day a province-wide</p>
+      <a href="/research/post-2026-07-30.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
+    </article>
+    <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📜 From the Archives · July 28, 2026</div>
-      
+      <img src="/assets/blog_20260728_213622.png" alt="From Drought to Dynasty: How the 2019 Bombers Forged an Identity That 2026 Must " loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-28.html" style="color:inherit;text-decoration:none">From Drought to Dynasty: How the 2019 Bombers Forged an Identity That 2026 Must Reclaim</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">A 29-year Grey Cup drought shattered in 2019 launched a modern dynasty. As the 2026 Bombers grapple with an identity crisis after a 52‑30 loss, the past offers </p>
       <a href="/research/post-2026-07-28.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 25, 2026</div>
-      
+      <img src="/assets/blog_20260728_213615.png" alt="Winnipeg’s D Is a Paper Tiger: Calgary's Blueprint to Beat the Bombers" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-25.html" style="color:inherit;text-decoration:none">Winnipeg’s D Is a Paper Tiger: Calgary's Blueprint to Beat the Bombers</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">Calgary didn’t just beat Winnipeg — they exposed a defence that’s been getting by on reputation. Here’s the film-room breakdown no one in Bomberland wants to he</p>
       <a href="/research/post-2026-07-25.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 23, 2026</div>
-      
+      <img src="/assets/blog_20260728_213608.png" alt="More Than a Game: How the Bombers Build Community, One Block at a Time" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-23.html" style="color:inherit;text-decoration:none">More Than a Game: How the Bombers Build Community, One Block at a Time</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a province-wide sellout streak to youth programs that change lives, the Winnipeg Blue Bombers prove a football team can be the heartbeat of a community.</p>
       <a href="/research/post-2026-07-23.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 21, 2026</div>
-      
+      <img src="/assets/blog_20260728_213603.png" alt="The Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them By" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-21.html" style="color:inherit;text-decoration:none">The Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them By</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">Winnipeg's salary cap is bloated with aging stars and declining production. The Bombers are clinging to a dynasty that's already over.</p>
       <a href="/research/post-2026-07-21.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 18, 2026</div>
-      
+      <img src="/assets/blog_20260728_213556.png" alt="More Than a Game: How the Blue Bombers Unite Manitoba" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-18.html" style="color:inherit;text-decoration:none">More Than a Game: How the Blue Bombers Unite Manitoba</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a record sellout streak to youth programs reaching thousands, the Winnipeg Blue Bombers are the heartbeat of Manitoba. Here’s how the team builds community</p>
       <a href="/research/post-2026-07-18.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 16, 2026</div>
-      
+      <img src="/assets/blog_20260728_213550.png" alt="The Edmonton Elks Are Not Grey Cup Contenders—Stop the Hype" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-16.html" style="color:inherit;text-decoration:none">The Edmonton Elks Are Not Grey Cup Contenders—Stop the Hype</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">The CFL.ca hype machine is pushing Edmonton as a contender. The numbers say otherwise—this is a mirage built on a soft schedule and unsustainable luck.</p>
       <a href="/research/post-2026-07-16.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 14, 2026</div>
-      
+      <img src="/assets/blog_20260728_213543.png" alt="More Than a Sellout: How the Bombers Became Manitoba’s Heartbeat" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-14.html" style="color:inherit;text-decoration:none">More Than a Sellout: How the Bombers Became Manitoba’s Heartbeat</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">For 100 straight games, Winnipeg has packed IG Field. But the real story is what happens when the final whistle blows.</p>
       <a href="/research/post-2026-07-14.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 11, 2026</div>
-      
+      <img src="/assets/blog_20260728_213537.png" alt="Dru Brown's Revenge Game Exposes the Blue Bombers' Real QB Problem" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-11.html" style="color:inherit;text-decoration:none">Dru Brown's Revenge Game Exposes the Blue Bombers' Real QB Problem</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">The Bombers beat Toronto 30-21 in Week 6, but the real story is how Dru Brown's performance exposed Winnipeg's flawed quarterback room and overpaid veteran.</p>
       <a href="/research/post-2026-07-11.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📜 From the Archives · July 09, 2026</div>
-      
+      <img src="/assets/blog_20260728_213530.png" alt="The Drought That Forged a Dynasty: How Winnipeg’s 29-Year Wait Changed Everythin" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-09.html" style="color:inherit;text-decoration:none">The Drought That Forged a Dynasty: How Winnipeg’s 29-Year Wait Changed Everything</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">The 29-year Grey Cup drought that ended in 2019 wasn't just a title—it was a crucible that forged the modern Bombers dynasty and reshaped the CFL.</p>
       <a href="/research/post-2026-07-09.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💚 Bomber Community · July 07, 2026</div>
-      <img src="/research/images/post-20260707.webp" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260707.png" alt="More Than a Game: How the Blue Bombers Unite Manitoba" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-07.html" style="color:inherit;text-decoration:none">More Than a Game: How the Blue Bombers Unite Manitoba</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">From a record sellout streak to youth programs reaching thousands, the Winnipeg Blue Bombers are the heartbeat of a province.</p>
       <a href="/research/post-2026-07-07.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📜 From the Archives · July 04, 2026</div>
-      <img src="/research/images/post-20260704.webp" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260704.png" alt="The Drought That Defined a Province: How 1990 Ended Winnipeg's 29-Year Curse" loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-04.html" style="color:inherit;text-decoration:none">The Drought That Defined a Province: How 1990 Ended Winnipeg's 29-Year Curse</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">For 29 years, the Grey Cup eluded Winnipeg. The 1990 victory wasn't just a championship—it was the exorcism of a provincial trauma that still echoes in today's </p>
       <a href="/research/post-2026-07-04.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
     </article>
     <article style="background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px">
       <div class="tag" style="font-size:10px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔥 CFL Insider · July 02, 2026</div>
-      <img src="/research/images/post-20260702.webp" alt="Bombers Research" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+      <img src="/research/images/post-20260702.png" alt="The Blue Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them " loading="lazy" decoding="async" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px">
       <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:8px"><a href="/research/post-2026-07-02.html" style="color:inherit;text-decoration:none">The Blue Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them By</a></h3>
       <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px">Winnipeg's bloated contracts for fading stars are sinking their cap flexibility. While rivals reload, the Bombers cling to a formula that's already stopped work</p>
       <a href="/research/post-2026-07-02.html" style="color:var(--gold);font-size:12px;font-weight:600;text-decoration:none">Read full article →</a>
@@ -220,10 +212,30 @@ function closeMobileMenu() {
 
 </section>
 
-<footer>
+<footer role="contentinfo">
   <a href="https://wademillerbombers.com">wademillerbombers.com</a> · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers
 </footer>
 <script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.getElementById('mobileMenuBtn');
+  var isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  var spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  var btn = document.getElementById('mobileMenuBtn');
+  var spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+}
 function toggleNavMore(e) {
   e.preventDefault(); e.stopPropagation();
   var m = document.getElementById('navMoreMenu');
