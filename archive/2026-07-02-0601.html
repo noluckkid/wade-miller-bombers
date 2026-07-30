@@ -26,8 +26,9 @@ The return of Dru Brown to Winnipeg isn’t just a depth move — it’s a schem
 body{font-family:system-ui,sans-serif;background:#000212;color:#e2e8f0;padding-top:52px}
 :root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--amber:#f59e0b;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#94a3b8}
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;flex-wrap:wrap}
-.site-nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+.site-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
 .site-nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
+nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 .section{padding:32px 24px;max-width:900px;margin:0 auto}
 h1{font-size:clamp(22px,4vw,32px);font-weight:800;background:linear-gradient(180deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .meta{color:var(--muted);font-size:13px;margin-bottom:32px;display:flex;gap:16px;flex-wrap:wrap}
@@ -64,7 +65,7 @@ footer a{color:var(--gold);text-decoration:none}
 <nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:fixed;top:0;left:0;right:0;z-index:1000">
 <!-- Left: brand -->
 <div style="flex:1">
-<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="desktop-brand" style="font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
 <span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
 </div>
 <!-- Center: nav links (desktop) -->
@@ -79,9 +80,9 @@ footer a{color:var(--gold);text-decoration:none}
 <div class="nav-more" style="position:relative">
 <a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
 <div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
-<a href="/history.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📖 Team History</a>
-<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📅 2026 Schedule</a>
-<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📋 CFL Rules</a>
+<a href="/history.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📖 Team History</a>
+<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📋 CFL Rules</a>
 </div>
 </div>
 </div>
@@ -92,7 +93,7 @@ footer a{color:var(--gold);text-decoration:none}
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 </button>
 <!-- Right: Winnipeg Local (desktop) -->
-<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<span class="mobile-hide" style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
 <!-- Mobile menu dropdown -->
 <div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">

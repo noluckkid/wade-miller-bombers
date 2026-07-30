@@ -27,7 +27,7 @@ a{color:#d4af37;text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:900px;margin:0 auto;padding:24px 20px}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000}
-nav a{color:#94a3b8;font-size:14px;font-weight:600}
+nav a{color:var(--muted);font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
 nav a:hover{color:#d4af37;text-decoration:none}
 
 h1{font-size:clamp(28px,5vw,42px);color:#d4af37;font-weight:800;margin:40px 0 16px;line-height:1.2}
@@ -97,7 +97,7 @@ nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 <nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:fixed;top:0;left:0;right:0;z-index:1000">
 <!-- Left: brand -->
 <div style="flex:1">
-<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="desktop-brand" style="font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
 <span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
 </div>
 <!-- Center: nav links (desktop) -->
@@ -112,9 +112,9 @@ nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 <div class="nav-more" style="position:relative">
 <a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
 <div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
-<a class="act" href="/history.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📖 Team History</a>
-<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📅 2026 Schedule</a>
-<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📋 CFL Rules</a>
+<a class="act" href="/history.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📖 Team History</a>
+<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:14px;white-space:nowrap">📋 CFL Rules</a>
 </div>
 </div>
 </div>
@@ -125,7 +125,7 @@ nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 <span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
 </button>
 <!-- Right: Winnipeg Local (desktop) -->
-<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<span class="mobile-hide" style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
 <!-- Mobile menu dropdown -->
 <div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
