@@ -947,6 +947,9 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
   }
 
   // Contact form
+  // One-time dwell token from form server (bot filter — minted on page load)
+  var __formToken = '';
+  fetch('/token').then(function(r){ return r.json(); }).then(function(d){ __formToken = d.t || ''; }).catch(function(){});
   function submitContact() {
     var fb = document.querySelector('.form-box');
     var ins = fb.querySelectorAll('input, textarea');
@@ -960,7 +963,7 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
     fetch('/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name: name, email: email, message: message})
+      body: JSON.stringify({name: name, email: email, message: message, t: __formToken})
     })
     .then(function(r) { return r.json(); })
     .then(function(d) {
