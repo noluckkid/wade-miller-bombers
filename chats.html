@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Log — Wade Miller Bombers</title>
+<style>
+:root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#7c8db0;--green:#22c55e;--red:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--txt);min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(0,2,18,.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px}
+nav .logo{font-weight:800;font-size:16px;letter-spacing:1px}
+nav .logo span{background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,#b8960f);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 10px;border:1px solid var(--bd);border-radius:6px}
+nav a:hover{color:var(--gold);border-color:var(--gold)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 12px 60px}
+h1{font-size:26px;font-weight:800;background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,#b8960f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:14px}
+.stats{display:flex;gap:8px;margin-bottom:14px}
+.stat{flex:1;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.stat .n{font-size:24px;font-weight:800;color:var(--gold);line-height:1.1}
+.stat .n.up{color:var(--green)}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.search{width:100%;background:var(--card);border:1px solid var(--bd);color:var(--txt);border-radius:8px;padding:10px 12px;font-size:16px;margin-bottom:12px}
+.search:focus{outline:none;border-color:var(--gold)}
+.filters{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.fbtn{background:var(--card);border:1px solid var(--bd);color:var(--muted);border-radius:20px;padding:5px 12px;font-size:13px;cursor:pointer}
+.fbtn.on{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.08)}
+.entry{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.entry.test{opacity:.55}
+.entry .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.entry .q{font-size:16px;font-weight:700;line-height:1.35}
+.entry .time{font-size:12px;color:var(--dim);white-space:nowrap}
+.entry .a{color:var(--muted);font-size:14px;line-height:1.5;margin-top:6px;border-left:2px solid var(--gold);padding-left:10px;white-space:pre-wrap}
+.entry .meta{font-size:11px;color:var(--dim);margin-top:8px}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.badge.test{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.35)}
+.badge.limit{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.35)}
+.acts{display:flex;gap:8px;margin-top:10px}
+.btn{background:var(--card);border:1px solid var(--bd);color:var(--muted);border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer}
+.btn:hover{color:var(--gold);border-color:var(--gold)}
+.btn.del:hover{color:var(--red);border-color:var(--red)}
+.btn.save{color:var(--green);border-color:rgba(34,197,94,.4)}
+.editor{margin-top:10px;border-top:1px solid var(--bd);padding-top:10px}
+.editor label{display:block;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin:8px 0 4px}
+.editor textarea{width:100%;background:#0a0e17;border:1px solid var(--bd);color:var(--txt);border-radius:8px;padding:8px 10px;font-size:14px;font-family:inherit;resize:vertical;line-height:1.45}
+.editor textarea:focus{outline:none;border-color:var(--gold)}
+.empty{color:var(--dim);text-align:center;padding:40px 0;font-size:15px}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--green);margin-top:2px}
+.live .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">WMB <span>CHAT LOG</span></div>
+  <a href="/">← Site</a>
+</nav>
+<div class="wrap">
+  <h1>Wade Bot Conversations</h1>
+  <div class="sub" id="sub">—</div>
+  <div class="stats">
+    <div class="stat"><div class="n" id="sTotal">0</div><div class="l">Total</div></div>
+    <div class="stat"><div class="n up" id="sToday">0</div><div class="l">Today</div></div>
+    <div class="stat"><div class="n" id="sShown">0</div><div class="l">Shown</div></div>
+  </div>
+  <input class="search" id="q" type="search" placeholder="Search question, reply…">
+  <div class="filters" id="filters">
+    <button class="fbtn on" data-f="all">All</button>
+    <button class="fbtn" data-f="real">Real</button>
+    <button class="fbtn" data-f="test">Test</button>
+  </div>
+  <div id="list"><div class="empty">Loading…</div></div>
+  <div class="live"><span class="dot"></span>auto-refresh 30s · edits apply to the live site section</div>
+</div>
+<script>
+var ALL=[],F='all',Q='',EDITING=null;
+var JUNK_RE=/test|probe|ping|spam|limit|junk|ignore|asdf|qwerty|lorem|^hi$|^hello$|^hey$|^yo$|^sup$/;
+function isTest(e){
+  var s=((e.msg||e.message||'')+' '+(e.reply||'')).toLowerCase();
+  return JUNK_RE.test(s);
+}
+function fmtTime(ts){
+  if(!ts)return '';
+  var d=new Date(ts);
+  if(isNaN(d))return ts.slice(0,16);
+  return d.toLocaleString('en-CA',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function key(e){
+  return sha1([e.ts||e.timestamp||'',e.ip||''].join('|')).slice(0,20);
+}
+function render(){
+  var today=new Date();today.setHours(0,0,0,0);
+  var t=ALL.length,td=0;
+  ALL.forEach(function(e){var d=new Date(e.ts||0);if(d>=today)td++});
+  document.getElementById('sTotal').textContent=t;
+  document.getElementById('sToday').textContent=td;
+  var rows=ALL.filter(function(e){
+    var test=isTest(e);
+    if(F==='real'&&test)return false;
+    if(F==='test'&&!test)return false;
+    if(Q){
+      var hay=((e.msg||e.message||'')+' '+(e.reply||'')).toLowerCase();
+      if(hay.indexOf(Q)<0)return false;
+    }
+    return true;
+  });
+  document.getElementById('sShown').textContent=rows.length;
+  var el=document.getElementById('list');
+  if(!rows.length){el.innerHTML='<div class="empty">'+(ALL.length?'No matches':'No chats yet')+'</div>';return}
+  el.innerHTML=rows.map(function(e){
+    var k=key(e),test=isTest(e);
+    var q=esc(e.msg||e.message||''),a=esc(e.reply||'');
+    var badge=(test?'<span class="badge test">TEST</span>':'')+(e.limit_reached?'<span class="badge limit">LIMIT</span>':'');
+    var body;
+    if(EDITING===k){
+      body='<div class="editor">'
+        +'<label>Question</label><textarea id="edQ">'+q+'</textarea>'
+        +'<label>Reply</label><textarea id="edA" rows="5">'+a+'</textarea>'
+        +'<div class="acts"><button class="btn save" onclick="saveEdit(\''+k+'\')">💾 Save</button>'
+        +'<button class="btn" onclick="EDITING=null;render()">Cancel</button></div>'
+        +'</div>';
+    }else{
+      body='<div class="acts">'
+        +'<button class="btn" onclick="EDITING=\''+k+'\';render()">✏️ Edit</button>'
+        +'<button class="btn del" onclick="delEntry(\''+k+'\')">🗑 Delete</button>'
+        +'</div>';
+    }
+    return '<div class="entry'+(test?' test':'')+'">'
+      +'<div class="top"><span class="q">"'+q+'"</span><span class="time">'+fmtTime(e.ts)+badge+'</span></div>'
+      +'<div class="a">'+a+'</div>'
+      +'<div class="meta">'+(e.ip?esc(e.ip)+' · ':'')+'remaining: '+(e.remaining!=null?e.remaining:'—')+'</div>'
+      +body
+      +'</div>';
+  }).join('');
+}
+function load(){
+  if(EDITING)return; // don't clobber an open editor
+  fetch('/chats-data',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+    ALL=(d&&d.entries||[]).slice();
+    render();
+    var last=ALL[0]&&ALL[0].ts;
+    document.getElementById('sub').textContent=(last?('Last: '+fmtTime(last)):'No chats')+' · '+(ALL.length)+' total';
+  }).catch(function(){document.getElementById('list').innerHTML='<div class="empty">Could not load — auth failed?</div>'});
+}
+function post(path,obj){
+  return fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj),cache:'no-store'})
+    .then(function(r){return r.json()});
+}
+function delEntry(k){
+  if(!confirm('Delete this chat entry? It will be removed from the log and the site section.'))return;
+  post('/chats-admin/delete',{key:k}).then(function(d){
+    EDITING=null;load();
+    if(!d.success||!d.deleted)alert('Delete failed: '+(d.error||'unknown'));
+  }).catch(function(){alert('Delete failed — auth or server error')});
+}
+function saveEdit(k){
+  post('/chats-admin/edit',{key:k,msg:document.getElementById('edQ').value,reply:document.getElementById('edA').value}).then(function(d){
+    EDITING=null;load();
+    if(!d.success)alert('Save failed: '+(d.error||'unknown'));
+  }).catch(function(){alert('Save failed — auth or server error')});
+}
+/* sha1 (canonical public-domain implementation) — matches server key: hexdigest[:20] */
+function sha1(msg){
+  function rotl(n,b){return (n<<b)|(n>>>(32-b))}
+  function toHexStr(n){var s='',v;for(var i=7;i>=0;i--){v=(n>>>(i*4))&0x0f;s+=v.toString(16)}return s}
+  var i,j,W=new Array(80),H0=0x67452301,H1=0xEFCDAB89,H2=0x98BADCFE,H3=0x10325476,H4=0xC3D2E1F0,A,B,C,D,E,temp;
+  msg=unescape(encodeURIComponent(msg));
+  var msgLen=msg.length,wordArray=[];
+  for(i=0;i<msgLen-3;i+=4){
+    j=msg.charCodeAt(i)<<24|msg.charCodeAt(i+1)<<16|msg.charCodeAt(i+2)<<8|msg.charCodeAt(i+3);
+    wordArray.push(j);
+  }
+  switch(msgLen%4){
+    case 0:i=0x080000000;break;
+    case 1:i=msg.charCodeAt(msgLen-1)<<24|0x0800000;break;
+    case 2:i=msg.charCodeAt(msgLen-2)<<24|msg.charCodeAt(msgLen-1)<<16|0x08000;break;
+    case 3:i=msg.charCodeAt(msgLen-3)<<24|msg.charCodeAt(msgLen-2)<<16|msg.charCodeAt(msgLen-1)<<8|0x80;break;
+  }
+  wordArray.push(i);
+  while((wordArray.length%16)!=14)wordArray.push(0);
+  wordArray.push(msgLen>>>29);
+  wordArray.push((msgLen<<3)&0x0ffffffff);
+  for(var bs=0;bs<wordArray.length;bs+=16){
+    for(i=0;i<16;i++)W[i]=wordArray[bs+i];
+    for(i=16;i<=79;i++)W[i]=rotl(W[i-3]^W[i-8]^W[i-14]^W[i-16],1);
+    A=H0;B=H1;C=H2;D=H3;E=H4;
+    for(i=0;i<=79;i++){
+      if(i<=19)temp=(rotl(A,5)+((B&C)|(~B&D))+E+W[i]+0x5A827999)&0x0ffffffff;
+      else if(i<=39)temp=(rotl(A,5)+(B^C^D)+E+W[i]+0x6ED9EBA1)&0x0ffffffff;
+      else if(i<=59)temp=(rotl(A,5)+((B&C)|(B&D)|(C&D))+E+W[i]+0x8F1BBCDC)&0x0ffffffff;
+      else temp=(rotl(A,5)+(B^C^D)+E+W[i]+0xCA62C1D6)&0x0ffffffff;
+      E=D;D=C;C=rotl(B,30);B=A;A=temp;
+    }
+    H0=(H0+A)&0x0ffffffff;H1=(H1+B)&0x0ffffffff;H2=(H2+C)&0x0ffffffff;H3=(H3+D)&0x0ffffffff;H4=(H4+E)&0x0ffffffff;
+  }
+  return (toHexStr(H0)+toHexStr(H1)+toHexStr(H2)+toHexStr(H3)+toHexStr(H4)).toLowerCase();
+}
+document.getElementById('q').addEventListener('input',function(e){Q=e.target.value.trim().toLowerCase();render()});
+document.querySelectorAll('.fbtn').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on')});
+  b.classList.add('on');F=b.dataset.f;render();
+})});
+load();setInterval(load,30000);
+</script>
+</body>
+</html>
