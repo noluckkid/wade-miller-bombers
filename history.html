@@ -21,14 +21,16 @@
 <meta name="twitter:title" content="Winnipeg Blue Bombers History — Full Timeline"/>
 <meta name="twitter:description" content="Complete history of the Winnipeg Blue Bombers — from 1930 founding to 2024 Grey Cup win."/>
 <style>
+:root{--gold:#d4af37;--gold-l:#f0e6c0;--muted:#94a3b8;--dim:#64748b;--bd:#1e293b}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0f;color:#e2e8f0;font-size:17px;line-height:1.7;padding-top:52px}
 a{color:#d4af37;text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:900px;margin:0 auto;padding:24px 20px}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000}
-nav a{color:var(--muted);font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
-nav a:hover{color:#d4af37;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 16px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all 0.2s}
+nav a:hover{color:var(--gold);background:rgba(212,175,55,0.08);text-decoration:none}
+nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 
 h1{font-size:clamp(28px,5vw,42px);color:#d4af37;font-weight:800;margin:40px 0 16px;line-height:1.2}
 h2{font-size:clamp(22px,3vw,30px);color:#d4af37;font-weight:700;margin:48px 0 16px;line-height:1.3;border-bottom:1px solid #1e293b;padding-bottom:8px}
@@ -53,9 +55,6 @@ p{margin-bottom:16px;color:#e2e8f0}
 footer{text-align:center;padding:24px 20px;border-top:1px solid #1e293b;color:#94a3b8;font-size:13px;margin-top:40px}
 footer a{color:#94a3b8}
 @media(max-width:600px){.wrap{padding:16px 14px}}
-
-:root{--gold:#d4af37;--gold-l:#f0e6c0;--muted:#94a3b8;--dim:#64748b;--bd:#1e293b}
-nav a.act{color:var(--gold);background:rgba(212,175,55,0.12)}
 @media(max-width:768px){
   .nav-links{display:none !important}
   #mobileMenuBtn{display:flex !important}
