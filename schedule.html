@@ -52,6 +52,23 @@ p{margin-bottom:16px;color:#e2e8f0}
 .schedule-table .playoff{background:rgba(212,175,55,0.08);font-weight:700}
 .game-info{font-size:13px;color:#94a3b8;margin-top:4px}
 .badge{display:inline-block;background:#d4af37;color:#0a0a0f;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:8px}
+.theme-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.4px;white-space:nowrap;border:1px solid rgba(255,255,255,0.18);line-height:1.5}
+.tc-gold{background:linear-gradient(90deg,#f0e6c0,#d4af37 60%,#b8960f);color:#0a0a0f;border-color:rgba(255,255,255,0.35)}
+.tc-green{background:#16a34a;color:#fff}
+.tc-amber{background:#f59e0b;color:#0a0a0f}
+.tc-blue{background:#3b82f6;color:#fff}
+.tc-red{background:#dc2626;color:#fff}
+.tc-crimson{background:#b91c1c;color:#fff}
+.tc-orange{background:#f97316;color:#0a0a0f}
+.tc-deeporange{background:#ea580c;color:#fff}
+.tc-harvest{background:#d97706;color:#0a0a0f}
+.tc-purple{background:#a855f7;color:#fff}
+.tc-brown{background:#92400e;color:#fde68a}
+.tc-teal{background:#0d9488;color:#fff}
+.tc-cyan{background:#06b6d4;color:#0a0a0f}
+.tc-navy{background:#1e3a8a;color:#d4af37}
+.tc-indigo{background:#4f46e5;color:#e0e7ff}
+.tc-gray{background:rgba(100,116,139,0.22);color:#cbd5e1;border-color:rgba(148,163,184,0.4);font-style:italic;font-weight:600}
 .note{background:#111827;border:1px solid #1e293b;border-left:3px solid #d4af37;border-radius:8px;padding:16px 20px;margin:24px 0;font-size:15px}
 .newsletter{background:#111827;border:1px solid #1e293b;border-radius:12px;padding:32px;text-align:center;margin:60px 0 40px}
 .newsletter h3{color:#d4af37;margin-bottom:8px;font-size:20px}
@@ -212,6 +229,7 @@ footer a{color:#94a3b8}
 <th>Time</th>
 <th>Opponent</th>
 <th>Location</th>
+<th>Theme</th>
 </tr>
 </thead>
 <tbody>
@@ -221,6 +239,7 @@ footer a{color:#94a3b8}
 <td>6:00 PM</td>
 <td>Saskatchewan</td>
 <td><span class="away">@ Saskatoon</span></td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 </tr>
 <tr class="preseason">
 <td>May 29</td>
@@ -228,6 +247,7 @@ footer a{color:#94a3b8}
 <td>7:30 PM</td>
 <td>BC</td>
 <td><span class="home">Winnipeg</span></td>
+<td><span class="theme-chip tc-green">🎪 Family Game</span></td>
 </tr>
 </tbody>
 </table>
@@ -241,6 +261,7 @@ footer a{color:#94a3b8}
 <th>Day</th>
 <th>Time</th>
 <th>Opponent</th>
+<th>Theme</th>
 <th class="hide-mobile">Location</th>
 </tr>
 </thead>
@@ -251,6 +272,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>8:00 PM</td>
 <td>Calgary</td>
+<td><span class="theme-chip tc-cyan">🚀 Season Opener</span></td>
 <td class="hide-mobile"><span class="away">@ Calgary</span></td>
 </tr>
 <tr>
@@ -259,11 +281,12 @@ footer a{color:#94a3b8}
 <td>Thu</td>
 <td>7:30 PM</td>
 <td>Hamilton</td>
+<td><span class="theme-chip tc-gold">🏟️ Home Opener</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr class="bye">
 <td>3</td>
-<td colspan="4">BYE WEEK</td>
+<td colspan="5"><span class="theme-chip tc-indigo">💤 Rest Week</span></td>
 </tr>
 <tr>
 <td>4</td>
@@ -271,6 +294,7 @@ footer a{color:#94a3b8}
 <td>Thu</td>
 <td>7:30 PM</td>
 <td>Edmonton</td>
+<td><span class="theme-chip tc-amber">☀️ Summer Kickoff</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -279,6 +303,7 @@ footer a{color:#94a3b8}
 <td>Sun</td>
 <td>6:00 PM</td>
 <td>Hamilton</td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 <td class="hide-mobile"><span class="away">@ Hamilton</span></td>
 </tr>
 <tr>
@@ -287,6 +312,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>7:30 PM</td>
 <td>Toronto*</td>
+<td><span class="theme-chip tc-blue">💙 First Responders</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span><div class="game-info">*FIFA conflict — Toronto home game in WPG</div></td>
 </tr>
 <tr>
@@ -295,6 +321,7 @@ footer a{color:#94a3b8}
 <td>Sun</td>
 <td>6:00 PM</td>
 <td>Ottawa</td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 <td class="hide-mobile"><span class="away">@ Ottawa</span></td>
 </tr>
 <tr>
@@ -303,6 +330,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>7:30 PM</td>
 <td>Calgary</td>
+<td><span class="theme-chip tc-red">🎄 Christmas in July</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -311,11 +339,12 @@ footer a{color:#94a3b8}
 <td>Thu</td>
 <td>7:30 PM</td>
 <td>BC</td>
+<td><span class="theme-chip tc-purple">🕶️ 90's Night</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr class="bye">
 <td>10</td>
-<td colspan="4">BYE WEEK</td>
+<td colspan="5"><span class="theme-chip tc-indigo">💤 Rest Week</span></td>
 </tr>
 <tr>
 <td>11</td>
@@ -323,6 +352,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>7:30 PM</td>
 <td>Ottawa</td>
+<td><span class="theme-chip tc-brown">🤠 Country Night</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -331,6 +361,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>8:30 PM</td>
 <td>Edmonton</td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 <td class="hide-mobile"><span class="away">@ Edmonton</span></td>
 </tr>
 <tr>
@@ -339,6 +370,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>6:30 PM</td>
 <td>Montreal</td>
+<td><span class="theme-chip tc-teal">🎖️ Armed Forces</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -346,7 +378,8 @@ footer a{color:#94a3b8}
 <td>Sep 6</td>
 <td>Sun</td>
 <td>6:00 PM</td>
-<td>Saskatchewan<span class="badge">Labour Day</span></td>
+<td>Saskatchewan</td>
+<td><span class="theme-chip tc-crimson">🏈 Labour Day Classic</span></td>
 <td class="hide-mobile"><span class="away">@ Regina</span></td>
 </tr>
 <tr>
@@ -354,19 +387,21 @@ footer a{color:#94a3b8}
 <td>Sep 12</td>
 <td>Sat</td>
 <td>3:00 PM</td>
-<td>Saskatchewan<span class="badge">Banjo Bowl</span></td>
+<td>Saskatchewan</td>
+<td><span class="theme-chip tc-orange">🪕 Banjo Bowl</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr class="bye">
 <td>16</td>
-<td colspan="4">BYE WEEK</td>
+<td colspan="5"><span class="theme-chip tc-indigo">💤 Rest Week</span></td>
 </tr>
 <tr>
 <td>17</td>
 <td>Sep 25</td>
 <td>Fri</td>
 <td>7:00 PM</td>
-<td>Toronto<span class="badge">Orange Shirt</span></td>
+<td>Toronto</td>
+<td><span class="theme-chip tc-deeporange">🧡 Orange Shirt Day</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -375,6 +410,7 @@ footer a{color:#94a3b8}
 <td>Sat</td>
 <td>7:00 PM</td>
 <td>Montreal</td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 <td class="hide-mobile"><span class="away">@ Montreal</span></td>
 </tr>
 <tr>
@@ -382,7 +418,8 @@ footer a{color:#94a3b8}
 <td>Oct 10</td>
 <td>Sat</td>
 <td>6:00 PM</td>
-<td>Calgary<span class="badge">Thanksgiving</span></td>
+<td>Calgary</td>
+<td><span class="theme-chip tc-harvest">🦃 Thanksgiving</span></td>
 <td class="hide-mobile"><span class="home">Winnipeg</span></td>
 </tr>
 <tr>
@@ -391,6 +428,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>8:30 PM</td>
 <td>Edmonton</td>
+<td><span class="theme-chip tc-gray">🛣️ Road Game</span></td>
 <td class="hide-mobile"><span class="away">@ Edmonton</span></td>
 </tr>
 <tr>
@@ -399,6 +437,7 @@ footer a{color:#94a3b8}
 <td>Fri</td>
 <td>9:00 PM</td>
 <td>BC</td>
+<td><span class="theme-chip tc-indigo">🏁 Season Finale</span></td>
 <td class="hide-mobile"><span class="away">@ BC</span></td>
 </tr>
 </tbody>
@@ -412,6 +451,7 @@ footer a{color:#94a3b8}
 <th>Day</th>
 <th>Time</th>
 <th>Event</th>
+<th>Theme</th>
 <th>Location</th>
 </tr>
 </thead>
@@ -421,6 +461,7 @@ footer a{color:#94a3b8}
 <td>Sat</td>
 <td>TBD</td>
 <td>East/West Semifinals</td>
+<td><span class="theme-chip tc-navy">🏆 Playoff Football</span></td>
 <td>TBD</td>
 </tr>
 <tr class="playoff">
@@ -428,6 +469,7 @@ footer a{color:#94a3b8}
 <td>Sat</td>
 <td>TBD</td>
 <td>Division Finals</td>
+<td><span class="theme-chip tc-navy">🏆 Playoff Football</span></td>
 <td>TBD</td>
 </tr>
 <tr class="playoff">
@@ -435,6 +477,7 @@ footer a{color:#94a3b8}
 <td>Sun</td>
 <td>6:00 PM</td>
 <td><strong>113th Grey Cup</strong></td>
+<td><span class="theme-chip tc-gold">🏆 Grey Cup</span></td>
 <td>McMahon Stadium, Calgary</td>
 </tr>
 </tbody>
@@ -465,20 +508,70 @@ footer a{color:#94a3b8}
 </div>
 </div>
 
-<h2>Key Matchups to Watch</h2>
-<div style="background:#111827;border:1px solid #1e293b;border-left:3px solid #d4af37;border-radius:8px;padding:20px;margin:16px 0">
-<h3 style="color:#d4af37;margin-bottom:8px">Labour Day Classic &amp; Banjo Bowl</h3>
-<p style="margin-bottom:0">The traditional rivalry with Saskatchewan returns with back-to-back games: September 6 in Regina (Labour Day Classic) and September 12 at home (Banjo Bowl). These games are among the most intense in Canadian football.</p>
+<h2>2026 Theme Nights</h2>
+<p class="muted">Every home game at Princess Auto Stadium gets its own vibe — from Santa hats in July to a full-blown 90's revival. Here's the full rundown.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:20px 0">
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #06b6d4;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🚀 Season Opener <span style="color:#06b6d4;font-size:12px">— Jun 5 @ Calgary</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">First crack at the Stamps on the road. New season, same energy.</p>
 </div>
 
-<div style="background:#111827;border:1px solid #1e293b;border-left:3px solid #d4af37;border-radius:8px;padding:20px;margin:16px 0">
-<h3 style="color:#d4af37;margin-bottom:8px">Orange Shirt Game — September 25</h3>
-<p style="margin-bottom:0">The Bombers host Toronto in recognition of the National Day for Truth and Reconciliation. A meaningful annual tradition honouring residential school survivors and their families.</p>
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #d4af37;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🏟️ Home Opener <span style="color:#d4af37;font-size:12px">— Jun 11 vs Hamilton</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Back at Princess Auto. The tarp comes off and the sellout streak keeps rolling.</p>
 </div>
 
-<div style="background:#111827;border:1px solid #1e293b;border-left:3px solid #d4af37;border-radius:8px;padding:20px;margin:16px 0">
-<h3 style="color:#d4af37;margin-bottom:8px">Thanksgiving Weekend — October 10</h3>
-<p style="margin-bottom:0">The Bombers host Calgary on Thanksgiving Saturday. A marquee matchup as Winnipeg looks to secure playoff positioning in the final stretch.</p>
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #f59e0b;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">☀️ Summer Kickoff <span style="color:#f59e0b;font-size:12px">— Jun 25 vs Edmonton</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Longest day of the year vibes, Indigenous Peoples Day celebration, and the Elks in town.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #3b82f6;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">💙 Mental Health &amp; First Responders <span style="color:#3b82f6;font-size:12px">— Jul 10 vs Toronto</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Honouring the people who show up when it counts. (Toronto's "home" game, moved to WPG for FIFA.)</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #dc2626;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🎄 Christmas in July <span style="color:#dc2626;font-size:12px">— Jul 24 vs Calgary</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Santa hats at 30°C. The most wonderful time of the… summer?</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #a855f7;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🕶️ 90's Night <span style="color:#a855f7;font-size:12px">— Jul 30 vs BC</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Dial-up, scrunchies, and the Lions. Expect a decade-appropriate halftime playlist.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #92400e;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🤠 Country Night <span style="color:#fde68a;font-size:12px">— Aug 14 vs Ottawa</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Boots, hats, and the Redblacks. Y'all ready for some football?</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #0d9488;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🎖️ Armed Forces Appreciation <span style="color:#5eead4;font-size:12px">— Aug 28 vs Montreal</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Saluting the men and women in uniform as the Alouettes roll into town.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #b91c1c;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🏈 Labour Day Classic <span style="color:#fca5a5;font-size:12px">— Sep 6 @ Regina</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">The most intense rivalry in Canadian football. Labour Day means Riders week.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #f97316;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🪕 Banjo Bowl <span style="color:#fdba74;font-size:12px">— Sep 12 vs Saskatchewan</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Revenge game six days later. Banjos out, sellout crowd, all gas.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #ea580c;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🧡 Orange Shirt Day <span style="color:#fdba74;font-size:12px">— Sep 25 vs Toronto</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Honouring residential school survivors. Every child matters.</p>
+</div>
+
+<div style="background:#111827;border:1px solid #1e293b;border-left:4px solid #d97706;border-radius:8px;padding:16px">
+<h3 style="color:#f0e6c0;margin-bottom:6px;font-size:16px">🦃 Thanksgiving Game <span style="color:#fbbf24;font-size:12px">— Oct 10 vs Calgary</span></h3>
+<p style="margin:0;font-size:14px;color:#94a3b8">Turkey, stuffing, and a Stampeders showdown on the long weekend.</p>
+</div>
+
 </div>
 
 <h2>TV &amp; Streaming</h2>
