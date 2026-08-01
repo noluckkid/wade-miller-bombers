@@ -347,12 +347,10 @@ footer{padding:24px;text-align:center;font-size:13px;color:var(--dim);border-top
 <link rel="preconnect" href="https://v3b.fal.media" crossorigin>
 <link rel="dns-prefetch" href="https://v3b.fal.media">
 
-/* ── Permanent expand box (Keep reading) — never breaks, applies to any card ── */
+/* ── Permanent expand box (Keep reading) — title-only until expanded ── */
 .clamp{position:relative}
-.clamp-body{max-height:120px;overflow:hidden;position:relative;line-height:1.7}
-.clamp-body::after{content:"";position:absolute;bottom:0;left:0;right:0;height:46px;background:linear-gradient(to bottom,transparent,var(--card))}
-.clamp.open .clamp-body{max-height:none}
-.clamp.open .clamp-body::after{display:none}
+.clamp-body{display:none;line-height:1.7}
+.clamp.open .clamp-body{display:block}
 .clamp.open .clamp-btn{display:none}
 .clamp-btn{display:block;margin:8px auto 0;background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:7px 20px;border-radius:20px;font-family:SF Mono,monospace;font-size:13px;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:all .2s}
 .clamp-btn:hover{background:rgba(212,175,55,.14)}
