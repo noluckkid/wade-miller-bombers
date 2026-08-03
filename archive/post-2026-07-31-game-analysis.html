@@ -122,49 +122,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000}
   </div>
 </div>
 <!-- RELATED_END -->
-<footer role="contentinfo"><a href="https://wademillerbombers.com">wademillerbombers.com</a> · <a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">Built by NLK Automation</a>
-  <div style="color:var(--muted);font-size:12px;margin-top:2px"><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">We build these for businesses too →</a></div>
-</footer>
-<script>
-function toggleMobileMenu() {
-  var menu = document.getElementById('mobileMenu');
-  var btn = document.getElementById('mobileMenuBtn');
-  var isOpen = menu.style.display === 'block';
-  menu.style.display = isOpen ? 'none' : 'block';
-  var spans = btn.querySelectorAll('span');
-  if (!isOpen) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-  } else {
-    spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
-  }
-}
-function closeMobileMenu() {
-  document.getElementById('mobileMenu').style.display = 'none';
-  var btn = document.getElementById('mobileMenuBtn');
-  var spans = btn.querySelectorAll('span');
-  spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
-}
-function toggleNavMore(e) {
-  e.preventDefault(); e.stopPropagation();
-  var m = document.getElementById('navMoreMenu');
-  m.style.display = m.style.display === 'block' ? 'none' : 'block';
-}
-document.addEventListener('click', function(e) {
-  var m = document.getElementById('navMoreMenu');
-  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
-});
-window.addEventListener('resize', function() {
-  if (window.innerWidth > 768) {
-    var mm = document.getElementById('mobileMenu');
-    if (mm) mm.style.display = 'none';
-  }
-});
-</script>
-
-
-
 <!-- bombers-archive-nav start -->
 <div class="bombers-archive-nav">
   <div class="bombers-archive-nav-nav">
@@ -216,5 +173,49 @@ window.addEventListener('resize', function() {
 }
 </style>
 <!-- bombers-archive-nav end -->
+<footer role="contentinfo">wademillerbombers.com · <strong><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">Built by NLK Automation</a></strong> · Not affiliated with the Winnipeg Blue Bombers
+<p style="color:var(--muted);font-size:13px;margin-top:12px">CFL Resources: <a href="https://www.cfl.ca" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">CFL.ca</a> · <a href="https://www.bluebombers.com" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">bluebombers.com</a> · <a href="https://en.wikipedia.org/wiki/Winnipeg_Blue_Bombers" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">Wikipedia</a></p>
+</footer>
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.getElementById('mobileMenuBtn');
+  var isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  var spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  var btn = document.getElementById('mobileMenuBtn');
+  var spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+}
+function toggleNavMore(e) {
+  e.preventDefault(); e.stopPropagation();
+  var m = document.getElementById('navMoreMenu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('navMoreMenu');
+  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    var mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.display = 'none';
+  }
+});
+</script>
+
+
+
+
 
 </body></html>

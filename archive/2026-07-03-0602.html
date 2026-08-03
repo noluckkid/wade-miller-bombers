@@ -187,36 +187,6 @@ Brady Oliveira’s continued production isn’t just a feel-good Canada Day stor
   </div>
 </div>
 <!-- RELATED_END -->
-<footer>
-  <a href="https://wademillerbombers.com">wademillerbombers.com</a> · AI Operations Desk Archive · <a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">Built by NLK Automation</a> · Not affiliated with the Winnipeg Blue Bombers
-
-  <div style="color:var(--muted);font-size:12px;margin-top:2px"><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">We build these for businesses too →</a></div>
-</footer>
-
-
-
-
-
-<script>
-function toggleNavMore(e) {
-  e.preventDefault(); e.stopPropagation();
-  var m = document.getElementById('navMoreMenu');
-  m.style.display = m.style.display === 'block' ? 'none' : 'block';
-}
-document.addEventListener('click', function(e) {
-  var m = document.getElementById('navMoreMenu');
-  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
-});
-window.addEventListener('resize', function() {
-  if (window.innerWidth > 768) {
-    var mm = document.getElementById('mobileMenu');
-    if (mm) mm.style.display = 'none';
-  }
-});
-</script>
-
-
-
 <!-- bombers-archive-nav start -->
 <div class="bombers-archive-nav">
   <div class="bombers-archive-nav-nav">
@@ -268,6 +238,35 @@ window.addEventListener('resize', function() {
 }
 </style>
 <!-- bombers-archive-nav end -->
+<footer role="contentinfo">wademillerbombers.com · <strong><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">Built by NLK Automation</a></strong> · Not affiliated with the Winnipeg Blue Bombers
+<p style="color:var(--muted);font-size:13px;margin-top:12px">CFL Resources: <a href="https://www.cfl.ca" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">CFL.ca</a> · <a href="https://www.bluebombers.com" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">bluebombers.com</a> · <a href="https://en.wikipedia.org/wiki/Winnipeg_Blue_Bombers" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">Wikipedia</a></p>
+</footer>
+
+
+
+
+
+<script>
+function toggleNavMore(e) {
+  e.preventDefault(); e.stopPropagation();
+  var m = document.getElementById('navMoreMenu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('navMoreMenu');
+  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    var mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.display = 'none';
+  }
+});
+</script>
+
+
+
+
 
 </body>
 </html>
