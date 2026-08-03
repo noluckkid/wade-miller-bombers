@@ -92,20 +92,19 @@ footer a{color:var(--gold);text-decoration:none}
 <div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
 <div>
-<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
-<a href="/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📺 Drama</a>
-<a href="/#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
-<a href="/#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
-<a href="/#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Rankings</a>
-</div>
-<div>
-<div style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
-<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
+<a href="#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/rankings/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏆 CFL Rankings</a>
+<a href="/players/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Players</a>
 <a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📚 Archive</a>
 <a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📖 Team History</a>
+</div>
+<div>
 <a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📅 2026 Schedule</a>
 <a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📋 CFL Rules</a>
-</div>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/#signup" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">✉️ Newsletter</a>
+<a href="https://nlkauto.com" onclick="closeMobileMenu()" target="_blank" rel="noopener noreferrer" style="display:block;color:var(--gold);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏢 NLK Automation ↗</a>
 </div>
 <a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
 </div>
@@ -168,22 +167,22 @@ function closeMobileMenu() {
 
 <!-- POST_NAV_START -->
 <nav class="post-nav" style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:40px auto 0;padding:0 24px;flex-wrap:wrap;gap:8px">
-  <a href="/archive/post-2026-07-26-insider-drama.html" style="color:var(--muted);font-size:13px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">← Previous Update</a>
-  <a href="/archive/post-2026-07-27-game-analysis.html" style="color:var(--muted);font-size:13px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Next Update →</a>
+  <a href="/archive/post-2026-07-26-insider-drama.html" style="color:var(--muted);font-size:13px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;min-height:30px" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">← Previous Update</a>
+  <a href="/archive/post-2026-07-27-game-analysis.html" style="color:var(--muted);font-size:13px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;min-height:30px" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Next Update →</a>
 </nav>
 <!-- POST_NAV_END -->
 <!-- RELATED_START -->
 <div class="related" style="max-width:900px;margin:24px auto 0;padding:0 24px">
   <h3 style="color:var(--gold);font-size:14px;margin-bottom:12px">Related Updates</h3>
   <div style="display:flex;flex-wrap:wrap;gap:8px">
-    <a href="/archive/2026-06-29-1400.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Bombers locker room fractures as 1-2 start exposes trust issues, contr</a>
-    <a href="/archive/2026-06-30-1401.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Dru Brown’s Return Exposes QB Room Tension — Collaros, Condell, O’Shea</a>
-    <a href="/archive/2026-07-01-1401.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Dru Brown&#x27;s Ottawa Exit: Arm Strength Cover or Locker Room Fracture?</a>
+    <a href="/archive/2026-06-29-1400.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;min-height:30px;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Bombers locker room fractures as 1-2 start exposes trust issues, contr</a>
+    <a href="/archive/2026-06-30-1401.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;min-height:30px;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Dru Brown’s Return Exposes QB Room Tension — Collaros, Condell, O’Shea</a>
+    <a href="/archive/2026-07-01-1401.html" style="color:var(--muted);font-size:12px;text-decoration:none;padding:6px 12px;border:1px solid var(--bd);border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;min-height:30px;white-space:nowrap" onmouseover="this.style.color='var(--gold)';this.style.background='rgba(212,175,55,0.08)'" onmouseout="this.style.color='var(--muted)';this.style.background='transparent'">Dru Brown&#x27;s Ottawa Exit: Arm Strength Cover or Locker Room Fracture?</a>
   </div>
 </div>
 <!-- RELATED_END -->
 <footer>
-  <a href="https://wademillerbombers.com">wademillerbombers.com</a> · AI Operations Desk Archive · Built by NLK Automation · Not affiliated with the Winnipeg Blue Bombers
+  <a href="https://wademillerbombers.com">wademillerbombers.com</a> · AI Operations Desk Archive · <a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer"></a> · Not affiliated with the Winnipeg Blue Bombers
 
   <div style="color:var(--muted);font-size:12px;margin-top:2px"><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">We build these for businesses too →</a></div>
 </footer>

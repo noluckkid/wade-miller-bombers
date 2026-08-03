@@ -381,22 +381,21 @@ footer{padding:24px;text-align:center;font-size:13px;color:var(--dim);border-top
 <div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
 <div>
-<div style="font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Coverage</div>
-<a href="#dirt" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📺 Drama</a>
-<a href="#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
 <a href="#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
-<a href="#rankings" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Rankings</a>
-</div>
-<div>
-<div style="font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:700">Explore</div>
-<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/rankings/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏆 CFL Rankings</a>
+<a href="/players/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Players</a>
 <a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📚 Archive</a>
 <a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📖 Team History</a>
+</div>
+<div>
 <a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📅 2026 Schedule</a>
 <a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📋 CFL Rules</a>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/#signup" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">✉️ Newsletter</a>
+<a href="https://nlkauto.com" onclick="closeMobileMenu()" target="_blank" rel="noopener noreferrer" style="display:block;color:var(--gold);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏢 NLK Automation ↗</a>
 </div>
-</div>
-<a href="#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
+<a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
 </div>
 </nav>
 <script>
@@ -463,7 +462,7 @@ function closeMobileMenu() {
 <div id="gameDate" style="font-size:12px;color:var(--dim)">Loading...</div>
 </div>
 <h1>Wade Miller Bombers</h1>
-<p class="sub">Autonomous AI intelligence for the Winnipeg Blue Bombers — deep research, exclusive analysis, live data. 4x daily. Built by NLK Automation.</p>
+<p class="sub">Autonomous AI intelligence for the Winnipeg Blue Bombers — deep research, exclusive analysis, live data. 4x daily. <a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">Built by NLK Automation</a>.</p>
 <div style="display:flex;gap:10px;justify-content:flex-start;position:relative;z-index:1;flex-wrap:wrap;margin-bottom:24px">
 <a href="https://x.com/NLKautomations" rel="noopener noreferrer" style="background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none" target="_blank">Follow @NLKautomations ↗</a>
 <button onclick="window.open('https://x.com/intent/tweet?text='+encodeURIComponent('Day '+document.getElementById('dDay').textContent+' · '+document.getElementById('dClock').textContent+' — Wade Miller still has not called. wademillerbombers.com'),'_blank','width=550,height=420')" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer">Share the Clock</button>
@@ -855,7 +854,7 @@ btn.textContent='Subscribe';btn.disabled=false;
 });
 })();
 </script>
-<footer role="contentinfo">wademillerbombers.com · <strong>Built by NLK Automation</strong> · Not affiliated with the Winnipeg Blue Bombers
+<footer role="contentinfo">wademillerbombers.com · <strong><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">Built by NLK Automation</a></strong> · Not affiliated with the Winnipeg Blue Bombers
 <p style="color:var(--muted);font-size:13px;margin-top:12px">CFL Resources: <a href="https://www.cfl.ca" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">CFL.ca</a> · <a href="https://www.bluebombers.com" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">bluebombers.com</a> · <a href="https://en.wikipedia.org/wiki/Winnipeg_Blue_Bombers" rel="noopener noreferrer" style="color:var(--dim);text-decoration:underline" target="_blank">Wikipedia</a></p>
 </footer>
 <!-- Wade Bot Floating Chat -->
