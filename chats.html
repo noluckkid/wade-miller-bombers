@@ -7,7 +7,7 @@
 <style>
 :root{--gold:#d4af37;--gold-l:#f0e6c0;--teal:#06b6d4;--navy:#000212;--dark:#0a0e17;--card:#0f172a;--bd:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--dim:#7c8db0;--green:#22c55e;--red:#ef4444}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--txt);min-height:100vh}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--txt);min-height:100vh;padding-top:52px}
 nav{position:sticky;top:0;z-index:100;background:rgba(0,2,18,.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px}
 nav .logo{font-weight:800;font-size:16px;letter-spacing:1px}
 nav .logo span{background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,#b8960f);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -49,9 +49,88 @@ h1{font-size:26px;font-weight:800;background:linear-gradient(180deg,var(--gold-l
 .live{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--green);margin-top:2px}
 .live .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000}
+@media(max-width:768px){
+  .nav-links{display:none !important}
+  #mobileMenuBtn{display:flex !important}
+  .mobile-hide{display:none !important}
+  .desktop-brand{display:none !important}
+  .mobile-brand{display:inline !important}
+  .card p{font-size:16px}
+  .card h3{font-size:17px}
+  .insight-box p{font-size:16px}
+  .insight-box h3{font-size:18px}
+  .meta,.meta span{font-size:13px}
+  h2{font-size:20px}
+  footer{font-size:13px}
+  .ticker-box .item{font-size:15px}
+  .juice-box p{font-size:16px}
+  .juice-box h3{font-size:18px}
+}
+@media(max-width:768px){article{padding:16px 20px}}
 </style>
 </head>
 <body>
+<!-- Sticky Nav -->
+<nav aria-label="Main navigation" style="display:flex;align-items:center;padding:10px 12px;background:rgba(0,2,18,0.95);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);position:fixed;top:0;left:0;right:0;z-index:1000">
+<!-- Left: brand -->
+<div style="flex:1">
+<span class="desktop-brand" style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px">NLK <span style="color:var(--muted);font-weight:400">Automation</span></span>
+<span class="mobile-brand" style="display:none;font-size:18px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(90deg,#f0e6c0 0%,#d4af37 50%,#b8960f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BOMBERS AI</span>
+</div>
+<!-- Center: nav links (desktop) -->
+<div class="nav-links" style="display:flex;justify-content:center;gap:4px">
+<a href="/">🏠 Home</a>
+<a href="/">📺 Drama</a>
+<a href="#news">📡 News</a>
+<a href="#juice">⏰ The Juice</a>
+<a href="/rankings/">🏆 CFL Rankings</a>
+<a href="/players/">🏈 Players</a>
+<div class="nav-more" style="position:relative">
+<a href="#" onclick="toggleNavMore(event)">⋯ More ▾</a>
+<div id="navMoreMenu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(10,14,23,0.98);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:180px;z-index:1001;box-shadow:0 8px 24px rgba(0,0,0,0.5)">
+<a href="/archive/" class="act" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📚 Archive</a>
+<a href="/research/" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📝 Auto Blog</a>
+<a href="/about.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">🏢 About NLK Automation</a>
+<a href="/#contact" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📩 Contact</a>
+<a href="/history.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📖 Team History</a>
+<a href="/schedule.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" style="display:block;padding:10px 12px;font-size:13px;white-space:nowrap">📋 CFL Rules</a>
+</div>
+</div>
+</div>
+<!-- Mobile: hamburger -->
+<button aria-label="Toggle menu" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:12px">
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+<span style="width:24px;height:2px;background:var(--gold);transition:all 0.3s"></span>
+</button>
+<!-- Right: Winnipeg Local (desktop) -->
+<span class="mobile-hide" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap">🍁 Winnipeg Local</span>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:rgba(0,2,18,0.98);border-bottom:1px solid var(--bd);padding:12px 20px 16px;z-index:999;backdrop-filter:blur(12px)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto">
+<div>
+<a href="#news" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📡 News</a>
+<a href="#juice" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">⏰ The Juice</a>
+<a href="/rankings/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏆 CFL Rankings</a>
+<a href="/players/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏈 Players</a>
+<a href="/archive/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📚 Archive</a>
+<a href="/history.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📖 Team History</a>
+</div>
+<div>
+<a href="/schedule.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📅 2026 Schedule</a>
+<a href="/cfl-rules.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📋 CFL Rules</a>
+<a href="/research/" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">📝 Auto Blog</a>
+<a href="/#signup" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">✉️ Newsletter</a>
+<a href="https://nlkauto.com" onclick="closeMobileMenu()" target="_blank" rel="noopener noreferrer" style="display:block;color:var(--gold);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏢 NLK Automation ↗</a>
+<a href="/about.html" onclick="closeMobileMenu()" style="display:block;color:var(--muted);text-decoration:none;font-size:16px;padding:10px 0;transition:color 0.2s">🏢 About NLK Automation</a>
+</div>
+<a href="/#contact" onclick="closeMobileMenu()" style="display:block;width:100%;text-align:center;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:10px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;margin-top:12px;transition:background 0.2s">📩 Contact</a>
+</div>
+</div>
+</nav>
+
 <nav>
   <div class="logo">WMB <span>CHAT LOG</span></div>
   <a href="/">← Site</a>
@@ -205,5 +284,42 @@ document.querySelectorAll('.fbtn').forEach(function(b){b.addEventListener('click
 load();setInterval(load,30000);
 </script>
 <footer style="text-align:center;padding:16px 20px;color:var(--muted);font-size:12px"><div style="color:var(--muted);font-size:12px;margin-top:2px"><a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none">We build these for businesses too →</a></div></footer>
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.getElementById('mobileMenuBtn');
+  var isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  var spans = btn.querySelectorAll('span');
+  if (!isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+  }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').style.display = 'none';
+  var btn = document.getElementById('mobileMenuBtn');
+  var spans = btn.querySelectorAll('span');
+  spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+}
+function toggleNavMore(e) {
+  e.preventDefault(); e.stopPropagation();
+  var m = document.getElementById('navMoreMenu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('navMoreMenu');
+  if (m && !e.target.closest('.nav-more')) m.style.display = 'none';
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    var mm = document.getElementById('mobileMenu');
+    if (mm) mm.style.display = 'none';
+  }
+});
+</script>
 </body>
 </html>
