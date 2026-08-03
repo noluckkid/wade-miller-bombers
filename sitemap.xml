@@ -925,6 +925,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://wademillerbombers.com/archive/2026-08-03-1005.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wademillerbombers.com/archive/insight-2026-07-30-1724-1.html</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>daily</changefreq>
@@ -1262,6 +1268,24 @@
   </url>
   <url>
     <loc>https://wademillerbombers.com/archive/insight-2026-08-03-0604-3.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-08-03-1005-1.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-08-03-1005-2.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-08-03-1005-3.html</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1688,6 +1712,12 @@
   </url>
   <url>
     <loc>https://wademillerbombers.com/archive/post-2026-08-03-game-analysis.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/post-2026-08-03-roster-analysis.html</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
