@@ -282,5 +282,89 @@ window.addEventListener('resize', function() {
 
 
 
+<!-- Wade Bot Floating Chat (site-wide snippet — injected by bombers-wadebot-inject.py) -->
+<style>
+.wadebot{position:fixed;bottom:60px;right:20px;width:320px;z-index:999;background:var(--card,#0f172a);border:1px solid rgba(212,175,55,0.2);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.wadebot-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,#111827,var(--card,#0f172a));border-bottom:1px solid var(--bd,#1e293b);cursor:pointer}
+.wadebot-hd .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold,#d4af37),#f0e6c0);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--navy,#000212);font-weight:800;flex-shrink:0}
+.wadebot-hd .nm{font-size:13px;font-weight:600;color:#e2e8f0}
+.wadebot-hd .st{font-size:12px;color:#22c55e;margin-left:auto}
+.wadebot-bd{max-height:250px;overflow-y:auto;padding:12px}
+.wadebot-bd .msg{padding:10px 14px;border-radius:8px;font-size:14px;margin-bottom:8px;line-height:1.5;max-width:90%}
+.wadebot-bd .msg.bt{background:#111827;border:1px solid var(--bd,#1e293b);color:#cbd5e1}
+.wadebot-bd .msg.us{background:rgba(212,175,55,0.08);color:#e2e8f0;margin-left:auto;border:1px solid rgba(212,175,55,0.15)}
+.wadebot-ft{display:flex;border-top:1px solid var(--bd,#1e293b)}
+.wadebot-ft input{flex:1;background:var(--card,#0f172a);border:none;padding:10px 12px;color:#e2e8f0;font-size:13px;outline:none;min-width:0}
+.wadebot-ft input::placeholder{color:var(--dim,#94a3b8)}
+.wadebot-ft button{background:var(--gold,#d4af37);border:none;color:var(--navy,#000212);padding:0 16px;font-weight:700;font-size:13px;cursor:pointer}
+.wadebot .min-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(212,175,55,0.3);background:rgba(212,175,55,0.12);color:var(--gold,#d4af37);font-size:20px;font-weight:700;cursor:pointer;user-select:none;margin-left:auto;transition:all 0.2s;line-height:1}
+@media(max-width:768px){
+  .wadebot{width:calc(100% - 24px) !important;bottom:50px;right:12px;left:12px}
+  .wadebot-bd{max-height:180px}
+  .wadebot-bd .msg{font-size:16px}
+  .wadebot-ft input{font-size:16px}
+  .wadebot-hd .nm{font-size:14px}
+}
+</style>
+<div class="wadebot" id="wadebot" role="complementary">
+<div class="wadebot-hd" onclick="var hd=this;var b=document.getElementById('wadebot').querySelector('.wadebot-bd');var f=document.getElementById('wadebot').querySelector('.wadebot-ft');var m=hd.querySelector('.min-btn');if(b.style.display==='none'){b.style.display='';f.style.display='';m.textContent='−';m.style.background='rgba(212,175,55,0.08)'}else{b.style.display='none';f.style.display='none';m.textContent='+';m.style.background='rgba(212,175,55,0.18)'}">
+<div class="av">B</div>
+<div class="nm">Wade Bot</div>
+<div class="st">● Live</div>
+<span class="min-btn">−</span>
+</div>
+<div class="wadebot-bd">
+<div class="msg bt">Ask me about the Bombers — roster, cap, history, or the front office. I'm Wade Miller's AI twin.</div>
+<div class="msg us">How's the o-line shaping up this year?</div>
+</div>
+<div class="wadebot-ft">
+<input id="wadeInput" onkeypress="if(event.key==='Enter')wadeChat()" placeholder="Ask Wade Bot..."/>
+<button onclick="wadeChat()">→</button>
+</div>
+</div>
+<script>
+function wadeChat() {
+  var input = document.getElementById('wadeInput');
+  if (!input) return;
+  var msg = input.value.trim();
+  if (!msg) return;
+  var body = document.querySelector('.wadebot-bd');
+  var u = document.createElement('div');
+  u.className = 'msg us';
+  u.textContent = msg;
+  body.appendChild(u);
+  input.value = '';
+  body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+  var t = document.createElement('div');
+  t.className = 'msg bt';
+  t.textContent = '...';
+  body.appendChild(t);
+  body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+  fetch('/chat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({message: msg})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    var full = d.reply || 'Try me again.';
+    var i = 0;
+    var speed = 18;
+    t.textContent = '';
+    function type() {
+      if (i < full.length) {
+        t.textContent += full.charAt(i);
+        i++;
+        body.scrollTo({top: body.scrollHeight, behavior: 'smooth'});
+        setTimeout(type, speed);
+      }
+    }
+    type();
+  })
+  .catch(function(){
+    t.textContent = 'I am between meetings right now. Try me in a bit.';
+  });
+}
+</script>
 </body>
 </html>
