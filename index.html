@@ -949,29 +949,27 @@ if(de)de.textContent=day}t();setInterval(t,1000)})();
     
     // Only track real visitors
     if (!isBot && !sessionStorage.getItem('tracked')) {
-      // Get geolocation via browser API (fallback to IP-based later)
-      fetch('https://ipapi.co/json/')
-        .then(function(r) { return r.json(); })
-        .then(function(geo) {
-          return fetch('/track', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-              country: geo.country_code || 'Unknown',
-              user_agent: navigator.userAgent,
-              is_bot: isBot,
-              referrer: document.referrer || '',
-              page: location.pathname + location.search,
-              utm: (function() {
-                var p = new URLSearchParams(location.search), u = {};
-                ['source','medium','campaign'].forEach(function(k) {
-                  var v = p.get('utm_' + k); if (v) u[k] = v;
-                });
-                return u;
-              })()
-            })
-          });
+      // Country comes from Cloudflare (CF-IPCountry) server-side; no
+      // external geo API needed (ipapi.co rate-limits and was silently
+      // killing all tracking).
+      fetch('/track', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          country: '',
+          user_agent: navigator.userAgent,
+          is_bot: isBot,
+          referrer: document.referrer || '',
+          page: location.pathname + location.search,
+          utm: (function() {
+            var p = new URLSearchParams(location.search), u = {};
+            ['source','medium','campaign'].forEach(function(k) {
+              var v = p.get('utm_' + k); if (v) u[k] = v;
+            });
+            return u;
+          })()
         })
+      })
         .then(function() {
           sessionStorage.setItem('tracked', '1');
         })
