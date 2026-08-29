@@ -220,6 +220,24 @@
     color: #fbbf24;
     border: 1px solid rgba(245, 158, 11, 0.3);
   }
+  .source-mbgov {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  .pension-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    white-space: nowrap;
+    margin-left: 6px;
+  }
   .salary-cell { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .salary-cell .badge { font-weight: 600; }
   .salary-cell .badge-100k { color: var(--accent); }
@@ -302,6 +320,11 @@
       <button data-source="LinkedIn">LinkedIn</button>
       <button data-source="Job Bank">Job Bank</button>
       <button data-source="Eluta">Eluta</button>
+      <button data-source="MB Gov">MB Gov</button>
+    </div>
+    <div class="filter-group" data-filter="pension">
+      <button data-pension="all" class="active">All</button>
+      <button data-pension="yes">🏛️ Pension</button>
     </div>
     <select id="salary-filter">
       <option value="0">All salaries</option>
@@ -341,7 +364,7 @@
 
 <script>
 let ALL_JOBS = [];
-let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score' };
+let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score', pension: 'all' };
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -357,6 +380,7 @@ function render() {
   let jobs = ALL_JOBS.slice();
   if (FILTER.status !== 'all') jobs = jobs.filter(j => j.status === FILTER.status);
   if (FILTER.source !== 'all') jobs = jobs.filter(j => (j.source || 'LinkedIn') === FILTER.source);
+  if (FILTER.pension === 'yes') jobs = jobs.filter(j => j.pension === true);
   if (FILTER.search) {
     const q = FILTER.search.toLowerCase();
     jobs = jobs.filter(j =>
@@ -394,6 +418,7 @@ function render() {
   tbody.innerHTML = jobs.map((j) => {
     const sb = salaryBadge(j.salary_annual_max);
     const newBadge = j.status === 'new' ? '<span class="new-badge">NEW</span>' : '';
+    const pensionBadge = j.pension ? '<span class="pension-badge">🏛️ PENSION</span>' : '';
     const matchPct = Math.min(100, j.score);
     const matchFill = `width: ${matchPct}%`;
     const srcKey = (j.source || 'linkedin').toLowerCase().replace(/[^a-z]/g, '');
@@ -401,7 +426,7 @@ function render() {
       <tr class="${j.status === 'new' ? 'is-new' : ''}" data-url="${j.url}">
         <td>${newBadge}</td>
         <td class="role-cell">
-          <a href="${j.url}" target="_blank" rel="noopener" data-row-link>${escape(j.title)}</a>
+          <a href="${j.url}" target="_blank" rel="noopener" data-row-link>${escape(j.title)}</a>${pensionBadge}
         </td>
         <td class="source-cell hide-mobile"><span class="source-badge source-${srcKey}">${escape(j.source || 'LinkedIn')}</span></td>
         <td class="company-cell hide-mobile">${escape(j.company || '—')}</td>
@@ -435,6 +460,7 @@ function renderStats(summary) {
     { num: summary.total_relevant, label: 'Total Jobs' },
     { num: summary.new_count, label: 'New This Week' },
     { num: summary.ongoing_count, label: 'Ongoing' },
+    { num: summary.pension_count || 0, label: 'Pension / Public' },
     { num: summary.over_100k, label: '$100K+' },
     { num: summary.over_80k, label: '$80K+' },
     { num: summary.salary_known, label: 'Salary Listed' },
@@ -480,6 +506,7 @@ $$('.filter-group').forEach(group => {
       b.classList.add('active');
       if (filterType === 'status') FILTER.status = b.dataset.status;
       else if (filterType === 'source') FILTER.source = b.dataset.source;
+      else if (filterType === 'pension') FILTER.pension = b.dataset.pension;
       render();
     });
   });
