@@ -238,6 +238,19 @@
     white-space: nowrap;
     margin-left: 6px;
   }
+  .ai-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    background: rgba(6, 182, 212, 0.12);
+    color: #22d3ee;
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    white-space: nowrap;
+    margin-left: 6px;
+  }
   .salary-cell { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .salary-cell .badge { font-weight: 600; }
   .salary-cell .badge-100k { color: var(--accent); }
@@ -326,6 +339,11 @@
       <button data-pension="all" class="active">All</button>
       <button data-pension="yes">🏛️ Pension</button>
     </div>
+    <div class="filter-group" data-filter="ai">
+      <button data-ai="all" class="active">All</button>
+      <button data-ai="yes">🤖 AI / Automation</button>
+      <button data-ai="remote">🌐 Remote AI</button>
+    </div>
     <select id="salary-filter">
       <option value="0">All salaries</option>
       <option value="80000">$80K+</option>
@@ -364,7 +382,7 @@
 
 <script>
 let ALL_JOBS = [];
-let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score', pension: 'all' };
+let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score', pension: 'all', ai: 'all' };
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -381,6 +399,8 @@ function render() {
   if (FILTER.status !== 'all') jobs = jobs.filter(j => j.status === FILTER.status);
   if (FILTER.source !== 'all') jobs = jobs.filter(j => (j.source || 'LinkedIn') === FILTER.source);
   if (FILTER.pension === 'yes') jobs = jobs.filter(j => j.pension === true);
+  if (FILTER.ai === 'yes') jobs = jobs.filter(j => j.ai === true);
+  else if (FILTER.ai === 'remote') jobs = jobs.filter(j => j.ai === true && j.ai_track === 'remote');
   if (FILTER.search) {
     const q = FILTER.search.toLowerCase();
     jobs = jobs.filter(j =>
@@ -419,6 +439,7 @@ function render() {
     const sb = salaryBadge(j.salary_annual_max);
     const newBadge = j.status === 'new' ? '<span class="new-badge">NEW</span>' : '';
     const pensionBadge = j.pension ? '<span class="pension-badge">🏛️ PENSION</span>' : '';
+    const aiBadge = j.ai ? `<span class="ai-badge">${j.ai_track === 'remote' ? '🌐' : '🤖'} AI</span>` : '';
     const matchPct = Math.min(100, j.score);
     const matchFill = `width: ${matchPct}%`;
     const srcKey = (j.source || 'linkedin').toLowerCase().replace(/[^a-z]/g, '');
@@ -426,7 +447,7 @@ function render() {
       <tr class="${j.status === 'new' ? 'is-new' : ''}" data-url="${j.url}">
         <td>${newBadge}</td>
         <td class="role-cell">
-          <a href="${j.url}" target="_blank" rel="noopener" data-row-link>${escape(j.title)}</a>${pensionBadge}
+          <a href="${j.url}" target="_blank" rel="noopener" data-row-link>${escape(j.title)}</a>${pensionBadge}${aiBadge}
         </td>
         <td class="source-cell hide-mobile"><span class="source-badge source-${srcKey}">${escape(j.source || 'LinkedIn')}</span></td>
         <td class="company-cell hide-mobile">${escape(j.company || '—')}</td>
@@ -461,6 +482,7 @@ function renderStats(summary) {
     { num: summary.new_count, label: 'New This Week' },
     { num: summary.ongoing_count, label: 'Ongoing' },
     { num: summary.pension_count || 0, label: 'Pension / Public' },
+    { num: summary.ai_count || 0, label: '🤖 AI / Automation' },
     { num: summary.over_100k, label: '$100K+' },
     { num: summary.over_80k, label: '$80K+' },
     { num: summary.salary_known, label: 'Salary Listed' },
@@ -507,6 +529,7 @@ $$('.filter-group').forEach(group => {
       if (filterType === 'status') FILTER.status = b.dataset.status;
       else if (filterType === 'source') FILTER.source = b.dataset.source;
       else if (filterType === 'pension') FILTER.pension = b.dataset.pension;
+      else if (filterType === 'ai') FILTER.ai = b.dataset.ai;
       render();
     });
   });
