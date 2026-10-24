@@ -1,14 +1,5 @@
 [
   {
-    "date": "July 02, 2026",
-    "title": "The Blue Bombers' Cap Trap: Overpaying for Past Glory While the CFL Passes Them By",
-    "excerpt": "Winnipeg's bloated contracts for fading stars are sinking their cap flexibility. While rivals reload, the Bombers cling to a formula that's already stopped work",
-    "style": "drama",
-    "style_label": "\ud83d\udd25 CFL Insider",
-    "url": "/research/post-2026-07-02.html",
-    "image": "/research/images/post-20260702.webp"
-  },
-  {
     "date": "July 04, 2026",
     "title": "The Drought That Defined a Province: How 1990 Ended Winnipeg's 29-Year Curse",
     "excerpt": "For 29 years, the Grey Cup eluded Winnipeg. The 1990 victory wasn't just a championship\u2014it was the exorcism of a provincial trauma that still echoes in today's ",
@@ -457,5 +448,14 @@
     "style_label": "\ud83d\udc9a Bomber Community",
     "url": "/research/post-2026-10-22.html",
     "image": "/research/images/post-20261022.webp"
+  },
+  {
+    "date": "October 24, 2026",
+    "title": "Twenty-Nine Years in the Desert: How the 2019 Bombers Ended the Drought",
+    "excerpt": "Winnipeg just backed into the 2026 playoffs with a banged-up quarterback. The last Bomber team to do that ended a 29-year Grey Cup drought.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-10-24.html",
+    "image": "/research/images/post-20261024.webp"
   }
 ]
