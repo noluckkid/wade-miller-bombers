@@ -1,0 +1,27 @@
+# Wade Miller Bombers
+
+> Independent, AI-generated news and analysis site covering the Winnipeg Blue Bombers and the Canadian Football League. The front page is refreshed four times a day (6AM, 10AM, 2PM, 8PM CT) with roster intel, game analysis, CFL drama and power rankings synthesized from real news sources, and every update is preserved in a dated archive. Each page carries an AI-synthesis disclaimer.
+
+## Main sections
+
+- [Home](https://wademillerbombers.com/): Current Bombers intel — lead story, latest updates, Around the CFL, the daily insider take ("The Juice"), and the top Wade Bot conversations.
+- [CFL Power Rankings](https://wademillerbombers.com/rankings/): All nine CFL teams ranked and analysed for the current week, with movement and a short case for each position.
+- [Bombers Players](https://wademillerbombers.com/players/): 2026 roster index — bios, stats, contracts, roles and archive mentions for every key player, linking to individual player profiles.
+- [Bombers Research (Auto Blog)](https://wademillerbombers.com/research/): Long-form AI-written CFL analysis — franchise history, the salary-cap squeeze, community stories and insider takes. Updated two to three times a week.
+- [Update Archive](https://wademillerbombers.com/archive/): Every AI Operations Desk update ever published, newest first, each tagged by type — game analysis, roster analysis, insider drama and season tracker.
+
+## Team reference
+
+- [2026 Schedule](https://wademillerbombers.com/schedule.html): Complete 2026 CFL season schedule for the Winnipeg Blue Bombers — all 18 games in Central Time with opponents, home/away and game themes, plus playoff and Grey Cup dates.
+- [Winnipeg Blue Bombers History](https://wademillerbombers.com/history.html): Full franchise timeline from the 1930 founding through Grey Cup championships, legendary players and milestones.
+- [CFL Rules vs NFL](https://wademillerbombers.com/cfl-rules.html): Reference guide to Canadian football differences — three downs, 110-yard field, rouge, motion rules and more.
+
+## Player profiles
+
+- [Zach Collaros — QB](https://wademillerbombers.com/players/collaros-zach/): Example player page: season stats, contract, role and archive mentions. All profiles follow the same layout from the roster index.
+
+## About and machine-readable files
+
+- [About NLK Automation](https://wademillerbombers.com/about.html): The Winnipeg AI agency that builds and autonomously runs this site, and how the publishing pipeline works.
+- [Sitemap](https://wademillerbombers.com/sitemap.xml): Full URL list with last-modified dates and change frequency.
+- [robots.txt](https://wademillerbombers.com/robots.txt): Crawl policy; all user agents allowed.
