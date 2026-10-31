@@ -1,15 +1,5 @@
 [
   {
-    "date": "July 09, 2026",
-    "title": "The Drought That Forged a Dynasty: How Winnipeg\u2019s 29-Year Wait Changed Everything",
-    "excerpt": "The 29-year Grey Cup drought that ended in 2019 wasn't just a title\u2014it was a crucible that forged the modern Bombers dynasty and reshaped the CFL.",
-    "style": "history",
-    "style_label": "\ud83d\udcdc From the Archives",
-    "url": "/research/post-2026-07-09.html",
-    "image": "/assets/blog_20260728_213530.webp",
-    "image_updated": "2026-07-28T21:35:30.447766"
-  },
-  {
     "date": "July 11, 2026",
     "title": "Dru Brown's Revenge Game Exposes the Blue Bombers' Real QB Problem",
     "excerpt": "The Bombers beat Toronto 30-21 in Week 6, but the real story is how Dru Brown's performance exposed Winnipeg's flawed quarterback room and overpaid veteran.",
@@ -457,5 +447,14 @@
     "style_label": "\ud83d\udc9a Bomber Community",
     "url": "/research/post-2026-10-29.html",
     "image": "/research/images/post-20261029.webp"
+  },
+  {
+    "date": "October 31, 2026",
+    "title": "29 Years, 11 Months, 24 Days: How the Bombers Ended the Drought",
+    "excerpt": "Winnipeg's 1990 Grey Cup blowout began a 29-year wait. In 2019, an injury-prone QB and a Winnipeg kid finally ended it.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-10-31.html",
+    "image": "/research/images/post-20261031.webp"
   }
 ]
