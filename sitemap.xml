@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://wademillerbombers.com/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,13 +32,13 @@
   </url>
   <url>
     <loc>https://wademillerbombers.com/archive/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wademillerbombers.com/research/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2858,13 +2858,19 @@
   </url>
   <url>
     <loc>https://wademillerbombers.com/archive/2026-11-02-0602.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/2026-11-03-0602.html</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wademillerbombers.com/archive/insight-2026-07-30-1724-1.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -9091,6 +9097,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-11-03-0602-1.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-11-03-0602-2.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/archive/insight-2026-11-03-0602-3.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wademillerbombers.com/archive/post-2026-07-16-analysis.html</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>daily</changefreq>
@@ -11479,6 +11503,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://wademillerbombers.com/archive/post-2026-11-03-game-analysis.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wademillerbombers.com/research/post-2026-06-25.html</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>daily</changefreq>
@@ -11811,6 +11841,12 @@
   <url>
     <loc>https://wademillerbombers.com/research/post-2026-10-31.html</loc>
     <lastmod>2026-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wademillerbombers.com/research/post-2026-11-03.html</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
