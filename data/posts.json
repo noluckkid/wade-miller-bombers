@@ -1,15 +1,5 @@
 [
   {
-    "date": "July 14, 2026",
-    "title": "More Than a Sellout: How the Bombers Became Manitoba\u2019s Heartbeat",
-    "excerpt": "For 100 straight games, Winnipeg has packed IG Field. But the real story is what happens when the final whistle blows.",
-    "style": "community",
-    "style_label": "\ud83d\udc9a Bomber Community",
-    "url": "/research/post-2026-07-14.html",
-    "image": "/assets/blog_20260728_213543.webp",
-    "image_updated": "2026-07-28T21:35:44.153408"
-  },
-  {
     "date": "July 16, 2026",
     "title": "The Edmonton Elks Are Not Grey Cup Contenders\u2014Stop the Hype",
     "excerpt": "The CFL.ca hype machine is pushing Edmonton as a contender. The numbers say otherwise\u2014this is a mirage built on a soft schedule and unsustainable luck.",
@@ -455,5 +445,14 @@
     "style_label": "\ud83d\udc9a Bomber Community",
     "url": "/research/post-2026-11-03.html",
     "image": "/research/images/post-20261103.webp"
+  },
+  {
+    "date": "November 05, 2026",
+    "title": "Twenty-Nine Years: How Winnipeg Ended Its Longest Winter",
+    "excerpt": "From the 50-11 rout of 1990 to Andrew Harris's redemption in 2019, a 29-year drought explains everything about today's Bombers.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-11-05.html",
+    "image": "/research/images/post-20261105.webp"
   }
 ]
