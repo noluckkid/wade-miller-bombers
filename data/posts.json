@@ -1,15 +1,5 @@
 [
   {
-    "date": "July 25, 2026",
-    "title": "Winnipeg\u2019s D Is a Paper Tiger: Calgary's Blueprint to Beat the Bombers",
-    "excerpt": "Calgary didn\u2019t just beat Winnipeg \u2014 they exposed a defence that\u2019s been getting by on reputation. Here\u2019s the film-room breakdown no one in Bomberland wants to he",
-    "style": "drama",
-    "style_label": "\ud83d\udd25 CFL Insider",
-    "url": "/research/post-2026-07-25.html",
-    "image": "/assets/blog_20260728_213615.webp",
-    "image_updated": "2026-07-28T21:36:15.685228"
-  },
-  {
     "date": "July 28, 2026",
     "title": "From Drought to Dynasty: How the 2019 Bombers Forged an Identity That 2026 Must Reclaim",
     "excerpt": "A 29-year Grey Cup drought shattered in 2019 launched a modern dynasty. As the 2026 Bombers grapple with an identity crisis after a 52\u201130 loss, the past offers ",
@@ -450,5 +440,14 @@
     "style_label": "\ud83d\udc9a Bomber Community",
     "url": "/research/post-2026-11-14.html",
     "image": "/research/images/post-20261114.webp"
+  },
+  {
+    "date": "November 17, 2026",
+    "title": "Twenty-Nine Years in the Wilderness: How the Bombers Ended the Drought",
+    "excerpt": "From 1990 to 2019 the Bombers lost five Grey Cups and wandered a generation. The 2019 run still explains the team you watch now.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-11-17.html",
+    "image": "/research/images/post-20261117.webp"
   }
 ]
