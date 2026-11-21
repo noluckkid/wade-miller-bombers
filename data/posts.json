@@ -1,14 +1,5 @@
 [
   {
-    "date": "July 30, 2026",
-    "title": "The Sea of Blue: How Bombers Sellouts Define Manitoba\u2019s Heartbeat",
-    "excerpt": "For over 30 consecutive home games, Princess Auto Stadium has been a sold-out sea of blue and gold. Fans share the traditions that make game day a province-wide",
-    "style": "community",
-    "style_label": "\ud83d\udc9a Bomber Community",
-    "url": "/research/post-2026-07-30.html",
-    "image": "/research/images/post-20260730.webp"
-  },
-  {
     "date": "August 01, 2026",
     "title": "Winnipeg's Real Problem Isn't the Crowd \u2014 It's the Cap Sheet",
     "excerpt": "The Bombers lost at home to a 1-5 team and blamed the crowd. The real culprit: a cap bloated with aging veterans while Montreal spends smarter.",
@@ -448,5 +439,14 @@
     "style_label": "\ud83d\udc9a Bomber Community",
     "url": "/research/post-2026-11-19.html",
     "image": "/research/images/post-20261119.webp"
+  },
+  {
+    "date": "November 21, 2026",
+    "title": "Twenty-Nine Years of Thirst: How 2019 Changed Everything in Winnipeg",
+    "excerpt": "Mike O'Shea's exit closes the book on the era that ended a 29-year Grey Cup drought. Here's how 2019 happened \u2014 and why it matters.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-11-21.html",
+    "image": "/research/images/post-20261121.webp"
   }
 ]
