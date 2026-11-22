@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Watch — NLK Automation</title>
-<meta name="description" content="NLK Automation job board — operations, management, logistics, and supply chain roles in Winnipeg and Manitoba.">
-<link rel="canonical" href="https://wademillerbombers.com/jobs/">
-<meta property="og:title" content="Job Watch — NLK Automation">
-<meta property="og:description" content="NLK Automation job board — operations, management, logistics, and supply chain roles in Winnipeg and Manitoba.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://wademillerbombers.com/jobs/">
-<style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Job Watch. NLK Automation</title><meta name="description" content="NLK Automation job board — operations, management, logistics, and supply chain roles in Winnipeg and Manitoba."><link rel="canonical" href="https://wademillerbombers.com/jobs/"><meta property="og:title" content="Job Watch — NLK Automation"><meta property="og:description" content="NLK Automation job board — operations, management, logistics, and supply chain roles in Winnipeg and Manitoba."><meta property="og:type" content="website"><meta property="og:url" content="https://wademillerbombers.com/jobs/"><style>
   :root {
     --bg: #0b1626;
     --bg-card: #0e1b2e;
@@ -304,83 +292,7 @@
     .match-bar { display: none; }
     .meta { text-align: left; }
   }
-</style>
-</head>
-<body>
-<div class="container">
-  <header>
-    <div class="brand">
-      <h1>Job Watch</h1>
-      <span class="tag">NLK Automation</span>
-    </div>
-    <div class="meta">
-      <div class="updated" id="updated">Loading…</div>
-      <div>Winnipeg / Manitoba · $80K+</div>
-    </div>
-  </header>
-
-  <div class="stats" id="stats"></div>
-
-  <div class="controls">
-    <input type="search" id="search" placeholder="Search title or company…" autocomplete="off">
-    <div class="filter-group" data-filter="status">
-      <button data-status="all" class="active">All</button>
-      <button data-status="new">New</button>
-      <button data-status="ongoing">Ongoing</button>
-    </div>
-    <div class="filter-group" data-filter="source">
-      <button data-source="all" class="active">Any Source</button>
-      <button data-source="LinkedIn">LinkedIn</button>
-      <button data-source="Job Bank">Job Bank</button>
-      <button data-source="Eluta">Eluta</button>
-      <button data-source="MB Gov">MB Gov</button>
-    </div>
-    <div class="filter-group" data-filter="pension">
-      <button data-pension="all" class="active">All</button>
-      <button data-pension="yes">🏛️ Pension</button>
-    </div>
-    <div class="filter-group" data-filter="ai">
-      <button data-ai="all" class="active">All</button>
-      <button data-ai="yes">🤖 AI / Automation</button>
-      <button data-ai="remote">🌐 Remote AI</button>
-    </div>
-    <select id="salary-filter">
-      <option value="0">All salaries</option>
-      <option value="80000">$80K+</option>
-      <option value="100000">$100K+</option>
-    </select>
-    <select id="sort">
-      <option value="score">Sort: Best match</option>
-      <option value="salary_max">Sort: Salary (high→low)</option>
-      <option value="date">Sort: Newest first</option>
-      <option value="title">Sort: A–Z</option>
-    </select>
-  </div>
-
-  <div class="table-wrap">
-    <table id="jobs-table">
-      <thead>
-        <tr>
-          <th data-sort="status" style="width: 50px;"></th>
-          <th data-sort="title">Role</th>
-          <th data-sort="source" class="hide-mobile" style="width: 90px;">Source</th>
-          <th data-sort="company" class="hide-mobile">Company</th>
-          <th data-sort="location" class="hide-mobile">Location</th>
-          <th data-sort="salary_max" style="width: 130px;">Salary</th>
-          <th data-sort="date" class="hide-mobile" style="width: 110px;">Posted</th>
-          <th data-sort="score" style="width: 100px;">Match</th>
-        </tr>
-      </thead>
-      <tbody id="jobs-tbody">
-        <tr><td colspan="8" class="empty">Loading jobs…</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <footer role="contentinfo">Built by <a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">NLK Automation</a></footer>
-</div>
-
-<script>
+</style></head><body><div class="container"><header><div class="brand"><h1>Job Watch</h1><span class="tag">NLK Automation</span></div><div class="meta"><div class="updated" id="updated">Loading…</div><div>Winnipeg / Manitoba · $80K+</div></div></header><div class="stats" id="stats"></div><div class="controls"><input type="search" id="search" placeholder="Search title or company…" autocomplete="off"><div class="filter-group" data-filter="status"><button data-status="all" class="active">All</button><button data-status="new">New</button><button data-status="ongoing">Ongoing</button></div><div class="filter-group" data-filter="source"><button data-source="all" class="active">Any Source</button><button data-source="LinkedIn">LinkedIn</button><button data-source="Job Bank">Job Bank</button><button data-source="Eluta">Eluta</button><button data-source="MB Gov">MB Gov</button></div><div class="filter-group" data-filter="pension"><button data-pension="all" class="active">All</button><button data-pension="yes">🏛️ Pension</button></div><div class="filter-group" data-filter="ai"><button data-ai="all" class="active">All</button><button data-ai="yes">🤖 AI / Automation</button><button data-ai="remote">🌐 Remote AI</button></div><select id="salary-filter"><option value="0">All salaries</option><option value="80000">$80K+</option><option value="100000">$100K+</option></select><select id="sort"><option value="score">Sort: Best match</option><option value="salary_max">Sort: Salary (high→low)</option><option value="date">Sort: Newest first</option><option value="title">Sort: A. Z</option></select></div><div class="table-wrap"><table id="jobs-table"><thead><tr><th data-sort="status" style="width: 50px;"></th><th data-sort="title">Role</th><th data-sort="source" class="hide-mobile" style="width: 90px;">Source</th><th data-sort="company" class="hide-mobile">Company</th><th data-sort="location" class="hide-mobile">Location</th><th data-sort="salary_max" style="width: 130px;">Salary</th><th data-sort="date" class="hide-mobile" style="width: 110px;">Posted</th><th data-sort="score" style="width: 100px;">Match</th></tr></thead><tbody id="jobs-tbody"><tr><td colspan="8" class="empty">Loading jobs…</td></tr></tbody></table></div><footer role="contentinfo">Built by<a href="https://nlkauto.com" target="_blank" rel="noopener noreferrer">NLK Automation</a></footer></div><script>
 let ALL_JOBS = [];
 let FILTER = { status: 'all', source: 'all', search: '', salary: 0, sort: 'score', pension: 'all', ai: 'all' };
 
@@ -554,6 +466,4 @@ $$('th[data-sort]').forEach(th => {
 });
 
 load();
-</script>
-</body>
-</html>
+</script></body></html>
