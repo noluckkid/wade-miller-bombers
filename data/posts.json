@@ -1,14 +1,5 @@
 [
   {
-    "date": "August 01, 2026",
-    "title": "Winnipeg's Real Problem Isn't the Crowd \u2014 It's the Cap Sheet",
-    "excerpt": "The Bombers lost at home to a 1-5 team and blamed the crowd. The real culprit: a cap bloated with aging veterans while Montreal spends smarter.",
-    "style": "drama",
-    "style_label": "\ud83d\udd25 CFL Insider",
-    "url": "/research/post-2026-08-01.html",
-    "image": "/research/images/post-20260801.webp"
-  },
-  {
     "date": "August 04, 2026",
     "title": "More Than Football: How the Blue Bombers Bind Manitoba Together",
     "excerpt": "In a province of 1.4 million, the Blue Bombers are a unifying force, packing stadiums and giving back in ways that outlast any final score.",
@@ -448,5 +439,14 @@
     "style_label": "\ud83d\udcdc From the Archives",
     "url": "/research/post-2026-11-21.html",
     "image": "/research/images/post-20261121.webp"
+  },
+  {
+    "date": "November 24, 2026",
+    "title": "Winnipeg Didn't Lose Buck Pierce. It Lost the Leverage",
+    "excerpt": "The Bombers asked permission, the ask leaked, and Pierce turned the interest into a deal through 2029. That isn't bad luck. It's a process failure.",
+    "style": "drama",
+    "style_label": "\ud83d\udd25 CFL Insider",
+    "url": "/research/post-2026-11-24.html",
+    "image": "/research/images/post-20261124.webp"
   }
 ]
