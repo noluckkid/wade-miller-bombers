@@ -1,14 +1,5 @@
 [
   {
-    "date": "August 04, 2026",
-    "title": "More Than Football: How the Blue Bombers Bind Manitoba Together",
-    "excerpt": "In a province of 1.4 million, the Blue Bombers are a unifying force, packing stadiums and giving back in ways that outlast any final score.",
-    "style": "community",
-    "style_label": "\ud83d\udc9a Bomber Community",
-    "url": "/research/post-2026-08-04.html",
-    "image": "/research/images/post-20260804.webp"
-  },
-  {
     "date": "August 06, 2026",
     "title": "From 29 Years of Heartbreak to Dynasty: How the Bombers Broke Through",
     "excerpt": "For 29 years, Winnipeg waited. The 2019 Grey Cup win didn't just end a drought \u2014 it built the dynasty shaping today's Bombers.",
@@ -448,5 +439,14 @@
     "style_label": "\ud83d\udd25 CFL Insider",
     "url": "/research/post-2026-11-24.html",
     "image": "/research/images/post-20261124.webp"
+  },
+  {
+    "date": "November 26, 2026",
+    "title": "The Drought Breakers: How Winnipeg Ended 29 Years of Grey Cup Pain",
+    "excerpt": "From the 50-11 rout of 1990 to Andrew Harris's 2019 masterpiece, the Bombers' 29-year drought shaped a franchise. Why it matters now.",
+    "style": "history",
+    "style_label": "\ud83d\udcdc From the Archives",
+    "url": "/research/post-2026-11-26.html",
+    "image": "/research/images/post-20261126.webp"
   }
 ]
