@@ -1,14 +1,5 @@
 [
   {
-    "date": "August 06, 2026",
-    "title": "From 29 Years of Heartbreak to Dynasty: How the Bombers Broke Through",
-    "excerpt": "For 29 years, Winnipeg waited. The 2019 Grey Cup win didn't just end a drought \u2014 it built the dynasty shaping today's Bombers.",
-    "style": "history",
-    "style_label": "\ud83d\udcdc From the Archives",
-    "url": "/research/post-2026-08-06.html",
-    "image": "/research/images/post-20260806.webp"
-  },
-  {
     "date": "August 08, 2026",
     "title": "More Than a Game: How the Blue Bombers Keep Manitoba's Heart Beating",
     "excerpt": "Record sellouts, youth programs, and Manitoba pride \u2014 the Blue Bombers are more than a football team. They're a province's heartbeat.",
@@ -448,5 +439,14 @@
     "style_label": "\ud83d\udcdc From the Archives",
     "url": "/research/post-2026-11-26.html",
     "image": "/research/images/post-20261126.webp"
+  },
+  {
+    "date": "November 28, 2026",
+    "title": "33,000 Strong: Bomber Game Day Is Manitoba's Great Gathering",
+    "excerpt": "In Winnipeg, a Blue Bombers home game is less a sporting event than a civic ritual. Thirty-three thousand neighbours, one colour: blue and gold.",
+    "style": "community",
+    "style_label": "\ud83d\udc9a Bomber Community",
+    "url": "/research/post-2026-11-28.html",
+    "image": "/research/images/post-20261128.webp"
   }
 ]
